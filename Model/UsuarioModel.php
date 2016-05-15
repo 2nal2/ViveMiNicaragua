@@ -6,7 +6,6 @@ require_once 'Objects/Usuario.php';
 require_once 'Connection/Connection.php';
 class UsuarioModel
 {
-  
     private $connection;
     public function __construct()
     {
@@ -119,6 +118,24 @@ class UsuarioModel
             die($e->getMessage());
 
             return false;
+        }
+    }
+
+    public function getAll()
+    {
+        try {
+            $r = array();
+            $stm = $this->connection->query('SELECT * FROM Usuario');
+            $stm->setFetchMode(PDO::FETCH_CLASS, 'Usuario');
+            while ($usuario = $stm->fetch()) {
+                $r[] = $usuario;
+            }
+
+            return $r;
+        } catch (Exception $e) {
+            die($e->getMessage());
+
+            return;
         }
     }
 }
