@@ -17,7 +17,7 @@ if ($usuario == null) {
   </form>
 
 
-  <!DOCTYPE HTML>
+  <!-- <!DOCTYPE HTML>
 
   <html>
 
@@ -317,4 +317,4 @@ if ($usuario == null) {
 
   </body>
 
-  </html>
+  </html> -->

@@ -77,7 +77,7 @@ class UsuarioModel
             $sql = 'INSERT INTO Usuario (NombreUsuario, Email, Clave, Rol, Estado, Foto, CodigoActivacion)
                 VALUES (?, ? ,MD5(?) ,? ,? ,? ,?)';
 
-            $this->connection->prepare($sql)
+            return $this->connection->prepare($sql)
              ->execute(
             array(
                 $Usuario->__GET('NombreUsuario'),
@@ -90,7 +90,7 @@ class UsuarioModel
                 )
             );
 
-            return true;
+
         } catch (Exception $e) {
             die($e->getMessage());
 
@@ -105,7 +105,7 @@ class UsuarioModel
             Estado=?, CodigoActivacion=?, Foto =?
             where IdUsuario =  ?';
 
-            $this->connection->prepare($sql)
+            return $this->connection->prepare($sql)
              ->execute(
             array(
                 $Usuario->__GET('Email'),
@@ -118,7 +118,6 @@ class UsuarioModel
                 )
             );
 
-            return true;
         } catch (Exception $e) {
             die($e->getMessage());
 
