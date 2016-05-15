@@ -27,24 +27,47 @@ class UsuarioModel
             $stm->setFetchMode(PDO::FETCH_CLASS, 'Usuario');
             $stm->execute(array($user, $pass));
             while ($usuario = $stm->fetch()) {
-                // session_start();
-                // $_SESSION['id_user'] = $usuario->IdUsuario;
-                // $_SESSION['nombre'] = $usuario->NombreUsuario;
-                // $_SESSION['email'] = $usuario->Email;
-                // $sesionModel = new SesionModel();
-                // $sesion = new Sesion();
-                // $sesion->IdSesion =  session_id();
-                // $sesion->IdUsuario = $usuario->IdUsuario;
-                // $sesion->HoraInicio = date('Y-m-d H:i:s');
-                //
-                // $sessionModel->save($sesion);
+                session_start();
+                $_SESSION['id_user'] = $usuario->IdUsuario;
+                $_SESSION['nombre'] = $usuario->NombreUsuario;
+                $_SESSION['email'] = $usuario->Email;
+                $_SESSION['foto'] = $usuario->Foto;
 
-                return $usuario;
+                $sesionModel = new SesionModel();
+                $sesion = new Sesion();
+
+                session_regenerate_id();
+                $sesion->IdSesion =  session_id();
+                $sesion->IdUsuario = $usuario->IdUsuario;
+                $sesion->HoraInicio = date('Y-m-d H:i:s');
+
+                return $sessionModel->save($sesion) ? $usuario : null;
             }
 
             return;
         } catch (Exception $e) {
             die($e->getMessage());
+        }
+    }
+
+    public function logout()
+    {
+        $sesionModel = new SesionModel();
+        $sesion = new Sesion();
+
+        $sesion->IdSesion = session_id();
+        $sesion->HoraFin = date('Y-m-d H:i:s');
+
+        if ($sesionModel->update($sesion)) {
+            session_destroy();
+            unset($_SESSION['id_user']);
+            unset($_SESSION['nombre']);
+            unset($_SESSION['email']);
+            unset($_SESSION['foto']);
+
+            return true;
+        } else {
+            return false;
         }
     }
 

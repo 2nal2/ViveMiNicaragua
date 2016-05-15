@@ -1,8 +1,8 @@
 <?php
 
-/**
- *
- */
+ /**
+  *
+  */
  require_once 'Objects/Sesion.php';
  require_once 'Connection/Connection.php';
 class SesionModel
@@ -47,7 +47,7 @@ class SesionModel
             $r = $stm->execute(
             array(
               $sesion->__GET('HoraFin'),
-              $sesion->__GET('IdSesion')
+              $sesion->__GET('IdSesion'),
               )
             );
 
@@ -59,24 +59,23 @@ class SesionModel
         }
     }
 
-    public function getByUser($idUser){
-      try {
-        $r = array();
+    public function getByUser($idUser)
+    {
+        try {
+            $r = array();
 
-        $stm = $this->connection->prepare('SELECT * FROM Sesion WHERE IdUsuario= ?');
-        $stm->setFetchMode(PDO::FETCH_CLASS, 'Sesion');
-        $stm->execute(array($idUser));
-        while ($sesion = $stm->fetch()) {
-          $r[] = $sesion;
+            $stm = $this->connection->prepare('SELECT * FROM Sesion WHERE IdUsuario= ?');
+            $stm->setFetchMode(PDO::FETCH_CLASS, 'Sesion');
+            $stm->execute(array($idUser));
+            while ($sesion = $stm->fetch()) {
+                $r[] = $sesion;
+            }
+
+            return $r;
+        } catch (Exception $e) {
+            die($e->getMessage());
+
+            return;
         }
-
-        return $r;
-
-      } catch (Exception $e) {
-        die($e->getMessage());
-        return null;
-      }
-
-
     }
 }
