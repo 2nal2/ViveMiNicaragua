@@ -74,8 +74,8 @@ class UsuarioModel
     public function save($Usuario)
     {
         try {
-            $sql = 'INSERT INTO Usuario (NombreUsuario, Email, Clave, Rol, Estado, Foto, CodigoActivacion)
-                VALUES (?, ? ,MD5(?) ,? ,? ,? ,?)';
+            $sql = 'INSERT INTO Usuario (NombreUsuario, Email, Clave, Rol, Estado, Foto, CodigoActivacion,Sexo)
+                VALUES (?, ? ,MD5(?) ,? ,? ,? ,?,?)';
 
             return $this->connection->prepare($sql)
              ->execute(
@@ -87,6 +87,7 @@ class UsuarioModel
                 $Usuario->__GET('Estado'),
                 $Usuario->__GET('Foto'),
                 $Usuario->__GET('CodigoActivacion'),
+                $Usuario->__GET('Sexo');
                 )
             );
 
@@ -102,7 +103,7 @@ class UsuarioModel
     {
         try {
             $sql = 'update Usuario SET Email = ?, NombreUsuario = ?, Rol=?,
-            Estado=?, CodigoActivacion=?, Foto =?
+            Estado=?, CodigoActivacion=?, Foto =?, Sexo = ?
             where IdUsuario =  ?';
 
             return $this->connection->prepare($sql)
@@ -114,6 +115,7 @@ class UsuarioModel
                 $Usuario->__GET('Estado'),
                 $Usuario->__GET('CodigoActivacion'),
                 $Usuario->__GET('Foto'),
+                $Usuario->__GET('Sexo');
                 $Usuario->__GET('IdUsuario'),
                 )
             );

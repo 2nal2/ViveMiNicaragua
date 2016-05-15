@@ -10,6 +10,7 @@ class Usuario
     public $NombreUsuario;
     public $Ruta;
     public $CodigoActivacion;
+    public $Sexo;
 
     public function __GET($k)
     {
