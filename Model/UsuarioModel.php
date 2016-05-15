@@ -4,6 +4,8 @@
  */
 require_once 'Objects/Usuario.php';
 require_once 'Connection/Connection.php';
+require_once 'Model/SesionModel.php';
+require_once 'Objects/Sesion.php';
 class UsuarioModel
 {
     private $connection;
@@ -29,6 +31,13 @@ class UsuarioModel
                 // $_SESSION['id_user'] = $usuario->IdUsuario;
                 // $_SESSION['nombre'] = $usuario->NombreUsuario;
                 // $_SESSION['email'] = $usuario->Email;
+                // $sesionModel = new SesionModel();
+                // $sesion = new Sesion();
+                // $sesion->IdSesion =  session_id();
+                // $sesion->IdUsuario = $usuario->IdUsuario;
+                // $sesion->HoraInicio = date('Y-m-d H:i:s');
+                //
+                // $sessionModel->save($sesion);
 
                 return $usuario;
             }
