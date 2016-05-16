@@ -112,4 +112,25 @@ class FotoModel
             return $r;
         }
     }
+
+    public function getById($id)
+    {
+        $r = array();
+        try {
+            $sql = 'select * from Foto where IdFoto = ?';
+            $stm = $this->connection->prepare($sql);
+            $stm->setFetchMode(PDO::FETCH_CLASS, 'Foto');
+            $stm->execute(array($id));
+
+            while ($foto = $stm->fetch()) {
+                $r [] = $foto;
+            }
+
+            return $r;
+        } catch (Exception $e) {
+            die($e->getMessage());
+
+            return $r;
+        }
+    }
 }

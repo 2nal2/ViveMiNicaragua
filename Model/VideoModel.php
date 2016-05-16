@@ -112,4 +112,25 @@ class VideoModel
             return $r;
         }
     }
+
+    public function getById($id)
+    {
+        $r = array();
+        try {
+            $sql = 'select * from Video where IdVideo = ?';
+            $stm = $this->connection->prepare($sql);
+            $stm->setFetchMode(PDO::FETCH_CLASS, 'Video');
+            $stm->execute(array($id));
+
+            while ($foto = $stm->fetch()) {
+                $r [] = $foto;
+            }
+
+            return $r;
+        } catch (Exception $e) {
+            die($e->getMessage());
+
+            return $r;
+        }
+    }
 }
