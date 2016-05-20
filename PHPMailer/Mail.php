@@ -2,6 +2,7 @@
 /**
  *
  */
+ require_once 'PHPMailerAutoload.php';
 class Mail
 {
 
@@ -11,12 +12,9 @@ class Mail
   }
 
   function Send($to ,$subject, $message){
-
-    require_once 'PHPMailer/PHPMailerAutoload.php';
-
     $mail = new PHPMailer();
 
-    $mail->SMTPDebug = 2;
+    $mail->SMTPDebug = 0;
     $mail->isSMTP();
     $mail->SMTPAuth = true;
     $mail->Host = 'smtp.gmail.com';
@@ -32,10 +30,16 @@ class Mail
     $mail->Subject = $subject;
 
 
-    $mail->isHTML(true);  // Set email format to HTML
-    $bodyContent = $message;
-    $mail->Body = $bodyContent;
 
+    //$bodyContent = $message;
+
+
+    // $mail->IsHTML(true);
+    // $mail->Body = $message;
+    $mail->CharSet="utf-8";
+
+    $mail->MsgHTML($message);
+      // Set email format to HTML
     $mail->addAddress($to);   // Add a recipient
 
     //

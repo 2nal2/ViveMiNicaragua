@@ -8,7 +8,7 @@ class Usuario
     public $Rol;
     public $Estado;
     public $NombreUsuario;
-    public $Ruta;
+    public $Foto;
     public $CodigoActivacion;
     public $Sexo;
 

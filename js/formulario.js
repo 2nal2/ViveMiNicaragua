@@ -16,18 +16,23 @@
             }
         }
 
-        if (elementos.pass.value != elementos.pass2.value) {
+        console.log("pass :" + document.getElementById("pass").value);
+        console.log("pass2 :" + document.getElementById("pass2").value);
+        if (document.getElementById("pass").value != document.getElementById("pass2").value) {
+          console.log('validado');
+
             elementos.pass.value = "";
             elementos.pass2.value = "";
 
             elementos.pass.className = elementos.pass.className + " error";
             elementos.pass2.className = elementos.pass2.className + " error";
+            return false;
         } else {
             elementos.pass.className = elementos.pass.className.replace(" error", "");
             elementos.pass2.className = elementos.pass2.className.replace(" error", "");
+            return true;
         }
 
-        return true;
     };
 
     var validarRadio = function() {

@@ -2,10 +2,10 @@
 /**
  *
  */
-require_once 'Objects/Usuario.php';
-require_once 'Connection/Connection.php';
-require_once 'Model/SesionModel.php';
-require_once 'Objects/Sesion.php';
+require_once dirname(dirname(__FILE__)) .'/Objects/Usuario.php';
+require_once dirname(dirname(__FILE__)) .'/Connection/Connection.php';
+require_once dirname(dirname(__FILE__)) .'/Model/SesionModel.php';
+require_once dirname(dirname(__FILE__)) .'/Objects/Sesion.php';
 class UsuarioModel
 {
     private $connection;
@@ -41,10 +41,10 @@ class UsuarioModel
                 $sesion->IdUsuario = $usuario->IdUsuario;
                 $sesion->HoraInicio = date('Y-m-d H:i:s');
 
-                return $sessionModel->save($sesion) ? $usuario : null;
+                return  $sesionModel->save($sesion)? $usuario : null;
             }
 
-            return;
+            return null;
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -87,7 +87,7 @@ class UsuarioModel
                 $Usuario->__GET('Estado'),
                 $Usuario->__GET('Foto'),
                 $Usuario->__GET('CodigoActivacion'),
-                $Usuario->__GET('Sexo');
+                $Usuario->__GET('Sexo')
                 )
             );
 
@@ -115,8 +115,8 @@ class UsuarioModel
                 $Usuario->__GET('Estado'),
                 $Usuario->__GET('CodigoActivacion'),
                 $Usuario->__GET('Foto'),
-                $Usuario->__GET('Sexo');
-                $Usuario->__GET('IdUsuario'),
+                $Usuario->__GET('Sexo'),
+                $Usuario->__GET('IdUsuario')
                 )
             );
 

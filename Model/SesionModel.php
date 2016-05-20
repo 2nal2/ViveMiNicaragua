@@ -3,8 +3,8 @@
  /**
   *
   */
- require_once 'Objects/Sesion.php';
- require_once 'Connection/Connection.php';
+ require_once dirname(dirname(__FILE__)) .'/Objects/Sesion.php';
+ require_once dirname(dirname(__FILE__)) .'/Connection/Connection.php';
 class SesionModel
 {
     private $connection;
