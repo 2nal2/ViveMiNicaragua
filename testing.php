@@ -1,12 +1,12 @@
 <?php
 
-require_once 'Uploader.php';
-require_once 'Model/UsuarioModel.php';
-require_once 'Objects/Usuario.php';
-require_once 'Objects/Sesion.php';
-require_once 'Model/SesionModel.php';
-session_start();
-session_regenerate_id();
+// require_once 'Uploader.php';
+// require_once 'Model/UsuarioModel.php';
+// require_once 'Objects/Usuario.php';
+// require_once 'Objects/Sesion.php';
+// require_once 'Model/SesionModel.php';
+// session_start();
+// session_regenerate_id();
 // echo session_id()."\n";
 // $uploader = new Uploader();
 // $direccion = $uploader->upload('archivo');
@@ -43,8 +43,6 @@ session_regenerate_id();
 
 //fin de un bloque de prueba de registro y envio de correo
 
-
-
 // $today = date('Y-m-d H:i:s'); //Obtner la fecha actual formato mysql
 // $sesion = new Sesion();
 // $sesion->IdSesion = session_id();
@@ -71,10 +69,12 @@ session_regenerate_id();
 //   echo "<br>";
 // }
 //fin de bloque de prueba de mostrar registro de sesion por usuario
+//
+// $usuarioModel = new UsuarioModel();
+//
+// foreach ($usuarioModel->getAll() as $usuario) {
+//   echo $usuario->NombreUsuario;
+//   echo "<br>";
+// }
 
-$usuarioModel = new UsuarioModel();
-
-foreach ($usuarioModel->getAll() as $usuario) {
-  echo $usuario->NombreUsuario;
-  echo "<br>";
-}
+?>

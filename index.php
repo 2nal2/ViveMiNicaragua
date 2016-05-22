@@ -11,12 +11,24 @@ if ($usuario == null) {
       echo $usuario->Email;
   }  -->
 
-  <form enctype="multipart/form-data" action="testing.php" method="POST">
+  <!-- <form enctype="multipart/form-data" action="testing.php" method="POST">
   <input name="uploadedfile" type="file" />
   <input type="submit" value="Subir archivo" />
-  </form>
+  </form> -->
+<?php session_start(); ?>
 
+<h1>Bienvenido a Vive mi Nicaragua, pagina en contrucción</h1>
 
+<?php if (isset($_SESSION['id_user'])): ?>
+  <img src='<?php echo $_SESSION['foto'] ?>'/>
+  <p>
+    <?php echo $_SESSION['nombre'] ?>
+  </p>
+  <a href="Controller/Usuario/logout.php"><input type="button" name="name" value="Salir"></a>
+<?php else: ?>
+  <a href="singin.php"><input type="button" name="name" value="Iniciar sesion"></a>
+  <a href="singup.php"><input type="button" name="name" value="Registrarse"></a>
+<?php endif; ?>
   <!-- <!DOCTYPE HTML>
 
   <html>

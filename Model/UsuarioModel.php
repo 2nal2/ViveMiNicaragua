@@ -2,10 +2,10 @@
 /**
  *
  */
-require_once dirname(dirname(__FILE__)) .'/Objects/Usuario.php';
-require_once dirname(dirname(__FILE__)) .'/Connection/Connection.php';
-require_once dirname(dirname(__FILE__)) .'/Model/SesionModel.php';
-require_once dirname(dirname(__FILE__)) .'/Objects/Sesion.php';
+require_once dirname(dirname(__FILE__)).'/Objects/Usuario.php';
+require_once dirname(dirname(__FILE__)).'/Connection/Connection.php';
+require_once dirname(dirname(__FILE__)).'/Model/SesionModel.php';
+require_once dirname(dirname(__FILE__)).'/Objects/Sesion.php';
 class UsuarioModel
 {
     private $connection;
@@ -23,7 +23,7 @@ class UsuarioModel
     {
         try {
             $stm = $this->connection
-                      ->prepare('SELECT * FROM Usuario WHERE Email= ? and Clave = MD5(?)');
+                      ->prepare('SELECT * FROM Usuario WHERE Email= ? and Clave = MD5(?) and Estado = true');
             $stm->setFetchMode(PDO::FETCH_CLASS, 'Usuario');
             $stm->execute(array($user, $pass));
             while ($usuario = $stm->fetch()) {
@@ -37,14 +37,14 @@ class UsuarioModel
                 $sesion = new Sesion();
 
                 session_regenerate_id();
-                $sesion->IdSesion =  session_id();
+                $sesion->IdSesion = session_id();
                 $sesion->IdUsuario = $usuario->IdUsuario;
                 $sesion->HoraInicio = date('Y-m-d H:i:s');
 
-                return  $sesionModel->save($sesion)? $usuario : null;
+                return  $sesionModel->save($sesion) ? $usuario : null;
             }
 
-            return null;
+            return;
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -87,11 +87,9 @@ class UsuarioModel
                 $Usuario->__GET('Estado'),
                 $Usuario->__GET('Foto'),
                 $Usuario->__GET('CodigoActivacion'),
-                $Usuario->__GET('Sexo')
+                $Usuario->__GET('Sexo'),
                 )
             );
-
-
         } catch (Exception $e) {
             die($e->getMessage());
 
@@ -116,10 +114,9 @@ class UsuarioModel
                 $Usuario->__GET('CodigoActivacion'),
                 $Usuario->__GET('Foto'),
                 $Usuario->__GET('Sexo'),
-                $Usuario->__GET('IdUsuario')
+                $Usuario->__GET('IdUsuario'),
                 )
             );
-
         } catch (Exception $e) {
             die($e->getMessage());
 
@@ -169,6 +166,38 @@ class UsuarioModel
             die($e->getMessage());
 
             return;
+        }
+    }
+
+    public function existsUser($nombre)
+    {
+        try {
+            $r = array();
+            $stm = $this->connection->prepare('SELECT * FROM Usuario where NombreUsuario = ?');
+            $stm->setFetchMode(PDO::FETCH_CLASS, 'Usuario');
+            $stm->execute(array($nombre));
+
+            return $stm->rowCount() > 0;
+        } catch (Exception $e) {
+            die($e->getMessage());
+
+            return true;
+        }
+    }
+
+    public function existsEmail($email)
+    {
+        try {
+            $r = array();
+            $stm = $this->connection->prepare('SELECT * FROM Usuario where Email = ?');
+            $stm->setFetchMode(PDO::FETCH_CLASS, 'Usuario');
+            $stm->execute(array($email));
+
+            return $stm->rowCount() > 0;
+        } catch (Exception $e) {
+            die($e->getMessage());
+
+            return true;
         }
     }
 }

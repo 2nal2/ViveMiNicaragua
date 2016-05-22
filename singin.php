@@ -1,17 +1,23 @@
 <?php
+session_start();
 
+if(isset($_SESSION['id_user'])){
+  header("Location: index.php");
+}
 require_once 'Model/UsuarioModel.php';
 $error = '';
 $email = '';
+
+
 if (isset($_POST['email']) and isset($_POST['pass'])) {
     $model = new UsuarioModel();
 
     $email = $_POST['email'];
     $pass = $_POST['pass'];
-    $usuario = $model->login($email, $pass);
+    $usuario = $model->login(strtolower($email), $pass);
 
     if ($usuario != null) {
-        header('Location: index.html');
+        header('Location: index.php');
     } else {
         $error = 'Correo y/o contraseña incorrectos, intente nuevamente';
     }

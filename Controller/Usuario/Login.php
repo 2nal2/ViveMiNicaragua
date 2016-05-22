@@ -2,22 +2,14 @@
 
 require_once dirname(dirname(__FILE__)).'../../Model/UsuarioModel.php';
 
-if (isset($_POST['email']) and isset($_POST['pass'])) {
+if (isset($_POST['nombre'])) {
+    $nombre = $_POST['nombre'];
     $model = new UsuarioModel();
 
-    $email = $_POST['email'];
-    $pass  = $_POST['pass'];
-    $usuario = $model->login($email, $pass);
-
-    if ($usuario != null) {
-        header('Location: ../../index.html');
-
+    $existe = $model->existsUser($nombre);
+    if ($existe) {
+        echo '<div id="Error" style = "color: #ff5252">Usuario ya existente</div>';
     } else {
-       ob_start();
-
-        header("Refresh: .5; URL=../../singin.html");
-        echo "<script type='text/javascript'>
-          alert('inicio de sesion invalido');
-        </script>";
+        echo '<div id="Success" style = "color : #00796b">Disponible</div>';
     }
 }

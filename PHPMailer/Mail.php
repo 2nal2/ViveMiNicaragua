@@ -20,7 +20,7 @@ class Mail
     $mail->Host = 'smtp.gmail.com';
     $mail->Port = 587;
     $mail->Username = 'pruebadatabase@gmail.com';
-    $mail->Password = 'Nintendop3p';
+    $mail->Password = 'DonaldoNexus2016';
     $mail->SMTPSecure = 'tls';
 
 
