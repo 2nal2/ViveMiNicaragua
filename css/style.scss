@@ -1,0 +1,397 @@
+$primary: #009688;
+$light-primary: #B2DFDB;
+$dark-primary: #00796b;
+$red: #f44336;
+$white: #f2f2f2;
+$divider: #b6b6b6;
+$error: #FF5252;
+$borde: 2px;
+$font-family: "Roboto", Arial;
+
+
+*{
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+}
+
+.roboto{
+    font-family: $font-family;
+}
+
+.fullScreen{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    //background-attachment: fixed;
+}
+
+.menu_bar{
+    display: none;
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    nav{
+        background: $primary;
+        z-index: 1000;
+        //margin: 20px auto;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        text-align: right;
+        padding-right: 65px;
+
+        #logo{
+            float: left;
+            padding-left: 20px;
+
+            //height: 100%;
+            img{
+                max-height: 62px;
+            }
+        }
+
+        ul{
+            list-style: none;
+
+            #registrate{
+                border: 1px solid $white;
+                border-radius: 15px;
+
+                a{
+                    padding: 15px;
+                }
+
+                &:hover{
+                    background: $white;
+                    a{
+                        color: $dark-primary;
+                    }
+                }
+            }
+
+            #ya-tengo{
+                &:hover{
+                    background: none;
+                    //text-decoration: underline;
+                    //color: $white;
+                }
+            }
+
+            li{
+                display: inline-block;
+                position: relative;
+
+                .caret{
+                    position: relative;
+                    top: 3px;
+                    margin-left: 10px;
+                    margin-right: 0px;
+                }
+
+                .children{
+                    display: none;
+                    background: $dark-primary;
+                    position: absolute;
+                    width: 150%;
+                    z-index: 1000;
+                    text-align: left;
+
+                    li{
+                        display: block;
+                        overflow: hidden;
+                        border-bottom: 1px solid rgba($divider, 1);
+
+                        a{
+                            display: block;
+
+                            span{
+                                float: right;
+                                position: relative;
+                                top: 3px;
+                                margin-right: 0;
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+                }
+
+                &:hover{
+                    background: $error;
+
+                    .children{
+                        display: block;
+                    }
+                }
+
+                a{
+                    color: $white;
+                    display: block;
+                    text-decoration: none;
+                    padding: 20px;
+
+                    span{
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#ciudades{
+    position: relative;
+}
+
+.marginTop{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 7em;
+}
+
+.mensajePrincipal{
+    font-family: $font-family;
+    width: 40;
+    padding-top: 15%;
+    color: #f7f7f7;
+    position: relative;
+    text-align: center;
+    h2{
+        color: #e4e4e4;
+        font-size: 4em;
+        text-shadow: 1px 1px 20px #000;
+    }
+    div{
+        padding: 20px;
+        a{
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid $white;
+            margin: 10px;
+            font-size: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            opacity: 0.8;
+            &:hover{
+                opacity: 1;
+            }
+        }
+        #registrate{
+            background: $white;
+            color: $primary;
+        }
+        #vive{
+            color: $white;
+        }
+    }
+}
+
+.ribbon{
+    width: 116%;
+    height: 65px;
+    position: relative;
+    left: -33px;
+    top: 20px;
+    background: url(../img/ribbon.png);
+    background-size: 100% 100%;
+}
+
+#servicios{
+    background-image: url(../img/servicios.JPG);
+    background-size: 100% auto;
+    .servicio{
+        width: 28%;
+        margin-left: 3.5%;
+        display: inline-block;
+        background-color: #fff;
+        vertical-align: top;
+        padding: 2em 0.5%;
+        text-align: center;
+        padding-top: 0;
+        border: solid 1px #CCC;
+
+        h3{
+            font-size: 2em;
+            color: $dark-primary;
+        }
+        .ver-mas{
+
+            background-color: $primary;
+            color: $white;
+            text-decoration: none;
+            font-size: 1.5em;
+            width: 50%;
+            margin: 0 auto;
+            padding: 0.5em;
+
+        }
+
+        p{
+            img{
+                width: 85%;
+                margin-bottom: 1.5em;
+                margin-top: 1.5em;
+            }
+        }
+    }
+}
+
+.slider_container{
+    position: fixed;
+    //position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    background-color: #000;
+
+    .slideContainer{
+        white-space: nowrap;
+        height: 100%;
+        .slide{
+            display: inline-block;
+            background: #fff;
+            margin-right: -4px;
+            vertical-align: top;
+            background-size: 100%;
+            background-position: bottom;
+        }
+    }
+}
+
+.tercio{
+    display: inline-block;
+    margin-right: -4px;
+    width: 33.33%;
+    vertical-align: top;
+    height: 100%;
+}
+
+.terCiud{
+    height: 100%;
+    overflow: hidden;
+    a{
+        img{
+            //filter: blur(2px) brightness(50%) grayscale(0.8);
+            //transition: all 0.4s;
+            width: 100%;
+            height: 100%;
+            -webkit-filter: blur(2px) brightness(50%) grayscale(0.8);
+            -o-filter: blur(2px) brightness(50%) grayscale(0.8);
+            filter: blur(2px) brightness(50%) grayscale(0.8);
+            -webkit-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            transition: all 0.4s;
+            /*&:hover{
+                filter: blur(0px) brightness(110%) grayscale(0);
+            }*/
+            &:hover{
+                -webkit-filter: blur(0) brightness(110%) grayscale(0);
+                -o-filter: blur(0) brightness(110%) grayscale(0);
+                filter: blur(0) brightness(110%) grayscale(0);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body{
+        padding-top: 80px;
+    }
+
+    .menu_bar{
+        display: block;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        background: #607D8B;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+        .logo-menu{
+            img{
+                max-height: 75px;
+            }
+        }
+
+        .bt-menu{
+            display: block;
+            padding: 20px;
+            color: $white;
+            overflow: hidden;
+            font-size: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            float: right;
+
+        }
+
+        span{
+            //float: right;
+            font-size: 40px;
+            border-radius: 10px;
+        }
+    }
+
+    header{
+        nav{
+            width: 50%;
+            height: calc(100% - 80px);
+            position: fixed;
+            right: 100%;
+            //left: 0;
+            margin: 0;
+            overflow: scroll;
+            box-shadow: 3px 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            text-align: left;
+            padding-right: 0px;
+
+            #logo{
+                display: none;
+            }
+
+            ul{
+                li{
+                    display: block;
+                    border-bottom: 1px solid $divider;
+
+                    &:hover{
+                        .children{
+                            display: none;
+                        }
+                    }
+
+                    a{
+                        display: block;
+                    }
+
+                    .children{
+                        width: 100%;
+                        position: relative;
+
+                        li{
+                            a{
+                                margin-left: 20px;
+
+                            }
+                        }
+                    }
+
+                    .caret{
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+}

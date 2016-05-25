@@ -1,332 +1,104 @@
+<?php include('header.php'); ?>
+
+<div class="slider_container fullScreen">
+    <div class="slideContainer">
+        <div class="slide fullScreen" data-background="img/portadas/portada1.JPG"></div>
+        <div class="slide fullScreen" data-background="img/portadas/portada2.JPG"></div>
+        <div class="slide fullScreen" data-background="img/portadas/portada3.jpg"></div>
+        <div class="slide fullScreen" data-background="img/portadas/portada4.JPG"></div>
+        <div class="slide fullScreen" data-background="img/portadas/portada5.JPG"></div>
+        <div class="slide fullScreen" data-background="img/portadas/portada6.jpg"></div>
+    </div>
+</div>
+
+<section class="fullScreen" id="index">
+    <div class="mensajePrincipal roboto">
+        <h2>Cononoce un nuevo modo de vivir Nicaragua</h2>
+        <div>
+            <a data-fancybox-type="iframe" href="singup.php" class="fancybox" id="registrate">Registrate</a>
+            <a id="vive" href="#">Vive</a>
+        </div>
+    </div>
+</section>
+
+<section id="ciudades" class="fullScreen">
+    <div class="tercio terCiud">
+        <a href="#"><img src="img/ciudades/tercio1.JPG" alt="Leon" /></a>
+    </div>
+    <div class="tercio terCiud">
+        <a href="#"><img src="img/ciudades/tercio2.JPG" alt="Masaya" /></a>
+    </div>
+    <div class="tercio terCiud">
+        <a href="#"><img src="img/ciudades/tercio3.jpg" alt="Matagalpa" /></a>
+    </div>
+</section>
+
+
+    <script type="text/x-jquery-tmpl" id="servicioTemplate">
+            <div>
+                <div class="ribbon"></div>
+                <h3>${nombre}</h3>
+                <p>
+                    <strong>Que es esto?</strong>
+                </p>
+                <p>
+                    ${informacion}
+                </p>
+
+                <a class="ver-mas" id="regresar">Regresar</a>
+            </div>
+        </script>
+
+
+<section id="servicios" class="fullScreen roboto">
+    <div class="marginTop">
+        <div class="servicio">
+            <div class="ribbon"></div>
+            <h3>A donde y por que ir?</h3>
+            <p>
+                <img src="img/flat/donde.png" alt="" />
+            </p>
+            <a class="ver-mas" data-number='0'>Saber mas</a>
+        </div>
+
+        <div class="servicio">
+            <div class="ribbon"></div>
+            <h3>Como llegar?</h3>
+            <p>
+                <img src="img/flat/como.png" alt="" />
+            </p>
+            <a class="ver-mas" data-number='1'>Saber mas</a>
+        </div>
+
+        <div class="servicio">
+            <div class="ribbon"></div>
+            <h3>Galer'ia</h3>
+            <p>
+                <img src="img/flat/galeria.png" alt="" />
+            </p>
+            <a class="ver-mas" data-number='2'>Saber mas</a>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!--<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>-->
+
+<script src="util/uiflip/jquery.ui.core.min.js"></script>
+<script src="util/uiflip/jquery.ui.effect.min.js"></script>
+<script src="util/uiflip/jquery.flip.min.js"></script>
+
+<script src="js/jquery.tmpl.min.js"></script>
+
+</body>
 
-<?php
-// require_once 'Connection/Connection.php';
-
- ?>
-<!-- $usuarioModel = new UsuarioModel();
-$usuario = $usuarioModel->login('donaldov7@gmail.com', '12345');
-if ($usuario == null) {
-  echo 'No existe el usuario';
-} else {
-      echo $usuario->Email;
-  }  -->
-
-  <!-- <form enctype="multipart/form-data" action="testing.php" method="POST">
-  <input name="uploadedfile" type="file" />
-  <input type="submit" value="Subir archivo" />
-  </form> -->
-<?php session_start(); ?>
-
-<h1>Bienvenido a Vive mi Nicaragua, pagina en contrucción</h1>
-
-<?php if (isset($_SESSION['id_user'])): ?>
-  <img src='<?php echo $_SESSION['foto'] ?>'/>
-  <p>
-    <?php echo $_SESSION['nombre'] ?>
-  </p>
-  <a href="Controller/Usuario/logout.php"><input type="button" name="name" value="Salir"></a>
-<?php else: ?>
-  <a href="singin.php"><input type="button" name="name" value="Iniciar sesion"></a>
-  <a href="singup.php"><input type="button" name="name" value="Registrarse"></a>
-<?php endif; ?>
-  <!-- <!DOCTYPE HTML>
-
-  <html>
-
-  <head>
-
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" lang="es-es">
-
-  <title>Editor HTML (v.1.03)</title>
-
-  <style>
-
-  .opciones {
-
-  width: 720px;
-
-  border: 2px #000000 solid;
-
-  background-color: lightgray;
-
-  }
-
-
-
-  #textBox {
-
-  width: 700px;
-
-  height: 400px;
-
-  border: 2px #000000 solid;
-
-  padding: 10px;
-
-  overflow: scroll;
-
-  background-color: yellow;
-
-  }
-
-  </style>
-
-
-
-  <script>
-
-  function formatoFuente(sCmd, sValue) {
-
-  document.execCommand(sCmd, false, sValue);
-
-  }
-
-
-
-  function processFiles(files) {
-
-  var file = files[0];
-
-
-
-  var reader = new FileReader();
-
-
-
-  reader.onload = function (e) {
-
-  // Cuando se dispara este evento, los datos están disponibles.
-
-  // Los copiamos al <div> textBox de la página.
-
-  var output = document.getElementById("textBox");
-
-  output.innerHTML = e.target.result;
-
-  };
-
-  reader.readAsText(file);
-
-  }
-
-
-
-  // ---------------------------------------
-
-
-
-  var dropBox;
-
-
-
-  window.onload = function() {
-
-  dropBox = document.getElementById("textBox");
-
-  dropBox.ondragenter = ignoreDrag;
-
-  dropBox.ondragover = ignoreDrag;
-
-  dropBox.ondrop = drop;
-
-  }
-
-
-
-  function ignoreDrag(e) {
-
-  e.stopPropagation();
-
-  e.preventDefault();
-
-  }
-
-
-
-  function drop(e) {
-
-  e.stopPropagation();
-
-  e.preventDefault();
-
-
-
-  var data = e.dataTransfer;
-
-  var files = data.files;
-
-
-
-  processFiles(files);
-
-  }
-
-
-
-  // ----------------------------------------
-
-
-
-  function saveData() {
-
-  var localData = document.getElementById("textBox").innerHTML;
-
-
-
-  localStorage["lData"] = localData;
-
-  alert(localData);
-
-  }
-
-
-
-  function loadData() {
-
-  var localData = localStorage["lData"];
-
-
-
-  if (localData != null) {
-
-  document.getElementById("textBox").innerHTML = localData;
-
-  }
-
-  }
-
-
-
-  </script>
-
-
-
-  </head>
-
-  <body>
-
-  <section class="opciones">
-
-  <button onclick="document.execCommand('bold',false,'');">Negrilla</button>
-
-  <button onclick="document.execCommand('italic',false,'');">Itálica</button>
-
-  <button onclick="document.execCommand('underline',false,'');">Subrayado</button>
-
-
-
-  <select onchange="formatoFuente('formatblock',this[this.selectedIndex].value);this.selectedIndex=0;">
-
-  <option class="heading" selected>Formato</option>
-
-  <option value="<h1>">Cabecera &lt;h1&gt;</option>
-
-  <option value="<h2>">Título &lt;h2&gt;</option>
-
-  <option value="<h3>">Título &lt;h3&gt;</option>
-
-  <option value="<h4>">Título &lt;h4&gt;</option>
-
-  <option value="<h5>">Título &lt;h5&gt;</option>
-
-  <option value="<h6>">Título &lt;h6&gt;</option>
-
-  <option value="<p>">Párrafo &lt;p&gt;</option>
-
-  <option value="<pre>">Preformateado &lt;pre&gt;</option>
-
-  </select>
-
-
-
-  <button onclick="if (document.getElementById('szURL').checkValidity()) {
-
-  document.execCommand('CreateLink',false,document.getElementById('szURL').value);}">Hiperenlace</button>
-
-  <input type="url" id="szURL" required>
-
-  <select onchange="formatoFuente('forecolor',this[this.selectedIndex].value);this.selectedIndex=0;">
-
-  <option class="heading" selected>Color</option>
-
-  <option value="red">Rojo</option>
-
-  <option value="blue">Azul</option>
-
-  <option value="green">Verde</option>
-
-  <option value="black">Negro</option>
-
-  </select>
-
-  </section>
-
-  <section class="opciones">
-
-  <button onclick="document.execCommand('insertunorderedlist',false,'');">Bolillos</button>
-
-  <button onclick="document.execCommand('insertorderedlist',false,'');">Lista</button>
-
-  <button onclick="document.execCommand('justifyleft',false,'');">Izqda.</button>
-
-  <button onclick="document.execCommand('justifycenter',false,'');">Centro</button>
-
-  <button onclick="document.execCommand('justifyright',false,'');">Drcha.</button>
-
-  <button onclick="document.execCommand('cut',false,'');">Cortar</button>
-
-  <button onclick="document.execCommand('copy',false,'');">Copiar</button>
-
-  <button onclick="document.execCommand('paste',false,'');">Pegar</button>
-
-  <select onchange="formatoFuente('fontsize',this[this.selectedIndex].value);this.selectedIndex=0;">
-
-  <option class="heading" selected>Fuente</option>
-
-  <option value="1">Muy pequeña</option>
-
-  <option value="2">Pequeña</option>
-
-  <option value="3">Normal</option>
-
-  <option value="4">Media</option>
-
-  <option value="5">Grande</option>
-
-  <option value="6">Muy grande</option>
-
-  <option value="7">Enorme</option>
-
-  </select>
-
-  </section>
-
-
-
-  <div id="textBox" contenteditable="true">
-
-  <h1 style="color:red">Título</h1>
-
-  <p>Escribir aquí...</p>
-
-  </div>
-
-
-
-  <section class="opciones">
-
-  <input id="fileInput" type="file" onchange="processFiles(this.files)">...Insertar archivo de texto
-
-  </section>
-
-  <div class="opciones">
-
-  <button onclick="saveData()">Guardar</button>
-
-  <button onclick="loadData()">Recuperar</button>
-
-  </div>
-
-  </body>
-
-  </html> -->
+</html>

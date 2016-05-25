@@ -13,45 +13,55 @@ $nombre = '';
 $email = '';
 if (isset($_POST['nombre']) and isset($_POST['email']) and isset($_POST['pass'])
 and isset($_POST['pass2']) and isset($_POST['sexo'])) {
-    $usuario = new Usuario();
-    $model = new UsuarioModel();
+    if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+        $secret = '6LfIjyATAAAAAIsWuBhxhtV8KmxGtISVxqccbVVp';
 
-    $cod = str_shuffle('abcdefghijklmnopqrstuvwxyz0123456789'.uniqid());
+        $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
+        $responseData = json_decode($verifyResponse);
+        if ($responseData->success) {
+            $usuario = new Usuario();
+            $model = new UsuarioModel();
 
-    $usuario->NombreUsuario = $_POST['nombre'];
-    $usuario->Email = strtolower($_POST['email']);
-    $usuario->Sexo = $_POST['sexo'];
-    $usuario->Clave = $_POST['pass'];
-    $usuario->Rol = 'Suscriptor';
-    $usuario->Estado = true;
-    $usuario->Foto = 'uploads/default-user.png';
-    $usuario->CodigoActivacion = $cod;
+            $cod = str_shuffle('abcdefghijklmnopqrstuvwxyz0123456789'.uniqid());
 
-    $nombre = $usuario->NombreUsuario;
-    $email = $usuario->Email;
+            $usuario->NombreUsuario = $_POST['nombre'];
+            $usuario->Email = strtolower($_POST['email']);
+            $usuario->Sexo = $_POST['sexo'];
+            $usuario->Clave = $_POST['pass'];
+            $usuario->Rol = 'Suscriptor';
+            $usuario->Estado = false;
+            $usuario->Foto = 'uploads/default-user.png';
+            $usuario->CodigoActivacion = $cod;
 
-    if ($model->existsEmail($usuario->Email)) {
-        $error = 'Ya existe una cuenta asociada con esa cuenta de correo';
-    } elseif ($model->existsUser($usuario->NombreUsuario)) {
-        $error = 'El nombre de usuario ya esta ocupado';
-    } elseif ($usuario->Clave !=  $_POST['pass2']) {
-        $error = 'Las cotraseñas no coinciden';
-    } else {
-        $afectado = $model->save($usuario);
+            $nombre = $usuario->NombreUsuario;
+            $email = $usuario->Email;
 
-        if ($afectado) {
-            $confirmation = new Confirmation($cod);
-            $mensaje = $confirmation->getMail();
-
-            $mail = new Mail();
-            if ($mail->Send($usuario->Email, 'Confirmacion de cuenta Vive mi Nicaragua', $mensaje)) {
-                echo 'Mensaje enviado exitosamente';
-                // echo '<img src="'.$usuario->Foto.'" alt="" />';
+            if ($model->existsEmail($usuario->Email)) {
+                $error = 'Ya existe una cuenta asociada con esa cuenta de correo';
+            } elseif ($model->existsUser($usuario->NombreUsuario)) {
+                $error = 'El nombre de usuario ya esta ocupado';
+            } elseif ($usuario->Clave !=  $_POST['pass2']) {
+                $error = 'Las cotraseñas no coinciden';
             } else {
-                echo 'No se pudo enviar el mensaje';
+                $afectado = $model->save($usuario);
+
+                if ($afectado) {
+                    $confirmation = new Confirmation($cod);
+                    $mensaje = $confirmation->getMail();
+
+                    $mail = new Mail();
+                    if ($mail->Send($usuario->Email, 'Confirmacion de cuenta Vive mi Nicaragua', $mensaje)) {
+                        echo 'Mensaje enviado exitosamente';
+                // echo '<img src="'.$usuario->Foto.'" alt="" />';
+                    } else {
+                        echo 'No se pudo enviar el mensaje';
+                    }
+                } else {
+                    echo 'algo salio mal';
+                }
             }
         } else {
-            echo 'algo salio mal';
+            $error = 'No es un humano';
         }
     }
 }
@@ -67,6 +77,7 @@ and isset($_POST['pass2']) and isset($_POST['sexo'])) {
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/formulario.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
 
@@ -75,7 +86,7 @@ and isset($_POST['pass2']) and isset($_POST['sexo'])) {
                 <form class="formulario" action="" name="formulario_registro" method="post">
                     <div>
                         <div class="input-group">
-                            <input type="text" id="nombre" name="nombre" required value= <?php echo $nombre ?>>
+                            <input type="text" id="nombre" name="nombre" pattern="^@?(\w){1,50}$" required value= <?php echo $nombre ?> >
                             <label class="label <?php if ($error != '') {
     echo ' active';
 } ?>" for="nombre">Nombre de usuario:</label>
@@ -99,6 +110,11 @@ and isset($_POST['pass2']) and isset($_POST['sexo'])) {
                         <div class="input-group">
                             <input type="password" id="pass2" name="pass2" required>
                             <label class="label" for="pass2">Repetir contraseña:</label>
+                            <div id= 'pwdNotMatch'>
+                              <p style="color: #ff5252">
+                                Las contraseñas no coinciden
+                              </p>
+                            </div>
                         </div>
 
                         <div class="input-group radio">
@@ -122,8 +138,13 @@ and isset($_POST['pass2']) and isset($_POST['sexo'])) {
                             <?php echo $error;?>
                           </p>
                         </div>
+                        <div  align="center">
+                          <div class="g-recaptcha" data-sitekey="6LfIjyATAAAAAB0lcE2GbAfSG68IsNxlsCjOrSgJ"></div>
+                          <br>
+                        </div>
                         <input type="submit" id="btn-submit" value="Enviar">
                     </div>
+
                 </form>
             </div>
         </div>
@@ -162,7 +183,7 @@ and isset($_POST['pass2']) and isset($_POST['sexo'])) {
             $('#pwdInfo').hide(100);
           }
         }
-        
+
         function passwordLevel(p) {
           l = 0;
           v1 = 'aeiou1234567890';

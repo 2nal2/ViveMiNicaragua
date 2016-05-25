@@ -23,10 +23,13 @@
 
       elementos.pass.className = elementos.pass.className + " error";
       elementos.pass2.className = elementos.pass2.className + " error";
+
+      $('#pwdNotMatch').show(100);
       return false;
     } else {
       elementos.pass.className = elementos.pass.className.replace(" error", "");
       elementos.pass2.className = elementos.pass2.className.replace(" error", "");
+      $('#pwdNotMatch').hide(100);
       return true;
     }
 
@@ -158,6 +161,9 @@
 
   //Eventos
   formulario.addEventListener("submit", enviar);
+  try {
+    $('#pwdNotMatch').hide();
+  } catch (error) {}
   // $('#pwdInfo').hide(0);
   // $('#pass').keyup(validarPass);
 
