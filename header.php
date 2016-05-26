@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -71,12 +72,21 @@
 
             <li><a href="#"><span class="icon-pacman"></span>Nosotros</a></li>
 
-            <li id="registrate"><a data-fancybox-type="iframe" href="singup.php" class="fancybox">Registrate</a></li>
-
-            <li class="submenu" id="ya-tengo"><a href="#">Ya tengo una cuenta</a></li>
+            <?php if (!isset($_SESSION['id_user'])): ?>
+              <li id="registrate"><a data-fancybox-type="iframe" href="singup.php" class="fancybox">Registrate</a></li>
+              <li class="submenu" id="ya-tengo"><a href="#">Ya tengo una cuenta</a></li>
+            <?php endif; ?>
 
             <li class="submenu" id="usuario">
-                <a href="#"><span class="icon-user"></span>Usuario <span class="caret icon-circle-down"></a>
+                <a href="#">
+                  <?php if (isset($_SESSION['id_user'])): ?>
+                    <img src="<?php echo $_SESSION['foto'] ?>" alt="" style="width: 2em;" />
+                    <?php echo  $_SESSION['nombre']?>
+                  <?php else: ?>
+                    <span class="icon-user"></span>
+                    Usuario
+                  <?php endif; ?>
+                  <span class="caret icon-circle-down"></a>
 
                 <ul class="children">
                     <li><a href="#">Editar <span class="icon-cog"></span></a></li>

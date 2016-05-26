@@ -13,9 +13,11 @@
 
 <section class="fullScreen" id="index">
     <div class="mensajePrincipal roboto">
-        <h2>Cononoce un nuevo modo de vivir Nicaragua</h2>
+        <h2>Conoce un nuevo modo de vivir Nicaragua</h2>
         <div>
-            <a data-fancybox-type="iframe" href="singup.php" class="fancybox" id="registrate">Registrate</a>
+            <?php if(!isset($_SESSION['id_user'])): ?>
+              <a data-fancybox-type="iframe" href="singup.php" class="fancybox" id="registrate">Registrate</a>
+            <?php endif; ?>
             <a id="vive" href="#">Vive</a>
         </div>
     </div>
