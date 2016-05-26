@@ -51,13 +51,13 @@ and isset($_POST['pass2']) and isset($_POST['sexo'])) {
 
                     $mail = new Mail();
                     if ($mail->Send($usuario->Email, 'Confirmacion de cuenta Vive mi Nicaragua', $mensaje)) {
-                        echo 'Mensaje enviado exitosamente';
-                // echo '<img src="'.$usuario->Foto.'" alt="" />';
+                        // echo 'Mensaje enviado exitosamente';
+                        header('Location: mensaje_registro.html');
                     } else {
                         echo 'No se pudo enviar el mensaje';
                     }
                 } else {
-                    echo 'algo salio mal';
+                    $error = 'Lo sentimos, no se puedo realizar el registro, intente de nuevo porfavor';
                 }
             }
         } else {

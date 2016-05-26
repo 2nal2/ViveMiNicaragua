@@ -35,7 +35,7 @@
       </div>
 
       <h1 style='text-align: center;'>¡Gracias por formar parte de la familia Vive mi Nicaragua!</h1>
-      <h2 style='color: white;text-align: center;'>¡Ya terminamoss!</h2>
+      <h2 style='color: white;text-align: center;'>¡Ya terminamos!</h2>
 
     </div>
 
