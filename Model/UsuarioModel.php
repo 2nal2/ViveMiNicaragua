@@ -101,7 +101,7 @@ class UsuarioModel
     {
         try {
             $sql = 'update Usuario SET Email = ?, NombreUsuario = ?, Rol=?,
-            Estado=?, CodigoActivacion=?, Foto =?, Sexo = ?
+            Estado=?, CodigoActivacion=?, Foto =?, Sexo = ?, Tstamp = ?
             where IdUsuario =  ?';
 
             return $this->connection->prepare($sql)
@@ -114,6 +114,7 @@ class UsuarioModel
                 $Usuario->__GET('CodigoActivacion'),
                 $Usuario->__GET('Foto'),
                 $Usuario->__GET('Sexo'),
+                $Usuario->__GET('Tstamp'),
                 $Usuario->__GET('IdUsuario'),
                 )
             );

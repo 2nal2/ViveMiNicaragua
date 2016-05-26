@@ -11,6 +11,7 @@ class Usuario
     public $Foto;
     public $CodigoActivacion;
     public $Sexo;
+    public $Tstamp;
 
     public function __GET($k)
     {

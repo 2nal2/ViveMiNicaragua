@@ -38,7 +38,23 @@ if (isset($_SESSION['id_user'])) {
          $usuario = $model->getByCodAndUser($cod, $idUser);
          if ($usuario == null) {
              header('Location: index.php');
-         } elseif (isset($_POST['pass']) and isset($_POST['pass2'])) {
+         } else{
+           $datetime1 = date_create(date('Y-m-d H:i:s'));
+           $datetime2 = date_create($usuario->Tstamp);
+           $interval = date_diff($datetime2, $datetime1);
+
+          //  echo $interval->format('%R%a días');
+           $interval = $interval->format('%R%a');//conversion de la diferencia a dias
+          //  echo $interval;
+           if ($interval > 1) {
+             echo "
+               <script type='text/javascript'>
+                 swal('La solicitud de cambio de contraseña a expirado' , 'El link de activacion enviado a su correo solo es valido por 24 horas', 'error');
+               </script>";
+           }
+
+           if (isset($_POST['pass']) and isset($_POST['pass2'])) {
+
              $pass = $_POST['pass'];
              $pass2 = $_POST['pass2'];
 
@@ -58,6 +74,7 @@ if (isset($_SESSION['id_user'])) {
                  $error = 'Las contraseñas no coinciden';
              }
          }
+       }
      } else {
          header('Location:  index.php');
      }

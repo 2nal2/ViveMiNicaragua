@@ -33,9 +33,26 @@
           $iduser = $usuario->IdUsuario;
           if ($usuario != null) {
               $usuario->CodigoActivacion = $cod;
+              $usuario->Tstamp = date('Y-m-d H:i:s');
               $actualizado = $model->update($usuario);
               if ($actualizado) {
-                  $mensaje = "http://viveminicaragua.wwhost.ga/recover.php?cod=$cod&user=$iduser";
+                  $mensaje = "
+                  <p>
+                    Estimado usuario
+                  </p>
+
+                  <p>
+                    Recientemente se ha enviado una solicitud de reinicio de tu contraseña para nuestra área de miembros. Si no solicitaste esto, por favor ignora este correo. Expirará y se volverá inutil en 24 horas.
+                  </p>
+
+                  <p>
+                    Para reiniciar tu contraseña, por favor visita la url a continuación:
+                  </p>
+                  http://viveminicaragua.wwhost.ga/recover.php?cod=$cod&user=$iduser
+                  <p>
+                    Cuando visites el link de arriba, tu contraseña será reestablecida
+                  </p>
+                  ";
 
                   $Mail = new Mail();
                   if ($Mail->Send($usuario->Email, 'recuperacion de cuenta Vive mi Nicaragua', $mensaje)) {
