@@ -58,6 +58,7 @@
       }
     }
 
+    return true;//agregado por mi
   };
 
   var validarCheckbox = function() {
@@ -83,7 +84,7 @@
       }
     }
 
-
+    return true;//agregado por mi
   };
 
   var existeUsuario = function() {

@@ -124,6 +124,26 @@ class UsuarioModel
         }
     }
 
+    public function updateClave($Usuario)
+    {
+        try {
+            $sql = 'update Usuario SET Clave = MD5(?), CodigoActivacion = ""
+            where IdUsuario =  ?';
+
+            return $this->connection->prepare($sql)
+             ->execute(
+            array(
+                $Usuario->__GET('Clave'),
+                $Usuario->__GET('IdUsuario')
+                )
+            );
+        } catch (Exception $e) {
+            die($e->getMessage());
+
+            return false;
+        }
+    }
+
     public function activate($Codigo)
     {
         try {
@@ -193,11 +213,27 @@ class UsuarioModel
             $stm->setFetchMode(PDO::FETCH_CLASS, 'Usuario');
             $stm->execute(array($email));
 
-            return $stm->rowCount() > 0;
+            return $stm->fetch();
         } catch (Exception $e) {
             die($e->getMessage());
 
-            return true;
+            return null;
+        }
+    }
+
+    public function getByCodAndUser($cod, $idUser)
+    {
+        try {
+            $r = array();
+            $stm = $this->connection->prepare('SELECT * FROM Usuario where CodigoActivacion = ? and IdUsuario = ? and Estado = 1');
+            $stm->setFetchMode(PDO::FETCH_CLASS, 'Usuario');
+            $stm->execute(array($cod, $idUser));
+
+            return $stm->fetch();
+        } catch (Exception $e) {
+            die($e->getMessage());
+
+            return null;
         }
     }
 }

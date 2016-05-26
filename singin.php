@@ -1,29 +1,15 @@
 <?php
 session_start();
 
-if(isset($_SESSION['id_user'])){
-  header("Location: index.php");
+if (isset($_SESSION['id_user'])) {
+    header('Location: index.php');
 }
 require_once 'Model/UsuarioModel.php';
 $error = '';
 $email = '';
 
-
-if (isset($_POST['email']) and isset($_POST['pass'])) {
-    $model = new UsuarioModel();
-
-    $email = $_POST['email'];
-    $pass = $_POST['pass'];
-    $usuario = $model->login(strtolower($email), $pass);
-
-    if ($usuario != null) {
-        header('Location: index.php');
-    } else {
-        $error = 'Correo y/o contraseña incorrectos, intente nuevamente';
-    }
-}
-
  ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -34,23 +20,48 @@ if (isset($_POST['email']) and isset($_POST['pass'])) {
 
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/formulario.css">
+        <script src="util/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="util/bower_components/sweetalert/dist/sweetalert.css">
     </head>
     <body>
 
+      <?php
+     if (isset($_GET['try'])) {
+         echo "
+             <script type='text/javascript'>
+               swal('Revisa tu correo' , 'hemos enviado un enlace para reiniciar la contraseña', 'success');
+             </script>";
+     } elseif (isset($_POST['email']) and isset($_POST['pass'])) {
+         $model = new UsuarioModel();
+
+         $email = $_POST['email'];
+         $pass = $_POST['pass'];
+         $usuario = $model->login(strtolower($email), $pass);
+
+         if ($usuario != null) {
+             header('Location: index.php');
+         } else {
+             $error = 'Correo y/o contraseña incorrectos, intente nuevamente';
+         }
+     }
+
+      ?>
         <div class="contenedor-formulario">
             <div class="wrap">
                 <form class="formulario" action="" name="formulario_registro" method="post">
                     <div>
                         <div class="input-group">
                             <input type="email" id="email" name="email" value=<?php echo $email ?>>
-                            <label class="label <?php if($error != ''){echo ' active';} ?>" for="email">Correo:</label>
+                            <label class="label <?php if ($error != '') {
+    echo ' active';
+} ?>" for="email">Correo:</label>
                         </div>
                         <div class="input-group">
                             <input type="password" id="pass" name="pass">
                             <label class="label" for="pass">Contraseña:</label>
                         </div>
 
-                            <a href="#">Olvide mi Contraseña</a>
+                            <a href="remind.php">Olvide mi Contraseña</a>
                         <!-- </div> -->
                         <div style="background-color : #ff5252; text-align:center;">
                           <p>

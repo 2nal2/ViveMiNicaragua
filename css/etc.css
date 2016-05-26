@@ -1,0 +1,19 @@
+.logo{
+  width: 100%;
+}
+
+.logo-container{
+  padding-top: 1em;
+  margin: 0 auto;
+  width: 16em;
+}
+
+@media screen and (max-width: 400px) {
+  .logo-container{
+    width: 80%;
+  }
+}
+
+.green-font{
+  color:#00796B;
+}

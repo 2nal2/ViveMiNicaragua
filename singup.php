@@ -36,7 +36,7 @@ and isset($_POST['pass2']) and isset($_POST['sexo'])) {
             $nombre = $usuario->NombreUsuario;
             $email = $usuario->Email;
 
-            if ($model->existsEmail($usuario->Email)) {
+            if ($model->existsEmail($usuario->Email)!=null) {
                 $error = 'Ya existe una cuenta asociada con esa cuenta de correo';
             } elseif ($model->existsUser($usuario->NombreUsuario)) {
                 $error = 'El nombre de usuario ya esta ocupado';
@@ -138,6 +138,7 @@ and isset($_POST['pass2']) and isset($_POST['sexo'])) {
                             <?php echo $error;?>
                           </p>
                         </div>
+                        <br>
                         <div  align="center">
                           <div class="g-recaptcha" data-sitekey="6LfIjyATAAAAAB0lcE2GbAfSG68IsNxlsCjOrSgJ"></div>
                           <br>

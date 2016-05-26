@@ -91,7 +91,7 @@
                 <ul class="children">
                     <li><a href="#">Editar <span class="icon-cog"></span></a></li>
                     <li><a href="#">Dar de baja <span class="icon-user-minus"></span></a></li>
-                    <li><a href="#">Cerrar Sesion <span class="icon-switch"></span></a></li>
+                    <li><a href="Controller/Usuario/logout.php">Cerrar Sesion <span class="icon-switch"></span></a></li>
                 </ul>
 
             </li>
