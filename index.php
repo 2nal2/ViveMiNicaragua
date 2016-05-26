@@ -60,7 +60,7 @@
             <p>
                 <img src="img/flat/donde.png" alt="" />
             </p>
-            <a class="ver-mas" data-number='0'>Saber mas</a>
+            <a href="#" class="ver-mas" data-number='0'>Saber mas</a>
         </div>
 
         <div class="servicio">
@@ -69,7 +69,7 @@
             <p>
                 <img src="img/flat/como.png" alt="" />
             </p>
-            <a class="ver-mas" data-number='1'>Saber mas</a>
+            <a href="#" class="ver-mas" data-number='1'>Saber mas</a>
         </div>
 
         <div class="servicio">
@@ -78,7 +78,7 @@
             <p>
                 <img src="img/flat/galeria.png" alt="" />
             </p>
-            <a class="ver-mas" data-number='2'>Saber mas</a>
+            <a href="#" class="ver-mas" data-number='2'>Saber mas</a>
         </div>
     </div>
 </section>

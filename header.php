@@ -80,7 +80,7 @@
             <li class="submenu" id="usuario">
                 <a href="#">
                   <?php if (isset($_SESSION['id_user'])): ?>
-                    <img src="<?php echo $_SESSION['foto'] ?>" alt="" style="width: 2em;" />
+                    <img src="<?php echo $_SESSION['foto'] ?>" alt="" style="width: 2em; height: 2em;" />
                     <?php echo  $_SESSION['nombre']?>
                   <?php else: ?>
                     <span class="icon-user"></span>
