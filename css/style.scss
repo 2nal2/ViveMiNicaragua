@@ -33,7 +33,7 @@ html, body{
     height: 100%;
     padding: 0;
     margin: 0;
-    //background-attachment: fixed;
+    background-attachment: fixed;
 }
 
 .menu_bar{
@@ -154,6 +154,68 @@ header{
     position: relative;
 }
 
+#foot{
+    height: 35%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    color: $white;
+    background: #3b3b3b;
+    overflow: hidden;
+    background-attachment: fixed;
+    div{
+        padding: 20px;
+        h4{
+            margin: 5px;
+            font-size: 18px;
+        }
+        a{
+            text-decoration: none;
+            color: $white;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    #redes{
+        width: 100%;
+        font-size: 18px;
+        text-align: center;
+        margin: 5px;
+        padding: 5px;
+        background: #4e4c4c;
+        a{
+            text-decoration: none;
+            font-size: 25px;
+            color: $white;
+            margin: 10px;
+        }
+        #fb{
+            &:hover{
+                color: #3b5998;
+                transition: 0.7s;
+            }
+        }
+        #tw{
+            &:hover{
+                color: #55acee;
+                transition: 0.7s;
+            }
+        }
+        #yt	{
+            &:hover{
+                color: #bb0000;
+                transition: 0.7s;
+            }
+        }
+        #pint{
+            &:hover{
+                color: #cb2027;
+                transition: 0.7s;
+            }
+        }
+    }
+}
 .marginTop{
     width: 80%;
     margin: 0 auto;
@@ -197,6 +259,13 @@ header{
     }
 }
 
+.parrafo{
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: justify;
+    padding: 10px;
+}
+
 .ribbon{
     width: 116%;
     height: 65px;
@@ -205,6 +274,14 @@ header{
     top: 20px;
     background: url(../img/ribbon.png);
     background-size: 100% 100%;
+}
+
+#regresar{
+    display: block;
+    margin-top: 1em;
+    text-decoration: none;
+    color: $dark-primary;
+    cursor: pointer;
 }
 
 #servicios{
@@ -225,7 +302,7 @@ header{
             font-size: 2em;
             color: $dark-primary;
         }
-        .ver-mas{
+        .ir{
 
             background-color: $primary;
             color: $white;
@@ -235,6 +312,14 @@ header{
             margin: 0 auto;
             padding: 0.5em;
 
+        }
+
+        .ver-mas{
+          display: block;
+          margin-top: 1em;
+          text-decoration: none;
+          color: $dark-primary;
+          cursor: pointer;
         }
 
         p{
@@ -282,9 +367,8 @@ header{
     height: 100%;
     overflow: hidden;
     a{
-        img{
-            //filter: blur(2px) brightness(50%) grayscale(0.8);
-            //transition: all 0.4s;
+        text-decoration: none;
+        .filt{
             width: 100%;
             height: 100%;
             -webkit-filter: blur(2px) brightness(50%) grayscale(0.8);
@@ -293,16 +377,29 @@ header{
             -webkit-transition: all 0.4s;
             -o-transition: all 0.4s;
             transition: all 0.4s;
-            /*&:hover{
-                filter: blur(0px) brightness(110%) grayscale(0);
-            }*/
+            background-size: 100% 100%;
             &:hover{
                 -webkit-filter: blur(0) brightness(110%) grayscale(0);
                 -o-filter: blur(0) brightness(110%) grayscale(0);
                 filter: blur(0) brightness(110%) grayscale(0);
             }
+            h2{
+                text-align: center;
+                text-decoration: none;
+                color: $white;
+                text-shadow: 1px 1px 20px #000;
+                padding-top: 50%;
+                font-size: 4em;
+            }
         }
+
     }
+}
+
+footer{
+    background: #3b3b3b;
+    text-align: center;
+    color: $white;
 }
 
 @media screen and (max-width: 768px) {

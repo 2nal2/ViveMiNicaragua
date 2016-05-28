@@ -4,14 +4,28 @@ var contador = 1;
 var pos = 0;
 var intv;
 var flippedElement;
-/*
+
+
 var opcionesServicio = [
-    {opciones: nombre:'A donde y por que ir?', informacion:'Te brindamos las mejores opciones para pasar un buen momento, lugares hermosos que conocer, lugares para crear momorias y enamorarte cada vez mas de Nicaragua'},
 
-    {opciones: nombre:'Como llegar?', informacion:'No te dejaremos solo en este viaje, aunque perderse en Nicaragua es una dicha, queremos que regreses bien a casa; asi que que mostraremos como llegar a esos lugares que te haran vivir Nicaragua, contandote que medios puedes usar para ello'},
+    {
+        nombre: 'A donde ir?',
+        informacion: 'Te brindamos las mejores opciones para pasar un buen momento, lugares hermosos que conocer, lugares para crear momorias y enamorarte cada vez mas de Nicaragua',
+        link: '#'
+    },
 
-    {opciones: nombre:'Galeria', informacion:'No hablamos solo por hablar, si te decimos que estos son sitios magicos es porque ya lo vivimos en carne propia, te mostraremos todo loq ue tuvimos la dicha de ver, para que tu tambien nos cuentes tu experiencia'},
-];*/
+    {
+        nombre: 'Como llegar?',
+        informacion: 'No te dejaremos solo en este viaje, aunque perderse en Nicaragua es una dicha, queremos que regreses bien a casa; asi que que mostraremos como llegar a esos lugares que te haran vivir Nicaragua, contandote que medios puedes usar para ello',
+        link: '#'
+    },
+
+    {
+        nombre: 'Galería',
+        informacion: 'No hablamos solo por hablar, si te decimos que estos son sitios magicos es porque ya lo vivimos en carne propia, te mostraremos todo loq ue tuvimos la dicha de ver, para que tu tambien nos cuentes tu experiencia',
+        link: '#'
+    }
+];
 
 function main() {
     $('.bt-menu').click(function() {
@@ -32,6 +46,31 @@ function main() {
     $('.submenu').click(function() {
         $(this).children('.children').slideToggle();
     });
+
+    $.stellar({
+        'horizontalScrolling': false,
+        hideDistantElements: false
+    });
+
+    var sc = $.scrollorama({
+        blocks: '.fullScreen',
+        enablePin: false
+    });
+    sc.animate('.mensajePrincipal', {
+        delay: 1000,
+        duration: 700,
+        property: 'top',
+        end: 500
+    });
+    sc.animate('.servicio', {
+        delay: 400,
+        duration: 500,
+        property: 'zoom',
+        start: 0.5,
+        end: 1
+    });
+
+    $('#inicios').localScroll();
 
     $(".fancybox").fancybox({
         width: '70%',
@@ -59,7 +98,12 @@ function main() {
     intv = setInterval(handleClick, 7000)
 }
 
-function flipElement(){
+function flipElement() {
+    if (flippedElement != null) {
+        $(flippedElement).revertFlip();
+        flippedElement = null;
+    }
+    $(flippedElement).remove();
     var padre = $(this).parent();
     flippedElement = padre;
     $('#servicioTemplate').template("CompiledTemplate");
@@ -67,7 +111,13 @@ function flipElement(){
         direction: 'rl',
         speed: 500,
         content: $('#servicioTemplate').tmpl(opcionesServicio[$(this).data('number')]).html(),
-        color: '#fff'
+        color: '#fff',
+        onEnd: function() {
+            $('#regresar').on('click', function() {
+                $(flippedElement).revertFlip();
+                flippedElement = null;
+            })
+        }
     });
 }
 
