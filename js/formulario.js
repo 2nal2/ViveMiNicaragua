@@ -1,7 +1,6 @@
 (function() {
   var formulario = document.formulario_registro,
     elementos = formulario.elements;
-  //Funciones
   var validarInputs = function() {
     for (var i = 0; i < elementos.length; i++) {
       if (elementos[i].type == "text" || elementos[i].type == "email" || elementos[i].type == "password") {

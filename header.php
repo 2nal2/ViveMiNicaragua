@@ -17,8 +17,11 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="util/Iconos/fonts.css">
     <link rel="stylesheet" href="util/fancybox/source/jquery.fancybox.css" media="screen">
-
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/etc.css">
+    <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
     <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
     </script>
@@ -81,7 +84,7 @@
                 <a href="#">
                   <?php if (isset($_SESSION['id_user'])): ?>
                     <img src="<?php echo $_SESSION['foto'] ?>" alt="" style="width: 2em; height: 2em;" />
-                    <?php echo  $_SESSION['nombre']?>
+                    <?php echo $_SESSION['nombre']?>
                   <?php else: ?>
                     <span class="icon-user"></span>
                     Usuario
@@ -89,7 +92,7 @@
                   <span class="caret icon-circle-down"></a>
 
                 <ul class="children">
-                    <li><a href="#">Editar <span class="icon-cog"></span></a></li>
+                    <li><a href="edit-profile.php">Editar <span class="icon-cog"></span></a></li>
                     <li><a href="#">Dar de baja <span class="icon-user-minus"></span></a></li>
                     <li><a href="Controller/Usuario/logout.php">Cerrar Sesion <span class="icon-switch"></span></a></li>
                 </ul>

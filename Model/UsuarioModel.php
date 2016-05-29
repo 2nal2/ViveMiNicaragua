@@ -32,6 +32,7 @@ class UsuarioModel
                 $_SESSION['nombre'] = $usuario->NombreUsuario;
                 $_SESSION['email'] = $usuario->Email;
                 $_SESSION['foto'] = $usuario->Foto;
+                $_SESSION['error_pass'] = '';
 
                 $sesionModel = new SesionModel();
                 $sesion = new Sesion();
@@ -64,7 +65,7 @@ class UsuarioModel
             unset($_SESSION['nombre']);
             unset($_SESSION['email']);
             unset($_SESSION['foto']);
-
+            unset($_SESSION['error_pass']);
             return true;
         } else {
             return false;
@@ -203,6 +204,54 @@ class UsuarioModel
             die($e->getMessage());
 
             return true;
+        }
+    }
+
+    public function existsNameUser($nombre, $actual)
+    {
+        try {
+            $r = array();
+            $stm = $this->connection->prepare('SELECT * FROM Usuario where NombreUsuario = ? and NombreUsuario!= ?');
+            $stm->setFetchMode(PDO::FETCH_CLASS, 'Usuario');
+            $stm->execute(array($nombre,$actual));
+
+            return $stm->rowCount() > 0;
+        } catch (Exception $e) {
+            die($e->getMessage());
+
+            return true;
+        }
+    }
+
+    public function getById($id)
+    {
+        try {
+            $r = array();
+            $stm = $this->connection->prepare('SELECT * FROM Usuario where IdUsuario = ?');
+            $stm->setFetchMode(PDO::FETCH_CLASS, 'Usuario');
+            $stm->execute(array($id));
+
+            return $stm->fetch();
+        } catch (Exception $e) {
+            die($e->getMessage());
+
+            return new Usuario();
+        }
+    }
+
+    public function isValidPass($id, $pass)
+    {
+        try {
+            $r = array();
+            $stm = $this->connection->prepare('SELECT * FROM Usuario where IdUsuario = ? and Clave = MD5(?)');
+            $stm->setFetchMode(PDO::FETCH_CLASS, 'Usuario');
+            $stm->execute(array($id, $pass));
+
+            return $stm->fetch();
+        } catch (Exception $e) {
+            die($e->getMessage());
+
+            return null;
         }
     }
 

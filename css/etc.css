@@ -1,19 +1,121 @@
-.logo{
+.logo {
   width: 100%;
 }
-
-.logo-container{
+.logo-container {
   padding-top: 1em;
   margin: 0 auto;
   width: 16em;
 }
 
+.image-container{
+  margin: 0 auto;
+  width: 40%;
+}
+
+.panel{
+  float: left;
+  width: 70%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.center{
+  margin: 0 auto;
+}
+
+.panel::before, .panel::after{
+  content: "";
+  clear: both;
+}
+
 @media screen and (max-width: 400px) {
-  .logo-container{
+  .logo-container {
     width: 80%;
   }
 }
+.green-font {
+  color: #00796B;
+}
 
-.green-font{
-  color:#00796B;
+.upload, .tabs{
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  background: #ff5252;
+  /*border-radius: 3px;*/
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: #f2f2f2;
+  cursor: pointer;
+  display: inline-block;
+  padding: 15px;
+  width: 100%;
+  font-family: "Roboto", Arial;
+  font-size: 16px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+.tabs{
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  background: #00796B;
+  /*border-radius: 3px;*/
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: #f2f2f2;
+  cursor: pointer;
+  display: inline-block;
+  padding: 15px;
+  width: 100%;
+  font-family: "Roboto", Arial;
+  font-size: 16px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+#img-submit {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  background: #00796B;
+  /*border-radius: 3px;*/
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: #f2f2f2;
+  cursor: pointer;
+  display: inline-block;
+  padding: 15px;
+  width: 100%;
+  font-family: "Roboto", Arial;
+  font-size: 16px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.tabs:hover{
+  background: #029c8a;
+}
+.active1{
+  background: #029c8a;
+}
+.menu {
+  width: 20%;
+  float: left;
+  color: green;
+}
+#tabs ul {
+  width: 22%;
+  float: left;
+}
+
+
+@media screen and (max-width: 768px) {
+  #tabs ul{
+    width: 100%;
+  }
+  .panel{
+    margin-top: 6em;
+  }
 }
