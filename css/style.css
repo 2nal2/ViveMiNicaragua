@@ -314,9 +314,11 @@ footer {
       border-radius: 10px; }
 
   header nav {
+
     width: 50%;
     height: calc(100% - 80px);
     position: fixed;
+    top: 87px;
     right: 100%;
     margin: 0;
     overflow: scroll;
