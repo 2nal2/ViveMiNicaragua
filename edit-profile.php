@@ -22,7 +22,7 @@ $usuario = $model->getById($id);
   <div class="contenedor-formulario">
     <div id="tabs">
       <ul>
-        <img src="<?php echo $usuario->Foto ?>" alt="" class='logo'/>
+          <img src="<?php echo $usuario->Foto ?>" alt="" class='logo'/>
         <li>
           <a class='tabs <?php if($_SESSION["error_pass"]==""){echo " active1";} ?>' href="#z">Información de perfil</a>
         </li>
@@ -70,7 +70,7 @@ $usuario = $model->getById($id);
         <form class='panel' name="form_image" enctype="multipart/form-data" action="change-foto.php" method="post">
           <div class="input-group">
             <div class="image-container">
-              <img class="logo" src="<?php echo $usuario->Foto ?>" alt="" />
+              <img class="logo-muestra" src="<?php echo $usuario->Foto ?>" alt="" />
               <div id="upload-div">
                 <input class="upload" name="uploadedfile" type="file" />
                 <input id= "img-submit" type="submit" value="Subir archivo" />
