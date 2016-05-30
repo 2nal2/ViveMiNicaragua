@@ -86,8 +86,6 @@ $usuario = $model->getById($id);
         <?php include_once 'edit-user/change-password.php' ?>
       </div>
     </div>
-
-
   </div>
 
   <script src="js/formulario-generic.js"></script>

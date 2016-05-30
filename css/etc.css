@@ -9,7 +9,8 @@
 
 .image-container{
   margin: 0 auto;
-  width: 40%;
+  width: 60%;
+  max-width: 400px;
 }
 
 .panel{
@@ -17,6 +18,7 @@
   width: 70%;
   margin: 0 auto;
   position: relative;
+  margin-bottom: 4em;
 }
 
 .center{
@@ -110,12 +112,23 @@
   float: left;
 }
 
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 950px){
+  body{
+    padding-top: 40px;
+  }
+}
+@media screen and (max-width: 800px) {
   #tabs ul{
     width: 100%;
   }
   .panel{
     margin-top: 6em;
+    width: 100%;
+    margin-bottom: 6em;
   }
+  .image-container{
+    width: 75%;
+    margin: 0 auto;
+  }
+
 }
