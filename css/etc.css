@@ -166,6 +166,11 @@
 
 }
 
+#tabs-content{
+  display: block;
+  color: black;
+}
+
 @media screen and (max-width: 400px) {
   .contenedor-formulario{
     width: 98%;

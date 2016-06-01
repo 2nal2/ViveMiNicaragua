@@ -64,9 +64,8 @@
       return true; //agregado por mi
     };
 
-    var comprobarPass = function(elementos){
-      console.log('entre aqui');
-      ;
+    var comprobarPass = function(elementos) {
+      console.log('entre aqui');;
       if (elementos[1].value != elementos[2].value) {
         console.log('validado');
 
@@ -149,7 +148,7 @@
 
     $('#formulario_passwd').submit(
 
-      function(event){
+      function(event) {
         var elementos = $(this).find('input[type=password]');
         console.log(elementos.length);
         if (!comprobarPass(elementos)) {
@@ -161,6 +160,39 @@
       }
     );
 
+    //---------scroll
+
+    $("#Z").on("click", function() {
+      try {
+        $('html, body').animate({
+          scrollTop: 343 + $("#tabs-content").offset().top
+        }, 1000);
+      } catch (e) {}
+    });
+
+    $("#A").on("click", function() {
+      try {
+        $('html, body').animate({
+          scrollTop:343 + $("#tabs-content").offset().top
+        }, 1000);
+      } catch (e) {}
+    });
+
+    $("#B").on("click", function() {
+      try {
+        $('html, body').animate({
+          scrollTop:343 + $("#tabs-content").offset().top
+        }, 1000);
+      } catch (e) {}
+    });
+
+    $("#C").on("click", function() {
+      try {
+        $('html, body').animate({
+          scrollTop:343 + $("#tabs-content").offset().top
+        }, 1000);
+      } catch (e) {}
+    });
 
 
   }

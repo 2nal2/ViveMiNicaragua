@@ -19,7 +19,7 @@
 
       <div class="input-group radio">
 
-        <input type="radio" name="sexo" id="hombre" value="Hombre" <?php if ($usuario->Sexo == 'Mujer') {
+        <input type="radio" name="sexo" id="hombre" value="Hombre" <?php if ($usuario->Sexo == 'Hombre') {
             echo 'checked="checked"';
         } ?>>
         <label for="hombre">Hombre</label>

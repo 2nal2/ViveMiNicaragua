@@ -19,26 +19,27 @@ $usuario = $model->getById($id);
 <body>
   <br>
   <br>
+  <div id="inicio"></div>
   <div class="contenedor-formulario">
     <div id="tabs">
       <ul>
           <img src="<?php echo $usuario->Foto ?>" alt="" class='logo'/>
         <li>
-          <a class='tabs <?php if($_SESSION["error_pass"]==""){echo " active1";} ?>' href="#z">Información de perfil</a>
+          <a id="Z"class='tabs <?php if($_SESSION["error_pass"]==""){echo " active1";} ?>' href="#z">Información de perfil</a>
         </li>
         <li>
-          <a class='tabs' href="#a">Imagen de perfil</a>
+          <a id='A'class='tabs' href="#a">Imagen de perfil</a>
         </li>
         <li>
-          <a class='tabs' href="#b">Editar perfil</a>
+          <a id='B' class='tabs' href="#b">Editar perfil</a>
         </li>
         <li>
-          <a class='tabs <?php if($_SESSION["error_pass"]!=""){echo " active1";} ?>' href="#c">Contraseña</a>
+          <a id='C' class='tabs <?php if($_SESSION["error_pass"]!=""){echo " active1";} ?>' href="#c">Contraseña</a>
         </li>
       </ul>
 
 
-
+      <div id="tabs-content"></div>
       <div id="z">
         <div aling='center' class="panel">
           <div class="wrap">
@@ -72,7 +73,7 @@ $usuario = $model->getById($id);
             <div class="image-container">
               <img class="logo-muestra" src="<?php echo $usuario->Foto ?>" alt="" />
               <div id="upload-div">
-                <input class="upload" name="uploadedfile" type="file" />
+                <input class="upload" name="uploadedfile" type="file" required/>
                 <input id= "img-submit" type="submit" value="Subir archivo" />
               </div>
             </div>
@@ -85,8 +86,10 @@ $usuario = $model->getById($id);
       <div id="c">
         <?php include_once 'edit-user/change-password.php' ?>
       </div>
+
     </div>
   </div>
+
 
   <script src="js/formulario-generic.js"></script>
   <script type="text/javascript">
