@@ -30,6 +30,7 @@
       <title></title>
       <script src="util/bower_components/sweetalert/dist/sweetalert.min.js"></script>
       <link rel="stylesheet" href="util/bower_components/sweetalert/dist/sweetalert.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
       <script type='text/javascript'>
