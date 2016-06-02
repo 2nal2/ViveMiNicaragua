@@ -23,7 +23,7 @@ $usuario = $model->getById($id);
   <div class="contenedor-formulario">
     <div id="tabs">
       <ul>
-          <img src="<?php echo $usuario->Foto ?>" alt="" class='logo'/>
+          <img src="<?php echo $usuario->Foto ?>" alt="" class='logo1'/>
         <li>
           <a id="Z"class='tabs <?php if($_SESSION["error_pass"]==""){echo " active1";} ?>' href="#z">Información de perfil</a>
         </li>

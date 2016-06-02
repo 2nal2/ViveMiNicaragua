@@ -1,4 +1,4 @@
-.logo {
+.logo1 {
   width: 20vw;
   height: 20vw;
   margin: 0 auto;
@@ -9,16 +9,18 @@
   background-size: 100% auto;
 }
 
+.logo{
+  width: 100%;
+}
+
 .logo-muestra{
   width: 100%;
-
 }
 
 .logo-container {
   padding-top: 1em;
   margin: 0 auto;
-  /*width: 16em;*/
-
+  width: 16em;
 }
 
 
