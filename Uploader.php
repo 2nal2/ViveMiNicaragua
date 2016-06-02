@@ -18,8 +18,8 @@ class Uploader
 
         $extension = pathinfo($name_temp, PATHINFO_EXTENSION);
         $_FILES['uploadedfile']['name'] = $name.'.'.$extension;
-        if ($_FILES['uploadedfile']['size'] > 200000) {
-            $msg = $msg.'El archivo es mayor que 200KB, debes reduzcirlo antes de subirlo<BR>';
+        if ($_FILES['uploadedfile']['size'] > 2097152) {
+            $msg = $msg.'El archivo es mayor que 2MB, debes reduzcirlo antes de subirlo<BR>';
             $uploadedfileload = 'false';
         }
 

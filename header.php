@@ -80,19 +80,17 @@
               <li class="submenu" id="ya-tengo"><a href="#">Ya tengo una cuenta</a></li>
             <?php endif; ?>
 
+            <?php if (isset($_SESSION['id_user'])): ?>
             <li class="submenu" id="usuario">
                 <a href="#">
-                  <?php if (isset($_SESSION['id_user'])): ?>
+
                     <img src="<?php echo $_SESSION['foto'] ?>" alt="" style="width: 2em; height: 2em; background-repeat: no-repeat;
                     background-position: 50%;
                     border-radius: 50%;
                     background-size: 100% auto;" />
                     <?php echo $_SESSION['nombre']?>
-                  <?php else: ?>
-                    <span class="icon-user"></span>
-                    Usuario
-                  <?php endif; ?>
-                  <span class="caret icon-circle-down"></a>
+
+                    <span class="caret icon-circle-down"></a>
 
                 <ul class="children">
                     <li><a href="edit-profile.php">Editar <span class="icon-cog"></span></a></li>
@@ -101,6 +99,8 @@
                 </ul>
 
             </li>
+
+          <?php endif; ?>
         </ul>
     </nav>
 </header>
