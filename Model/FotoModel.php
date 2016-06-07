@@ -2,7 +2,7 @@
 /**
  *
  */
- require_once 'Connection/Connection.pho';
+ require_once 'Connection/Connection.php';
  require_once 'Objects/Foto.php';
 class FotoModel
 {
