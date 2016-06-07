@@ -123,3 +123,18 @@ $usuario = $model->getById($id);
     });
   </script>
 </body>
+
+
+<section>
+
+  <?php
+  include_once 'Model/FotoModel.php';
+  $fotoModel = new FotoModel();
+   ?>
+  <?php foreach ($fotoModel->getAll() as $foto): ?>
+    <!-- <img src="<?php echo $foto->Ruta ?>" alt=""/> -->
+    <a href="<?php echo $foto->Ruta ?>" rel="gallery"class="gallery-image">
+    <img src="<?php echo $foto->Ruta ?>" alt="" /></a>
+  <?php endforeach; ?>
+
+</section>

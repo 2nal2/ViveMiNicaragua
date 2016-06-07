@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php require_once 'header.php'; ?>
 
 <div class="slider_container fullScreen">
     <div class="slideContainer">

@@ -41,14 +41,24 @@
 <script src="util/uiflip/jquery.ui.core.min.js"></script>
 <script src="util/uiflip/jquery.ui.effect.min.js"></script>
 <script src="util/uiflip/jquery.flip.min.js"></script>
-
 <script src="js/jquery.tmpl.min.js"></script>
-
 <script src="js/scrollto.min.js"></script>
 <script src="js/localscroll.min.js"></script>
 <script src="js/jquery.scrollorama.js"></script>
 <script src="js/stellar.min.js"></script>
-
+<script type="text/javascript">
+  $(".fancybox").fancybox({
+      width: '70%',
+      //height: '70%',
+      maxWidth: 800,
+      //maxHeight: 600,
+      fitToView: false,
+      autoSize: true,
+      closeClick: false,
+      openEffect: 'none',
+      closeEffect: 'none'
+  });
+</script>
 </body>
 
 <footer>

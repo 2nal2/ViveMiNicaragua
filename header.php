@@ -19,25 +19,21 @@
     <link rel="stylesheet" href="util/fancybox/source/jquery.fancybox.css" media="screen">
     <link rel="stylesheet" href="css/formulario.css">
     <link rel="stylesheet" href="css/etc.css">
-    <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
+    <link rel="stylesheet" href="util/fancybox/source/helpers/jquery.fancybox-buttons.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="util/fancybox/source/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
     <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
     </script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-    <script type="text/javascript" src="util/fancybox/source/jquery.fancybox.pack.js"></script>
 
-    <link rel="stylesheet" href="util/fancybox/source/helpers/jquery.fancybox-buttons.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="util/fancybox/source/jquery.fancybox.pack.js"></script>
     <script type="text/javascript" src="util/fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
     <script type="text/javascript" src="util/fancybox/source/helpers/jquery.fancybox-media.js"></script>
-
-    <link rel="stylesheet" href="util/fancybox/source/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
     <script type="text/javascript" src="util/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
-
-
-
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
