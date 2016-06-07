@@ -9,7 +9,7 @@ $fotoModel = new FotoModel();
 
 <?php foreach ($fotoModel->getAll() as $foto): ?>
   <!-- <img src="<?php echo $foto->Ruta ?>" alt=""/> -->
-  <a href="<?php echo $foto->Ruta ?>" class='galery-image'>
+  <a href="<?php echo $foto->Ruta ?>" class="gallery-image">
   <img src="<?php echo $foto->Ruta ?>" alt="" /></a>
 <?php endforeach; ?>
 

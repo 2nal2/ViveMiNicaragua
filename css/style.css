@@ -5,7 +5,8 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-html, body {
+body,
+html {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -59,7 +60,7 @@ header {
           position: relative;
           top: 3px;
           margin-left: 10px;
-          margin-right: 0px; }
+          margin-right: 0; }
         header nav ul li .children {
           display: none;
           background: #00796b;
@@ -138,6 +139,12 @@ header {
       color: #cb2027;
       transition: 0.7s; }
 
+.gallery-image img {
+  width: 256px;
+  height: auto;
+  float: left;
+  margin-right: 10px; }
+
 .marginTop {
   width: 80%;
   margin: 0 auto;
@@ -185,7 +192,7 @@ header {
   position: relative;
   left: -33px;
   top: 20px;
-  background: url(../img/ribbon.png);
+  background: url("../img/ribbon.png");
   background-size: 100% 100%; }
 
 #regresar {
@@ -196,7 +203,7 @@ header {
   cursor: pointer; }
 
 #servicios {
-  background-image: url(../img/servicios.JPG);
+  background-image: url("../img/servicios.JPG");
   background-size: 100% auto; }
   #servicios .servicio {
     width: 28%;
@@ -287,7 +294,7 @@ footer {
   text-align: center;
   color: #f2f2f2; }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 768px) {
   body {
     padding-top: 80px; }
 
@@ -314,17 +321,15 @@ footer {
       border-radius: 10px; }
 
   header nav {
-
     width: 50%;
     height: calc(100% - 80px);
     position: fixed;
-    top: 87px;
     right: 100%;
     margin: 0;
     overflow: scroll;
     box-shadow: 3px 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     text-align: left;
-    padding-right: 0px; }
+    padding-right: 0; }
     header nav #logo {
       display: none; }
     header nav ul li {

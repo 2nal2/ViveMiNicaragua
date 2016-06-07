@@ -7,116 +7,97 @@ $divider: #b6b6b6;
 $error: #FF5252;
 $borde: 2px;
 $font-family: "Roboto", Arial;
-
-
-*{
+* {
     padding: 0;
     margin: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
-html, body{
+body,
+html {
     height: 100%;
     margin: 0;
     padding: 0;
     max-width: 100%;
 }
-
-.roboto{
+.roboto {
     font-family: $font-family;
 }
-
-.fullScreen{
+.fullScreen {
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
     background-attachment: fixed;
 }
-
-.menu_bar{
+.menu_bar {
     display: none;
 }
-
-header{
+header {
     width: 100%;
     position: fixed;
     z-index: 999;
-    nav{
+    nav {
         background: $primary;
         z-index: 1000;
         //margin: 20px auto;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         text-align: right;
         padding-right: 65px;
-
-        #logo{
+        #logo {
             float: left;
             padding-left: 20px;
-
             //height: 100%;
-            img{
+            img {
                 max-height: 62px;
             }
         }
-
-        ul{
+        ul {
             list-style: none;
-
-            #registrate{
+            #registrate {
                 border: 1px solid $white;
                 border-radius: 15px;
-
-                a{
+                a {
                     padding: 15px;
                 }
-
-                &:hover{
+                &:hover {
                     background: $white;
-                    a{
+                    a {
                         color: $dark-primary;
                     }
                 }
             }
-
-            #ya-tengo{
-                &:hover{
+            #ya-tengo {
+                &:hover {
                     background: none;
                     //text-decoration: underline;
                     //color: $white;
                 }
             }
-
-            li{
+            li {
                 display: inline-block;
                 position: relative;
-
-                .caret{
+                .caret {
                     position: relative;
                     top: 3px;
                     margin-left: 10px;
-                    margin-right: 0px;
+                    margin-right: 0;
                 }
-
-                .children{
+                .children {
                     display: none;
                     background: $dark-primary;
                     position: absolute;
                     width: 150%;
                     z-index: 1000;
                     text-align: left;
-
-                    li{
+                    li {
                         display: block;
                         overflow: hidden;
                         border-bottom: 1px solid rgba($divider, 1);
-
-                        a{
+                        a {
                             display: block;
-
-                            span{
+                            span {
                                 float: right;
                                 position: relative;
                                 top: 3px;
@@ -126,22 +107,18 @@ header{
                         }
                     }
                 }
-
-                &:hover{
+                &:hover {
                     background: $error;
-
-                    .children{
+                    .children {
                         display: block;
                     }
                 }
-
-                a{
+                a {
                     color: $white;
                     display: block;
                     text-decoration: none;
                     padding: 20px;
-
-                    span{
+                    span {
                         margin-right: 10px;
                     }
                 }
@@ -149,12 +126,10 @@ header{
         }
     }
 }
-
-#ciudades{
+#ciudades {
     position: relative;
 }
-
-#foot{
+#foot {
     height: 35%;
     width: 100%;
     padding: 0;
@@ -163,80 +138,87 @@ header{
     background: #3b3b3b;
     overflow: hidden;
     background-attachment: fixed;
-    div{
+    div {
         padding: 20px;
-        h4{
+        h4 {
             margin: 5px;
             font-size: 18px;
         }
-        a{
+        a {
             text-decoration: none;
             color: $white;
-            &:hover{
+            &:hover {
                 text-decoration: underline;
             }
         }
     }
-    #redes{
+    #redes {
         width: 100%;
         font-size: 18px;
         text-align: center;
         margin: 5px;
         padding: 5px;
         background: #4e4c4c;
-        a{
+        a {
             text-decoration: none;
             font-size: 25px;
             color: $white;
             margin: 10px;
         }
-        #fb{
-            &:hover{
+        #fb {
+            &:hover {
                 color: #3b5998;
                 transition: 0.7s;
             }
         }
-        #tw{
-            &:hover{
+        #tw {
+            &:hover {
                 color: #55acee;
                 transition: 0.7s;
             }
         }
-        #yt	{
-            &:hover{
+        #yt {
+            &:hover {
                 color: #bb0000;
                 transition: 0.7s;
             }
         }
-        #pint{
-            &:hover{
+        #pint {
+            &:hover {
                 color: #cb2027;
                 transition: 0.7s;
             }
         }
     }
 }
-.marginTop{
+.gallery-image {
+    img {
+        width: 256px;
+        height: auto;
+        float: left;
+        margin-right: 10px;
+    }
+}
+.marginTop {
     width: 80%;
     margin: 0 auto;
     padding-top: 7em;
 }
-
-.mensajePrincipal{
+.mensajePrincipal {
     font-family: $font-family;
     width: 40;
     padding-top: 15%;
     color: #f7f7f7;
     position: relative;
     text-align: center;
-    h2{
+    h2 {
         color: #e4e4e4;
         font-size: 4em;
         text-shadow: 1px 1px 20px #000;
     }
-    div{
+    div {
         padding: 20px;
-        a{
+        a {
             text-decoration: none;
             padding: 20px;
             border-radius: 10px;
@@ -245,49 +227,45 @@ header{
             font-size: 20px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
             opacity: 0.8;
-            &:hover{
+            &:hover {
                 opacity: 1;
             }
         }
-        #registrate{
+        #registrate {
             background: $white;
             color: $primary;
         }
-        #vive{
+        #vive {
             color: $white;
         }
     }
 }
-
-.parrafo{
+.parrafo {
     font-size: 18px;
     margin-top: 10px;
     text-align: justify;
     padding: 10px;
 }
-
-.ribbon{
+.ribbon {
     width: 116%;
     height: 65px;
     position: relative;
     left: -33px;
     top: 20px;
-    background: url(../img/ribbon.png);
+    background: url("../img/ribbon.png");
     background-size: 100% 100%;
 }
-
-#regresar{
+#regresar {
     display: block;
     margin-top: 1em;
     text-decoration: none;
     color: $dark-primary;
     cursor: pointer;
 }
-
-#servicios{
-    background-image: url(../img/servicios.JPG);
+#servicios {
+    background-image: url("../img/servicios.JPG");
     background-size: 100% auto;
-    .servicio{
+    .servicio {
         width: 28%;
         margin-left: 3.5%;
         display: inline-block;
@@ -297,13 +275,11 @@ header{
         text-align: center;
         padding-top: 0;
         border: solid 1px #CCC;
-
-        h3{
+        h3 {
             font-size: 2em;
             color: $dark-primary;
         }
-        .ir{
-
+        .ir {
             background-color: $primary;
             color: $white;
             text-decoration: none;
@@ -311,19 +287,16 @@ header{
             width: 50%;
             margin: 0 auto;
             padding: 0.5em;
-
         }
-
-        .ver-mas{
-          display: block;
-          margin-top: 1em;
-          text-decoration: none;
-          color: $dark-primary;
-          cursor: pointer;
+        .ver-mas {
+            display: block;
+            margin-top: 1em;
+            text-decoration: none;
+            color: $dark-primary;
+            cursor: pointer;
         }
-
-        p{
-            img{
+        p {
+            img {
                 width: 85%;
                 margin-bottom: 1.5em;
                 margin-top: 1.5em;
@@ -331,8 +304,7 @@ header{
         }
     }
 }
-
-.slider_container{
+.slider_container {
     position: fixed;
     //position: absolute;
     overflow: hidden;
@@ -340,11 +312,10 @@ header{
     left: 0;
     z-index: -2;
     background-color: #000;
-
-    .slideContainer{
+    .slideContainer {
         white-space: nowrap;
         height: 100%;
-        .slide{
+        .slide {
             display: inline-block;
             background: #fff;
             margin-right: -4px;
@@ -354,21 +325,19 @@ header{
         }
     }
 }
-
-.tercio{
+.tercio {
     display: inline-block;
     margin-right: -4px;
     width: 33.33%;
     vertical-align: top;
     height: 100%;
 }
-
-.terCiud{
+.terCiud {
     height: 100%;
     overflow: hidden;
-    a{
+    a {
         text-decoration: none;
-        .filt{
+        .filt {
             width: 100%;
             height: 100%;
             -webkit-filter: blur(2px) brightness(50%) grayscale(0.8);
@@ -378,12 +347,12 @@ header{
             -o-transition: all 0.4s;
             transition: all 0.4s;
             background-size: 100% 100%;
-            &:hover{
+            &:hover {
                 -webkit-filter: blur(0) brightness(110%) grayscale(0);
                 -o-filter: blur(0) brightness(110%) grayscale(0);
                 filter: blur(0) brightness(110%) grayscale(0);
             }
-            h2{
+            h2 {
                 text-align: center;
                 text-decoration: none;
                 color: $white;
@@ -392,36 +361,30 @@ header{
                 font-size: 4em;
             }
         }
-
     }
 }
-
-footer{
+footer {
     background: #3b3b3b;
     text-align: center;
     color: $white;
 }
-
 @media screen and (max-width: 768px) {
-    body{
+    body {
         padding-top: 80px;
     }
-
-    .menu_bar{
+    .menu_bar {
         display: block;
         width: 100%;
         position: fixed;
         top: 0;
         background: #607D8B;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-
-        .logo-menu{
-            img{
+        .logo-menu {
+            img {
                 max-height: 75px;
             }
         }
-
-        .bt-menu{
+        .bt-menu {
             display: block;
             padding: 20px;
             color: $white;
@@ -430,18 +393,15 @@ footer{
             font-weight: bold;
             text-decoration: none;
             float: right;
-
         }
-
-        span{
+        span {
             //float: right;
             font-size: 40px;
             border-radius: 10px;
         }
     }
-
-    header{
-        nav{
+    header {
+        nav {
             width: 50%;
             height: calc(100% - 80px);
             position: fixed;
@@ -451,40 +411,32 @@ footer{
             overflow: scroll;
             box-shadow: 3px 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
             text-align: left;
-            padding-right: 0px;
-
-            #logo{
+            padding-right: 0;
+            #logo {
                 display: none;
             }
-
-            ul{
-                li{
+            ul {
+                li {
                     display: block;
                     border-bottom: 1px solid $divider;
-
-                    &:hover{
-                        .children{
+                    &:hover {
+                        .children {
                             display: none;
                         }
                     }
-
-                    a{
+                    a {
                         display: block;
                     }
-
-                    .children{
+                    .children {
                         width: 100%;
                         position: relative;
-
-                        li{
-                            a{
+                        li {
+                            a {
                                 margin-left: 20px;
-
                             }
                         }
                     }
-
-                    .caret{
+                    .caret {
                         float: right;
                     }
                 }

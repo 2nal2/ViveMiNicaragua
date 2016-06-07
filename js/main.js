@@ -84,6 +84,28 @@ function main() {
         closeEffect: 'none'
     });
 
+    $(".gallery-image").fancybox({
+				openEffect : 'fade',
+		    	closeEffect	: 'fade',
+		    	closeBtn: false,
+		    	helpers : {
+		    		title : {
+		    			type : 'over' //'float', 'inside', 'outside' or 'over'
+		    		},
+		    		thumbs : {
+			            width: 50
+			        },
+			        buttons	: {},
+			        overlay : {
+			            css : {
+			                'background' : 'rgba(0,0,0,0.5)'
+			            }
+        			}
+
+		    	}
+
+			});
+
     $('.slider_controls li').on('click', handleClick);
     var width = $('.slider_container').width();
     $('.slide').each(function(i, e) {
