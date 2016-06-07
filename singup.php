@@ -29,7 +29,7 @@ and isset($_POST['pass2']) and isset($_POST['sexo'])) {
             $usuario->Sexo = $_POST['sexo'];
             $usuario->Clave = $_POST['pass'];
             $usuario->Rol = 'Suscriptor';
-            $usuario->Estado = false;
+            $usuario->Estado = 0;
             $usuario->Foto = 'uploads/default-user.png';
             $usuario->CodigoActivacion = $cod;
 
