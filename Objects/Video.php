@@ -2,7 +2,7 @@
 /**
  *
  */
-class Foto
+class Video
 {
     public $IdVideo;
     public $IdCiudad;
