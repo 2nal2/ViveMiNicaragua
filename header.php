@@ -44,7 +44,7 @@
 
 <header>
     <div class="menu_bar">
-        <a href="index.php" class="logo-menu"><img src="img/text42.png" alt="Vive mi Nicaragua" /></a>
+        <a href="index.php" class="logo-menu"><img src="img/text43.png" alt="Vive mi Nicaragua" /></a>
 
         <a href="#" class="bt-menu"><span class="icon-menu"></span></a>
     </div>
@@ -53,16 +53,16 @@
 
     <nav>
         <div id="logo">
-            <a href="index.php"><img src="img/text42.png" alt="Vive mi Nicaragua" /></a>
+            <a href="index.php"><img src="img/text43.png" alt="Vive mi Nicaragua" /></a>
         </div>
         <ul>
-            <li><a href="#"><span class="icon-home3"></span>Inicio</a></li>
+            <li><a href="index.php"><span class="icon-home3"></span>Inicio</a></li>
 
             <li class="submenu">
                 <a href="#"><span class="icon-library"></span>Ciudades <span class="caret icon-circle-down"></span></a>
 
                 <ul class="children">
-                    <li><a href="#">Le'on <span class="icon-pushpin"></span></a></li>
+                    <li><a href="#">León <span class="icon-pushpin"></span></a></li>
                     <li><a href="#">Matagalpa <span class="icon-pushpin"></span></a></li>
                     <li><a href="#">Masaya <span class="icon-pushpin"></span></a></li>
                 </ul>
@@ -72,7 +72,7 @@
                 <a href="#"><span class="icon-images"></span>Galeria <span class="caret icon-circle-down"></a>
 
                 <ul class="children">
-                    <li><a href="#">Imagenes <span class="icon-camera"></span></a></li>
+                    <li><a href="#">Imágenes <span class="icon-camera"></span></a></li>
                     <li><a href="#">Videos <span class="icon-video-camera"></span></a></li>
                 </ul>
             </li>
@@ -80,7 +80,7 @@
             <li><a href="#"><span class="icon-pacman"></span>Nosotros</a></li>
 
             <?php if (!isset($_SESSION['id_user'])): ?>
-              <li id="registrate"><a data-fancybox-type="iframe" href="singup.php" class="fancybox">Registrate</a></li>
+              <li id="registrate"><a data-fancybox-type="iframe" href="singup.php" class="fancybox">Regístrate</a></li>
               <li class="submenu" id="ya-tengo"><a href="#">Ya tengo una cuenta</a></li>
             <?php endif; ?>
 

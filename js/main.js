@@ -9,13 +9,13 @@ var flippedElement;
 var opcionesServicio = [
 
     {
-        nombre: 'A donde ir?',
+        nombre: '¿Dónde ir?',
         informacion: 'Te brindamos las mejores opciones para pasar un buen momento, lugares hermosos que conocer, lugares para crear momorias y enamorarte cada vez mas de Nicaragua',
         link: '#'
     },
 
     {
-        nombre: 'Como llegar?',
+        nombre: '¿Cómo llegar?',
         informacion: 'No te dejaremos solo en este viaje, aunque perderse en Nicaragua es una dicha, queremos que regreses bien a casa; asi que que mostraremos como llegar a esos lugares que te haran vivir Nicaragua, contandote que medios puedes usar para ello',
         link: '#'
     },

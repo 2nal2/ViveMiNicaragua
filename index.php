@@ -69,7 +69,7 @@
     <div class="marginTop">
         <div class="servicio">
             <div class="ribbon"></div>
-            <h3>¿A donde ir?</h3>
+            <h3>¿Dónde ir?</h3>
             <p>
                 <img src="img/flat/donde.png" alt="" />
             </p>
@@ -81,7 +81,7 @@
 
         <div class="servicio">
             <div class="ribbon"></div>
-            <h3>¿Como llegar?</h3>
+            <h3>¿Cómo llegar?</h3>
             <p>
                 <img src="img/flat/como.png" alt="" />
             </p>
