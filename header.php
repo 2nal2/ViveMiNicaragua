@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start();
+$url ="http://localhost/ViveMiNicaragua/";
+?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -12,15 +14,15 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="util/Iconos/fonts.css">
-    <link rel="stylesheet" href="util/fancybox/source/jquery.fancybox.css" media="screen">
-    <link rel="stylesheet" href="css/formulario.css">
-    <link rel="stylesheet" href="css/etc.css">
-    <link rel="stylesheet" href="util/fancybox/source/helpers/jquery.fancybox-buttons.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="util/fancybox/source/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?php echo $url ?>css/normalize.css">
+    <link rel="stylesheet" href="<?php echo $url ?>css/main.css">
+    <link rel="stylesheet" href="<?php echo $url ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo $url ?>util/Iconos/fonts.css">
+    <link rel="stylesheet" href="<?php echo $url ?>util/fancybox/source/jquery.fancybox.css" media="screen">
+    <link rel="stylesheet" href="<?php echo $url ?>css/formulario.css">
+    <link rel="stylesheet" href="<?php echo $url ?>css/etc.css">
+    <link rel="stylesheet" href="<?php echo $url ?>util/fancybox/source/helpers/jquery.fancybox-buttons.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?php echo $url ?>util/fancybox/source/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
@@ -28,12 +30,12 @@
         window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
     </script>
 
-    <script type="text/javascript" src="util/fancybox/source/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript" src="util/fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
-    <script type="text/javascript" src="util/fancybox/source/helpers/jquery.fancybox-media.js"></script>
-    <script type="text/javascript" src="util/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script type="text/javascript" src="<?php echo $url ?>util/fancybox/source/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="<?php echo $url ?>util/fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
+    <script type="text/javascript" src="<?php echo $url ?>util/fancybox/source/helpers/jquery.fancybox-media.js"></script>
+    <script type="text/javascript" src="<?php echo $url ?>util/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
+    <script src="<?php echo $url ?>js/plugins.js"></script>
+    <script src="<?php echo $url ?>js/main.js"></script>
 </head>
 
 <body>
@@ -44,7 +46,7 @@
 
 <header>
     <div class="menu_bar">
-        <a href="index.php" class="logo-menu"><img src="img/text43.png" alt="Vive mi Nicaragua" /></a>
+        <a href="<?php echo $url ?>index.php" class="logo-menu"><img src="<?php echo $url ?>img/text43.png" alt="Vive mi Nicaragua" /></a>
 
         <a href="#" class="bt-menu"><span class="icon-menu"></span></a>
     </div>
@@ -53,10 +55,10 @@
 
     <nav>
         <div id="logo">
-            <a href="index.php"><img src="img/text43.png" alt="Vive mi Nicaragua" /></a>
+            <a href="<?php echo $url ?>index.php"><img src="<?php echo $url ?>img/text43.png" alt="Vive mi Nicaragua" /></a>
         </div>
         <ul>
-            <li><a href="index.php"><span class="icon-home3"></span>Inicio</a></li>
+            <li><a href="<?php echo $url ?>index.php"><span class="icon-home3"></span>Inicio</a></li>
 
             <li class="submenu">
                 <a href="#"><span class="icon-library"></span>Ciudades <span class="caret icon-circle-down"></span></a>
@@ -80,7 +82,7 @@
             <li><a href="#"><span class="icon-pacman"></span>Nosotros</a></li>
 
             <?php if (!isset($_SESSION['id_user'])): ?>
-              <li id="registrate"><a data-fancybox-type="iframe" href="singup.php" class="fancybox">Regístrate</a></li>
+              <li id="registrate"><a data-fancybox-type="iframe" href="<?php echo $url ?>singup.php" class="fancybox">Regístrate</a></li>
               <li class="submenu" id="ya-tengo"><a href="#">Ya tengo una cuenta</a></li>
             <?php endif; ?>
 
@@ -88,7 +90,7 @@
             <li class="submenu" id="usuario">
                 <a href="#">
 
-                    <img src="<?php echo $_SESSION['foto'] ?>" alt="" style="width: 2em; height: 2em; background-repeat: no-repeat;
+                    <img src="<?php echo $url ?><?php echo $_SESSION['foto'] ?>" alt="" style="width: 2em; height: 2em; background-repeat: no-repeat;
                     background-position: 50%;
                     border-radius: 50%;
                     background-size: 100% auto;" />
@@ -99,7 +101,7 @@
                 <ul class="children">
                     <li><a href="edit-profile.php">Editar <span class="icon-cog"></span></a></li>
                     <!-- <li><a href="#">Dar de baja <span class="icon-user-minus"></span></a></li> -->
-                    <li><a href="Controller/Usuario/logout.php">Cerrar Sesion <span class="icon-switch"></span></a></li>
+                    <li><a href="<?php echo $url ?>Controller/Usuario/logout.php">Cerrar Sesion <span class="icon-switch"></span></a></li>
                 </ul>
 
             </li>
