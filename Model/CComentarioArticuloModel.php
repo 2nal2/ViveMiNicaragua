@@ -9,7 +9,7 @@
  require_once 'Objects/Sesion.php';
  require_once 'Objects/CComentarioArticulo';
 
-class ComentarioArticuloModel
+class CComentarioVideoModel
 {
     private $connection;
     public function __construct()
@@ -21,23 +21,19 @@ class ComentarioArticuloModel
       }
     }
 
-    public function save($comentarioArticulo){
+    public function save($ccomentarioArticulo){
       try {
-        $sql = 'INSERT INTO ComentarioArticulo
-            (IdComentario,IdUsuario,IdArticulo,Fecha,Estado,
-            Comentario) values
-            (?,?,?,?,?,?)';
+        $sql = 'INSERT INTO CComentarioArticulo
+            (IdCC,IdComentarioPadre,IdComentarioHijo) values
+            (?,?,?)';
 
         $stm = $this->connection->prepare($sql);
 
         return $stm->execute(
                   array(
-                    $comentarioArticulo->IdComentario,
-                    $comentarioArticulo->IdUsuario,
-                    $comentarioArticulo->IdArticulo,
-                    $comentarioArticulo->Fecha,
-                    $comentarioArticulo->Estado,
-                    $comentarioArticulo->Comentario
+                    $ccomentarioArticulo->IdCC,
+                    $ccomentarioArticulo->IdComentarioPadre,
+                    $ccomentarioArticulo->IdComentarioHijo
                   )
                );
       } catch (Exception $e) {
@@ -47,24 +43,19 @@ class ComentarioArticuloModel
 
     }
 
-    public function update($comentarioArticulo){
+    public function update($ccomentarioArticulo){
       try {
-        $sql = 'UPDATE ComentarioArticulo
-            set IdComentario = ?,IdUsuario = ?,IdArticulo = ?,
-            Fecha = ?,Estado= ?,
-            Comentario= ?
-            where IdComentario = ?';
+        $sql = 'UPDATE CComentarioArticulo
+            set IdCC = ?,IdComentarioPadre = ?,IdComentarioHijo = ?
+            where IdCC = ?';
 
         $stm = $this->connection->prepare($sql);
 
         return $stm->execute(
                   array(
-                      $comentarioArticulo->IdComentario,
-                      $comentarioArticulo->IdUsuario,
-                      $comentarioArticulo->IdArticulo,
-                      $comentarioArticulo->Fecha,
-                      $comentarioArticulo->Estado,
-                      $comentarioArticulo->Comentario
+                      $ccomentarioArticulo->IdCC,
+                      $ccomentarioArticulo->IdComentarioPadre,
+                      $ccomentarioArticulo->IdComentarioHijo
                   )
                );
       } catch (Exception $e) {
@@ -77,12 +68,12 @@ class ComentarioArticuloModel
     public function getAll(){
       $r = array();
       try {
-        $sql = 'select * from ComentarioArticulo';
+        $sql = 'select * from CComentarioArticulo';
         $stm = $this->connection->prepare($sql);
-        $stm->setFetchMode(PDO::FETCH_CLASS, 'ComentarioArticulo');
+        $stm->setFetchMode(PDO::FETCH_CLASS, 'CComentarioArticulo');
         $stm->execute();
-        while($comentarioArticulo = $stm->fetch()){
-          $r[] = $comentarioArticulo;
+        while($ccomentarioArticulo = $stm->fetch()){
+          $r[] = $ccomentarioArticulo;
         }
       } catch (Exception $e) {
         die($e->getMessage());
@@ -93,12 +84,12 @@ class ComentarioArticuloModel
     public function getById($id){
       $r = array();
       try {
-        $sql = 'select * from ComentarioArticulo where IdArticulo = ?';
+        $sql = 'select * from CComentarioArticulo where IdCC = ?';
         $stm = $this->connection->prepare($sql);
-        $stm->setFetchMode(PDO::FETCH_CLASS, 'ComentarioArticulo');
+        $stm->setFetchMode(PDO::FETCH_CLASS, 'CComentarioArticulo');
         $stm->execute(array($id));
-        while($comentarioArticulo = $stm->fetch()){
-          $r[] = $comentarioArticulo;
+        while($ccomentarioArticulo = $stm->fetch()){
+          $r[] = $ccomentarioArticulo;
         }
       } catch (Exception $e) {
         die($e->getMessage());

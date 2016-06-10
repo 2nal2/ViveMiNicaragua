@@ -104,6 +104,22 @@
          die($e->getMessage());
          return $r;
        }
-
      }
+
+     public function getSubComentarioById($idComentarioPadre){
+          $r = array();
+        try {
+          $sql = 'select * from CComentarioVideo where IdComentarioPadre = ?';
+          $stm = $this->connection->prepare($sql);
+          $stm->setFetchMode(PDO::FETCH_CLASS, 'CComentarioVideo');
+          $stm->execute(array($idComentarioPadre));
+          while($ccomentarioVideo = $stm->fetch()){
+            $r[] = $ccomentarioArticulo;
+          }
+        } catch (Exception $e) {
+          die($e->getMessage());
+          return $r;
+        }
+     }
+
  }

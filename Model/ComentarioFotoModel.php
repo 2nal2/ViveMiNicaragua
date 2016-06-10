@@ -7,6 +7,7 @@
  require_once 'Objects/ComentarioFoto.php';
  require_once 'Objects/Usuario.php';
  require_once 'Objects/Sesion.php';
+ require_once 'Objects/CComentarioFoto';
 
  class ComentarioFotoModel
  {
@@ -104,6 +105,22 @@
          die($e->getMessage());
          return $r;
        }
-
      }
+
+public function getSubComentarioById($idComentarioPadre){
+     $r = array();
+   try {
+     $sql = 'select * from CComentarioFoto where IdComentarioPadre = ?';
+     $stm = $this->connection->prepare($sql);
+     $stm->setFetchMode(PDO::FETCH_CLASS, 'CComentarioFoto');
+     $stm->execute(array($idComentarioPadre));
+     while($ccomentarioFoto = $stm->fetch()){
+       $r[] = $ccomentarioFoto;
+     }
+   } catch (Exception $e) {
+     die($e->getMessage());
+     return $r;
+   }
+}
+
  }
