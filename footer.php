@@ -1,3 +1,4 @@
+</body>
 <section id="foot" class="roboto">
     <div id="redes">
         <p>
@@ -38,14 +39,14 @@
             ga('create','UA-XXXXX-X','auto');ga('send','pageview');
         </script>-->
 
-<script src="util/uiflip/jquery.ui.core.min.js"></script>
-<script src="util/uiflip/jquery.ui.effect.min.js"></script>
-<script src="util/uiflip/jquery.flip.min.js"></script>
-<script src="js/jquery.tmpl.min.js"></script>
-<script src="js/scrollto.min.js"></script>
-<script src="js/localscroll.min.js"></script>
-<script src="js/jquery.scrollorama.js"></script>
-<script src="js/stellar.min.js"></script>
+<script src="<?php echo $url ?>util/uiflip/jquery.ui.core.min.js"></script>
+<script src="<?php echo $url ?>util/uiflip/jquery.ui.effect.min.js"></script>
+<script src="<?php echo $url ?>util/uiflip/jquery.flip.min.js"></script>
+<script src="<?php echo $url ?>js/jquery.tmpl.min.js"></script>
+<script src="<?php echo $url ?>js/scrollto.min.js"></script>
+<script src="<?php echo $url ?>js/localscroll.min.js"></script>
+<script src="<?php echo $url ?>js/jquery.scrollorama.js"></script>
+<script src="<?php echo $url ?>js/stellar.min.js"></script>
 <script type="text/javascript">
   $(".fancybox").fancybox({
       width: '70%',
@@ -59,7 +60,7 @@
       closeEffect: 'none'
   });
 </script>
-</body>
+
 
 <footer>
     Copyright © 2016 WebDreamers Limited. Cardoza, Dominguez, Larios, Vargas. Todos los derechos reservados.

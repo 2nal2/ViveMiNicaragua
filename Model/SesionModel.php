@@ -64,7 +64,7 @@ class SesionModel
         try {
             $r = array();
 
-            $stm = $this->connection->prepare('SELECT * FROM Sesion WHERE IdUsuario= ?');
+            $stm = $this->connection->prepare('SELECT * FROM Sesion WHERE IdUsuario= ? order by HoraInicio desc limit 50');
             $stm->setFetchMode(PDO::FETCH_CLASS, 'Sesion');
             $stm->execute(array($idUser));
             while ($sesion = $stm->fetch()) {

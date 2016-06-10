@@ -1,5 +1,7 @@
-<?php session_start();
-$url ="http://localhost/ViveMiNicaragua/";
+<?php
+include_once 'constants.php';
+session_start();
+$url = _ROOT_;
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -14,28 +16,40 @@ $url ="http://localhost/ViveMiNicaragua/";
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
+
+
     <link rel="stylesheet" href="<?php echo $url ?>css/normalize.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/main.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/style.css">
+
     <link rel="stylesheet" href="<?php echo $url ?>util/Iconos/fonts.css">
     <link rel="stylesheet" href="<?php echo $url ?>util/fancybox/source/jquery.fancybox.css" media="screen">
     <link rel="stylesheet" href="<?php echo $url ?>css/formulario.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/etc.css">
+    <link rel="stylesheet" href="<?php echo $url ?>css/table.css">
     <link rel="stylesheet" href="<?php echo $url ?>util/fancybox/source/helpers/jquery.fancybox-buttons.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="<?php echo $url ?>util/fancybox/source/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script> 
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-    <script>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+     <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
     </script>
+
+
 
     <script type="text/javascript" src="<?php echo $url ?>util/fancybox/source/jquery.fancybox.pack.js"></script>
     <script type="text/javascript" src="<?php echo $url ?>util/fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
     <script type="text/javascript" src="<?php echo $url ?>util/fancybox/source/helpers/jquery.fancybox-media.js"></script>
     <script type="text/javascript" src="<?php echo $url ?>util/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/bs-3.3.6/dt-1.10.11,r-2.0.2/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/t/bs-3.3.6/dt-1.10.11,r-2.0.2/datatables.min.js"></script> -->
     <script src="<?php echo $url ?>js/plugins.js"></script>
     <script src="<?php echo $url ?>js/main.js"></script>
+
+
 </head>
 
 <body>
@@ -99,7 +113,7 @@ $url ="http://localhost/ViveMiNicaragua/";
                     <span class="caret icon-circle-down"></a>
 
                 <ul class="children">
-                    <li><a href="edit-profile.php">Editar <span class="icon-cog"></span></a></li>
+                    <li><a href="<?php echo $url ?>edit-profile.php">Editar <span class="icon-cog"></span></a></li>
                     <!-- <li><a href="#">Dar de baja <span class="icon-user-minus"></span></a></li> -->
                     <li><a href="<?php echo $url ?>Controller/Usuario/logout.php">Cerrar Sesion <span class="icon-switch"></span></a></li>
                 </ul>

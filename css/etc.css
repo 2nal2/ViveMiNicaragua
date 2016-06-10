@@ -37,6 +37,13 @@
   position: relative;
   margin-bottom: 4em;
 }
+.panel1{
+  float: left;
+  width: 25%;
+  margin: 0 auto;
+  margin-top: 6em;
+  position: relative;
+}
 
 .center{
   margin: 0 auto;
@@ -132,6 +139,18 @@
 @media screen and (max-width: 950px){
   body{
     padding-top: 40px;
+  }
+  .panel1{
+    clear: both;
+    content: "";
+    display: table-cell;
+    width: 100%;
+    margin-bottom: 1em;
+    margin-top: 2em;
+  }
+
+  .contenedor-formulario{
+    clear: both;
   }
 
 }

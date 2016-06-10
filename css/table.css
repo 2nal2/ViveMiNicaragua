@@ -1,0 +1,180 @@
+/*diseño del input*/
+
+.ctr {
+  position: relative;
+	width: 30%;
+  margin: 0 auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+}
+.ctr label{
+  width: 10%;
+}
+#kwd_search{
+  width: 90%;
+  border: none;
+  border-bottom: 1px solid;
+  outline: 0;
+  border-color: #009688;
+  margin: 0 auto;
+}
+
+#kwd_search:focus{
+  border-color: #00796b;
+}
+
+
+/*fin de searh*/
+
+h2 {
+  font-size: 36px;
+  margin: 0 0 10px 0
+}
+p {
+  margin: 0 0 10px 0
+}
+table.width200 a {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+table.width200 a:visited {
+  color: black;
+}
+table.width200 a:hover {
+  color: #00796B;
+}
+table.width200, table.rwd_auto {
+  /*border: 1px solid #ccc;*/
+  width: 80%;
+  margin: 0 auto;
+  border-sizing: border-box;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  outline: 0;
+}
+.width200 th, .rwd_auto th {
+  /*background: #ccc;*/
+  padding: 5px;
+  text-align: center;
+  color: black;
+  border-bottom: solid 1px #DDDDDD;
+}
+.width200 td, .rwd_auto td {
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  text-align: center
+}
+
+/*.width200 tr:last-child td, .rwd_auto tr:last-child td {
+  border: 0;
+}*/
+
+.width200 tr:hover {
+  background-color: #EEEEEE;
+}
+.rwd {
+  width: 100%;
+  overflow: auto;
+}
+.rwd table.rwd_auto {
+  width: auto;
+  min-width: 100%
+}
+.rwd_auto th, .rwd_auto td {
+  white-space: nowrap;
+}
+@media only screen and (max-width: 760px), (min-width: 768px) and (max-width: 1024px) {
+  table.width200, .width200 thead, .width200 tbody, .width200 th, .width200 td, .width200 tr {
+    display: block;
+  }
+  .width200 thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  .width200 tr {
+    border: 1px solid #ccc;
+    word-wrap: break-word;
+  }
+  .width200 td {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    padding-left: 50%;
+    text-align: left
+  }
+  .width200 td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  #sesion-table td:nth-of-type(1):before {
+    content: "ID SESION" !important;
+  }
+  #sesion-table td:nth-of-type(2):before {
+    content: "USUARIO" !important;
+  }
+  #sesion-table td:nth-of-type(3):before {
+    content: "HORA INICIO" !important;
+  }
+  #sesion-table td:nth-of-type(4):before {
+    content: "HORA FIN" !important;
+  }
+  .width200 td:nth-of-type(1):before {
+    content: "ID USUARIO";
+  }
+  .width200 td:nth-of-type(2):before {
+    content: "NOMBRE USUARIO";
+  }
+  .width200 td:nth-of-type(3):before {
+    content: "EMAIL";
+  }
+  .width200 td:nth-of-type(4):before {
+    content: "ROL";
+  }
+  .width200 td:nth-of-type(5):before {
+    content: "ESTADO";
+  }
+  .width200 td:nth-of-type(6):before {
+    content: "SEXO";
+  }
+  .width200 td:nth-of-type(7):before {
+    content: "";
+  }
+  .descarto {
+    display: none;
+  }
+  .fontsize {
+    font-size: 10px
+  }
+
+  .ctr{
+    width: 70%;
+  }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .descarto {
+    display: none;
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .descarto {
+    display: none;
+  }
+  .fontsize {
+    font-size: 10px
+  }
+
+
+}
