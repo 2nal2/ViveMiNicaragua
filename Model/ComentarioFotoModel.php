@@ -3,19 +3,15 @@
  *
  */
  require_once 'Connection/Connection.php';
- require_once 'Objects/Articulo.php';
  require_once 'Objects/ComentarioFoto.php';
- require_once 'Objects/Usuario.php';
- require_once 'Objects/Sesion.php';
- require_once 'Objects/CComentarioFoto';
-
  class ComentarioFotoModel
  {
      private $connection;
      public function __construct()
      {
        try {
-         $this->connection = new Connection()->__getConnection();
+            $c = new Connection();
+         $this->connection = $c->__getConnection();
        } catch (Exception $e) {
          die($e->getMessage());
        }
@@ -46,6 +42,23 @@
          return false;
        }
 
+     }
+
+     public function getByPhotoId($fotoId){
+          $r = array();
+          try {
+            $sql = 'select * from ComentarioFoto where IdFoto = ?';
+            $stm = $this->connection->prepare($sql);
+            $stm->setFetchMode(PDO::FETCH_CLASS, 'ComentarioFoto');
+            $stm->execute(array($fotoId));
+            while($comentarioFoto = $stm->fetch()){
+              $r[] = $comentarioFoto;
+            }
+            return $r;
+          } catch (Exception $e) {
+            die($e->getMessage());
+            return $r;
+          }
      }
 
      public function update($comentarioFoto){
@@ -85,6 +98,7 @@
          while($comentarioFoto = $stm->fetch()){
            $r[] = $comentarioFoto;
          }
+         return $r;
        } catch (Exception $e) {
          die($e->getMessage());
          return $r;
@@ -101,6 +115,7 @@
          while($comentarioFoto = $stm->fetch()){
            $r[] = $comentarioFoto;
          }
+         return $r;
        } catch (Exception $e) {
          die($e->getMessage());
          return $r;
