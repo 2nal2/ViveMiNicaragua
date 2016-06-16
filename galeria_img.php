@@ -11,8 +11,10 @@ $comentarioFotoModel = new ComentarioFotoModel();
    <h1 ><?php echo $comentario->Comentario; ?></h1>
  <?php endforeach; ?>
   <!-- <img src="<?php echo $foto->Ruta ?>" alt=""/> -->
-  <a title="<?php echo $foto->Nombre ?>" href="<?php echo $foto->Ruta ?>" rel="gallery"class="gallery-image">
-  <img src="<?php echo $foto->Ruta ?>" alt="" /></a>
+  <a title="<?php echo $foto->Nombre ?>" href="<?php echo $foto->Ruta ?>" rel="gallery"class="gallery-image" >
+  <img src="<?php echo $foto->Ruta ?>" alt="" />
+  <textarea rows="5" cols="40" ></textarea></a>
+  <input type="submit" class="button" name="insert" value="Aceptar" />
 <?php endforeach; ?>
 
 <script type="text/javascript">
@@ -34,6 +36,8 @@ $(".gallery-image").fancybox({
           },
           buttons	: {}
       }
+
+
   });
 </script>
  <?php
