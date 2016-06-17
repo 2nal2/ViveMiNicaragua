@@ -254,14 +254,14 @@ header {
 
 .principalArticulos{
     background: #e6e6e6;
-    //text-align: center;
+    text-align: center;
     .contenidoArticulos{
         background: #fff;
         width: 80%;
         margin-left: 10%;
-        position: relative;
-        top: 50%;
-        z-index: 100;
+        //position: absolute;
+        top: -100px;
+        z-index: 100
     }
 
 }
@@ -477,6 +477,49 @@ footer {
                 }
             }
         }
+    }
+
+    .tercio {
+        display: block;
+        margin-right: -4px;
+        width: 100%;
+        vertical-align: top;
+        height: 33.33%;
+    }
+    .terCiud {
+        height: 33.33%;
+        overflow: hidden;
+        a {
+            text-decoration: none;
+            .filt {
+                width: 100%;
+                height: 100%;
+                -webkit-filter: blur(2px) brightness(50%) grayscale(0.8);
+                -o-filter: blur(2px) brightness(50%) grayscale(0.8);
+                filter: blur(2px) brightness(50%) grayscale(0.8);
+                -webkit-transition: all 0.4s;
+                -o-transition: all 0.4s;
+                transition: all 0.4s;
+                background-size: 100% 100%;
+                &:hover {
+                    -webkit-filter: blur(0) brightness(110%) grayscale(0);
+                    -o-filter: blur(0) brightness(110%) grayscale(0);
+                    filter: blur(0) brightness(110%) grayscale(0);
+                }
+                h2 {
+                    text-align: center;
+                    text-decoration: none;
+                    color: $white;
+                    text-shadow: 1px 1px 20px #000;
+                    padding-top: 50%;
+                    font-size: 4em;
+                }
+            }
+        }
+    }
+
+    #servicios {
+        display: none;
     }
 
 

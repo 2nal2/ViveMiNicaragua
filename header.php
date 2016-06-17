@@ -31,7 +31,7 @@ $url = _ROOT_;
     <link rel="stylesheet" href="<?php echo $url ?>util/fancybox/source/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 
-    <script src="http://code.jquery.com/jquery-1.8.2.js"></script> 
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
      <script>
