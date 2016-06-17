@@ -3,10 +3,6 @@
  *
  */
  require_once 'Connection/Connection.php';
- require_once 'Objects/Video.php';
- require_once 'Objects/ComentarioVideo.php';
- require_once 'Objects/Usuario.php';
- require_once 'Objects/Sesion.php';
  require_once 'Objects/CComentarioVideo';
 
 class CComentarioVideoModel
@@ -14,11 +10,12 @@ class CComentarioVideoModel
     private $connection;
     public function __construct()
     {
-      try {
-        $this->connection = new Connection()->__getConnection();
-      } catch (Exception $e) {
-        die($e->getMessage());
-      }
+        try {
+               $c = new Connection();
+            $this->connection = $c->__getConnection();
+          } catch (Exception $e) {
+            die($e->getMessage());
+          }
     }
 
     public function save($ccomentarioVideo){
@@ -75,6 +72,7 @@ class CComentarioVideoModel
         while($ccomentarioVideo = $stm->fetch()){
           $r[] = $ccomentarioVideo;
         }
+        return $r;
       } catch (Exception $e) {
         die($e->getMessage());
         return $r;
@@ -91,6 +89,7 @@ class CComentarioVideoModel
         while($ccomentarioVideo = $stm->fetch()){
           $r[] = $ccomentarioVideo;
         }
+        return $r;
       } catch (Exception $e) {
         die($e->getMessage());
         return $r;
@@ -107,6 +106,7 @@ class CComentarioVideoModel
           while($ccomentarioVideo = $stm->fetch()){
             $r[] = $ccomentarioVideo;
           }
+          return $r;
         } catch (Exception $e) {
           die($e->getMessage());
           return $r;

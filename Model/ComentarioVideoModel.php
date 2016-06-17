@@ -3,21 +3,19 @@
  *
  */
  require_once 'Connection/Connection.php';
- require_once 'Objects/Video.php';
  require_once 'Objects/ComentarioVideo.php';
- require_once 'Objects/Usuario.php';
- require_once 'Objects/Sesion.php';
 
  class ComentarioVideoModel
  {
      private $connection;
      public function __construct()
      {
-       try {
-         $this->connection = new Connection()->__getConnection();
-       } catch (Exception $e) {
-         die($e->getMessage());
-       }
+          try {
+               $c = new Connection();
+            $this->connection = $c->__getConnection();
+          } catch (Exception $e) {
+            die($e->getMessage());
+          }
 
      }
 
@@ -84,6 +82,7 @@
          while($comentarioVideo = $stm->fetch()){
            $r[] = $comentarioVideo;
          }
+         return $r;
        } catch (Exception $e) {
          die($e->getMessage());
          return $r;
@@ -100,6 +99,7 @@
          while($comentarioVideo = $stm->fetch()){
            $r[] = $comentarioVideo;
          }
+         return $r;
        } catch (Exception $e) {
          die($e->getMessage());
          return $r;
@@ -116,6 +116,7 @@
           while($ccomentarioVideo = $stm->fetch()){
             $r[] = $ccomentarioArticulo;
           }
+          return $r;
         } catch (Exception $e) {
           die($e->getMessage());
           return $r;

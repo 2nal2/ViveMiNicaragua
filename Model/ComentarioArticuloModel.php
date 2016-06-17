@@ -4,21 +4,18 @@
  */
  require_once 'Connection/Connection.php';
  require_once 'Objects/Articulo.php';
- require_once 'Objects/ComentarioArticulo.php';
- require_once 'Objects/Usuario.php';
- require_once 'Objects/Sesion.php';
- require_once 'Objects/CComentarioArticulo';
 
 class ComentarioArticuloModel
 {
     private $connection;
     public function __construct()
     {
-      try {
-        $this->connection = new Connection()->__getConnection();
-      } catch (Exception $e) {
-        die($e->getMessage());
-      }
+        try {
+              $c = new Connection();
+           $this->connection = $c->__getConnection();
+         } catch (Exception $e) {
+           die($e->getMessage());
+         }
     }
 
     public function save($comentarioArticulo){
@@ -84,6 +81,7 @@ class ComentarioArticuloModel
         while($comentarioArticulo = $stm->fetch()){
           $r[] = $comentarioArticulo;
         }
+        return $r;
       } catch (Exception $e) {
         die($e->getMessage());
         return $r;
@@ -100,6 +98,7 @@ class ComentarioArticuloModel
         while($comentarioArticulo = $stm->fetch()){
           $r[] = $comentarioArticulo;
         }
+        return $r;
       } catch (Exception $e) {
         die($e->getMessage());
         return $r;
@@ -116,6 +115,7 @@ class ComentarioArticuloModel
           while($ccomentarioArticulo = $stm->fetch()){
             $r[] = $ccomentarioArticulo;
           }
+          return $r;
         } catch (Exception $e) {
           die($e->getMessage());
           return $r;

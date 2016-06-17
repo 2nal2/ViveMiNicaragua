@@ -8,7 +8,7 @@ $comentarioFotoModel = new ComentarioFotoModel();
 
 <?php foreach ($fotoModel->getAll() as $foto): ?>
  <?php foreach ($comentarioFotoModel->getByPhotoId($foto->IdFoto) as $comentario): ?>
-   <h1 ><?php echo $comentario->Comentario; ?></h1>
+   <a title="<?php echo $comentario->Comentario ?>" rel="css/style.css" class="mensajePrincipal"></a>
  <?php endforeach; ?>
   <!-- <img src="<?php echo $foto->Ruta ?>" alt=""/> -->
   <a title="<?php echo $foto->Nombre ?>" href="<?php echo $foto->Ruta ?>" rel="gallery"class="gallery-image" >
