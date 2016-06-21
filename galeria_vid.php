@@ -18,8 +18,12 @@
 <section id="wrap_galerias" style="height:100%">
     <h2>Galería de Videos</h2>
     <?php foreach ($videoModel->getAll() as $video): ?>
+      <?php
+        $id = explode("/", $video->Url);
+        $id = $id[4];
+       ?>
         <a class="fancybox-media" href="https://www.youtube.com/watch?v=<?php echo $video->Url ?>">
-            <img src="https://i.ytimg.com/vi/<?php echo $video->Url ?>/mqdefault.jpg" alt="" />
+            <img src="https://i.ytimg.com/vi/<?php echo $id ?>/mqdefault.jpg" alt="" />
         </a>
       <?php endforeach; ?>
 </section>
