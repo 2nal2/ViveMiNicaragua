@@ -6,6 +6,7 @@ require_once 'Model/UsuarioModel.php';
 require_once 'Objects/Usuario.php';
 require_once 'Model/CComentarioFotoModel.php';
 require_once 'Objects/ComentarioFoto.php';
+require_once 'Objects/CComentarioFoto.php';
 
 $fotoModel = new FotoModel();
 $comentarioFotoModel = new ComentarioFotoModel();
@@ -52,7 +53,7 @@ $ccomentarioModel = new CComentarioFotoModel();
 
                   <p>
                     <h5>SUBCOMENTARIOS</h5>
-                    <?php foreach ($ccomentarioModel->getSubComments($comentarios->IdComentarioPadre) as $ccomentarios):?>
+                    <?php foreach ($ccomentarioModel->getSubComments($comentarios->IdComentario) as $ccomentarios):?>
                     <p>
                       <?php echo $ccomentarios->Comentario ?>
                     </p>

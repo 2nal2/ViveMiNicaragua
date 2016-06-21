@@ -42,7 +42,7 @@ class CComentarioFotoModel
             return false;
         }
     }
-
+    
     public function getSubComments($idComentarioPadre){
         $r = array();
         try {
