@@ -99,7 +99,7 @@ $url = _ROOT_;
 
             <?php if (!isset($_SESSION['id_user'])): ?>
               <li id="registrate"><a data-fancybox-type="iframe" href="<?php echo $url ?>singup.php" class="fancybox">Regístrate</a></li>
-              <li class="submenu" id="ya-tengo"><a href="#">Ya tengo una cuenta</a></li>
+              <li id="ya-tengo"><a data-fancybox-type="iframe" href="<?php echo $url ?>singin.php" class="fancybox">Ya tengo una cuenta</a></li>
             <?php endif; ?>
 
             <?php if (isset($_SESSION['id_user'])): ?>
