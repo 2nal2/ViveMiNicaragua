@@ -81,9 +81,9 @@ $url = _ROOT_;
                 <a href="#"><span class="icon-library"></span>Ciudades <span class="caret icon-circle-down"></span></a>
 
                 <ul class="children">
-                    <li><a href="#">León <span class="icon-pushpin"></span></a></li>
-                    <li><a href="#">Matagalpa <span class="icon-pushpin"></span></a></li>
-                    <li><a href="#">Masaya <span class="icon-pushpin"></span></a></li>
+                    <li><a href="<?php echo $url ?>leon.php">León <span class="icon-pushpin"></span></a></li>
+                    <li><a href="<?php echo $url ?>matagalpa.php">Matagalpa <span class="icon-pushpin"></span></a></li>
+                    <li><a href="<?php echo $url ?>masaya.php">Masaya <span class="icon-pushpin"></span></a></li>
                 </ul>
             </li>
 
@@ -91,8 +91,8 @@ $url = _ROOT_;
                 <a href="#"><span class="icon-images"></span>Galeria <span class="caret icon-circle-down"></a>
 
                 <ul class="children">
-                    <li><a href="galeria_img.php">Imágenes <span class="icon-camera"></span></a></li>
-                    <li><a href="galeria_vid.php">Videos <span class="icon-video-camera"></span></a></li>
+                    <li><a href="<?php echo $url ?>galeria_img.php">Imágenes <span class="icon-camera"></span></a></li>
+                    <li><a href="<?php echo $url ?>galeria_vid.php">Videos <span class="icon-video-camera"></span></a></li>
                 </ul>
             </li>
 
