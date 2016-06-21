@@ -7,33 +7,34 @@
 
  ?>
 
- <?php foreach ($videoModel->getAll() as $video): ?>
-
-   <?php echo $video->Url?>
-   <iframe width="100%" height="100%"
-    src="<?php echo $video->Url ?>"  frameborder="0" allowfullscreen>
-  </iframe>
-
-
-
-  <?php
-  $url = $video->Url;
-
-  $vidArray = explode('/', $url);
-  $size = count($vidArray) - 1;
-  $vidID = $vidArray[$size];
-
-  // $thumb_default = file_get_contents("http://img.youtube.com/vi/$vidID/default.jpg");
-  //
-  // $thumb1 = file_get_contents("http://img.youtube.com/vi/$vidID/0.jpg");
-  // $thumb2 = file_get_contents("http://img.youtube.com/vi/$vidID/1.jpg");
-  // $thumb3 = file_get_contents("http://img.youtube.com/vi/$vidID/2.jpg");
-  // $thumb4 = file_get_contents("http://img.youtube.com/vi/$vidID/3.jpg");
-  echo "<img src='http://img.youtube.com/vi/$vidID/default.jpg' alt='' />";
-
-  ?>
+ <style media="screen">
+ html, body{
+     background-image: url(img/textura.JPG);
+     background-size: 100% 100%;
+ }
+ </style>
 
 
+<section id="wrap_galerias" class="fu">
+    <h2>Galería de Videos</h2>
+    <?php foreach ($videoModel->getAll() as $video): ?>
+        <a class="fancybox-media" href="https://www.youtube.com/watch?v=<?php echo $video->Url ?>">
+            <img src="https://i.ytimg.com/vi/<?php echo $video->Url ?>/mqdefault.jpg" alt="" />
+        </a>
+      <?php endforeach; ?>
+</section>
 
- <?php endforeach; ?>
+<script type="text/javascript">
+
+$('.fancybox-media').fancybox({
+    openEffect  : 'none',
+    closeEffect : 'none',
+    helpers : {
+        media : {}
+    }
+});
+
+</script>
+
+
 <?php require_once 'footer.php'; ?>

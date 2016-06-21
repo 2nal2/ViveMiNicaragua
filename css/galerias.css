@@ -7,6 +7,9 @@
     height: 300px;
     float: left;
     margin: 10px 10px; }
+  #wrap_galerias .fancybox-media img {
+    float: left;
+    margin: 10px 10px; }
   #wrap_galerias .fancyOther img {
     height: 300px;
     float: left;

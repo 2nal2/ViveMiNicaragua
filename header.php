@@ -90,8 +90,8 @@ $url = _ROOT_;
                 <a href="#"><span class="icon-images"></span>Galeria <span class="caret icon-circle-down"></a>
 
                 <ul class="children">
-                    <li><a href="#">Imágenes <span class="icon-camera"></span></a></li>
-                    <li><a href="#">Videos <span class="icon-video-camera"></span></a></li>
+                    <li><a href="galeria_img.php">Imágenes <span class="icon-camera"></span></a></li>
+                    <li><a href="galeria_vid.php">Videos <span class="icon-video-camera"></span></a></li>
                 </ul>
             </li>
 
