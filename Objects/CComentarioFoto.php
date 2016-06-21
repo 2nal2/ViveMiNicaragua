@@ -2,7 +2,7 @@
 /**
  *
  */
-class CComentarioVideo
+class CComentarioFoto
 {
     public $IdCC;
     public $IdComentarioPadre;

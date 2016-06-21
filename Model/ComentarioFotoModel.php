@@ -2,8 +2,8 @@
 /**
  *
  */
- require_once 'Connection/Connection.php';
- require_once 'Objects/ComentarioFoto.php';
+ require_once _dependencia_.'Connection/Connection.php';
+ require_once _dependencia_.'Objects/ComentarioFoto.php';
  class ComentarioFotoModel
  {
      private $connection;
@@ -15,21 +15,19 @@
        } catch (Exception $e) {
          die($e->getMessage());
        }
-
      }
 
      public function save($comentarioFoto){
        try {
          $sql = 'INSERT INTO ComentarioFoto
-             (IdComentario,IdUsuario,IdFoto,Fecha,Estado,
+             (IdUsuario,IdFoto,Fecha,Estado,
              Comentario) values
-             (?,?,?,?,?,?)';
+             (?,?,?,?,?)';
 
          $stm = $this->connection->prepare($sql);
 
          return $stm->execute(
                    array(
-                     $comentarioFoto->IdComentario,
                      $comentarioFoto->IdUsuario,
                      $comentarioFoto->IdFoto,
                      $comentarioFoto->Fecha,
