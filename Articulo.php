@@ -48,12 +48,23 @@ $ccomentario   = new CComentarioArticuloModel();
             </article>
 
               <!-- Carga de comentarios de un comentarios -->
+              <strong><?php echo count($ccomentario->getSubComments($comment->IdComentario)); ?></strong>
             <?php foreach ($ccomentario->getSubComments($comment->IdComentario) as $subcomment):
               $usuarioComment = $usuarioModel->getById($subcomment->IdUsuario)?>
-              <p><?php echo $usuarioComment->NombreUsuario; ?></p>
-              <p><?php echo $subcomment->Fecha; ?></p>
-              <p><?php echo $subcomment->Comentario; ?></p>
-          <?php endforeach; ?>
+              <article class="">
+                <p><?php echo $usuarioComment->NombreUsuario; ?></p>
+                <p><?php echo $subcomment->Fecha; ?></p>
+                <p><?php echo $subcomment->Comentario; ?></p>
+              </article>
+
+            <?php endforeach; ?>
+            <!-- Form para realizar subcomentario -->
+            <form class="" action="Controller/comentario_articulo/save-ccomment.php" method="post">
+              <input type="hidden" value='<?php echo $articulo->IdArticulo; ?>' name='idArticulo'>
+              <input type="hidden" value='<?php echo $comment->IdComentario; ?>' name='idComentario'>
+              <textarea rows="5" cols="40" name="comentario"></textarea>
+              <input type="submit" name="name" value="comentar">
+            </form>
           <?php endif; ?>
         <?php endforeach; ?>
       </div>
