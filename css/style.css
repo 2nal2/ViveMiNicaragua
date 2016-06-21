@@ -108,7 +108,8 @@ header {
   color: #f2f2f2;
   background: #3b3b3b;
   overflow: hidden;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+  z-index: 101; }
   #foot div {
     padding: 20px; }
     #foot div h4 {
@@ -191,15 +192,24 @@ header {
   text-align: justify;
   padding: 10px; }
 
-.principalArticulos {
+#index .contenidoArticulos {
+  background: #fff;
+  width: 80%;
+  margin-left: 10%;
+  position: absolute;
+  top: 70%;
+  z-index: 100;
+  padding: 5%;
+  text-align: justify; }
+  #index .contenidoArticulos h3 {
+    font-size: 30px;
+    color: #00796b; }
+#index .principalArticulos {
   background: #e6e6e6;
-  text-align: center; }
-  .principalArticulos .contenidoArticulos {
-    background: #fff;
-    width: 80%;
-    margin-left: 10%;
-    top: -100px;
-    z-index: 100; }
+  text-align: center;
+  min-height: 100%;
+  position: absolute;
+  z-index: 99; }
 
 .portadaArticulos {
   width: 100%;
@@ -210,7 +220,13 @@ header {
 
 #portadaLeon {
   background-image: url(../img/principales/leon.JPG);
-  background-size: 100% 100%; }
+  background-size: 100% 100%;
+  background-attachment: fixed; }
+
+#portadaMasaya {
+  background-image: url(../img/principales/masaya.JPG);
+  background-size: 100% 100%;
+  background-attachment: fixed; }
 
 .ribbon {
   width: 116%;

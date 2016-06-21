@@ -11,6 +11,7 @@
  html, body{
      background-image: url(img/textura.JPG);
      background-size: 100% 100%;
+     background-attachment: fixed;
  }
  </style>
 

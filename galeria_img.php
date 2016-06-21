@@ -10,10 +10,11 @@ $comentarioFotoModel = new ComentarioFotoModel();
  html, body{
      background-image: url(img/textura.JPG);
      background-size: 100% 100%;
+     background-attachment: fixed;
  }
  </style>
 
- <section id="wrap_galerias" class="fu">
+ <section id="wrap_galerias" class="fu" style="height:100%">
 
      <h2>Galería de Imagenes</h2>
 
