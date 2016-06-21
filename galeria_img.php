@@ -1,9 +1,16 @@
 <?php
 require_once 'header.php';
-include_once 'Model/FotoModel.php';
-include_once 'Model/ComentarioFotoModel.php';
+require_once 'Model/FotoModel.php';
+require_once 'Model/ComentarioFotoModel.php';
+require_once 'Model/UsuarioModel.php';
+require_once 'Objects/Usuario.php';
+require_once 'Model/CComentarioFotoModel.php';
+require_once 'Objects/ComentarioFoto.php';
+
 $fotoModel = new FotoModel();
 $comentarioFotoModel = new ComentarioFotoModel();
+$usuarioModel = new UsuarioModel();
+$ccomentarioModel = new CComentarioFotoModel();
  ?>
 
  <style media="screen">
@@ -16,8 +23,7 @@ $comentarioFotoModel = new ComentarioFotoModel();
  <section id="wrap_galerias" class="fu">
 
      <h2>Galería de Imagenes</h2>
-
-     <?php foreach ($fotoModel->getAll() as $foto): ?>
+     <?php foreach ($fotoModel->getAll() as $foto):?>
 
          <div id="inline_<?php echo $foto->IdFoto ?>" style="display:none;width:90%;height: 90%;">
 
@@ -25,25 +31,54 @@ $comentarioFotoModel = new ComentarioFotoModel();
 
              </div>
 
-            <div class="half contiene_comentarios" style="width:50%; height: 100%; float: right; padding:20px">
+            <div class="half contiene_comentarios roboto" style="width:50%; height: 100%; float: right; padding:20px">
                 <h2><?php echo $foto->Nombre ?></h2>
-                <p>
-                    <?php echo $foto->Descripcion ?>
+
+                <?php foreach ($comentarioFotoModel->getByPhotoId($foto->IdFoto) as $comentarios):
+                  $usuarioComment = $usuarioModel->getById($comentarios->IdUsuario);?>
+                  <p>
+                    <strong>
+                      <?php echo $usuarioComment->NombreUsuario ?>
+                    </strong>
+                  </p>
+                  <p>
+                    <strong>
+                    <?php echo $comentarios->Fecha ?>
+                  </strong>
                 </p>
+                  <p>
+                    <?php echo $comentarios->Comentario ?>
+                  </p>
 
-                <form class="formulario" action="" name="comentario" method="post">
+                  <p>
+                    <h5>SUBCOMENTARIOS</h5>
+                    <?php foreach ($ccomentarioModel->getSubComments($comentarios->IdComentarioPadre) as $ccomentarios):?>
+                    <p>
+                      <?php echo $ccomentarios->Comentario ?>
+                    </p>
+                   <?php endforeach; ?>
+                    <form class="formulario" action="Controller/comentario_foto/save-subcomentariophoto.php"  method="post">
+                        <div class="input-group">
+                            <textarea rows="4" cols="70" id='comentario' name="comentario" onClick="this.value = ''">Escribir SUBCOMENTARIO aqui...</textarea>
+                        </div>
+
+                        <input type="hidden" value='<?php echo $comentarios->IdComentario; ?>' name='idPadre'>
+                        <input type="submit" name="btn-submit" value="SUBCOMENTAR">
+                    </form>
+
+                <?php endforeach; ?>
+
+                <form class="formulario" action="Controller/comentario_foto/save-comentariophoto.php"  method="post">
                     <div class="input-group">
-                        <textarea rows="4" cols="100" name="comment" onClick="this.value = ''" form="comentario">Escribir comentario aqui...</textarea>
-
+                        <textarea rows="4" cols="70" id='comentario' name="comentario" onClick="this.value = ''">Escribir comentario aqui...</textarea>
                     </div>
-                    <input type="submit" name="btn-submit" value="Enviar">
+                    <input type="hidden" value='<?php echo $foto->IdFoto; ?>' name='idFoto'>
+                    <input type="submit" name="btn-submit" value="comentar">
                 </form>
             </div>
 	     </div>
-
          <a title="<?php echo $foto->Nombre ?>" href="#inline_<?php echo $foto->IdFoto ?>" rel="gallery"class="fancyOther" >
              <img src="<?php echo $foto->Ruta ?>" alt="" />
-
          </a>
 
      <?php endforeach; ?>

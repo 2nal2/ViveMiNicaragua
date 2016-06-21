@@ -7,31 +7,32 @@ if (!isset($_SESSION['id_user'])) {
 }
 
 require_once '../../constants.php';
-require_once '../../Objects/ComentarioArticulo.php';
-require_once '../../Model/ComentarioArticuloModel.php';
+require_once '../../Objects/ComentarioFoto.php';
+require_once '../../Model/ComentarioFotoModel.php';
 
 
-if(isset($_POST['idArticulo']) && isset($_POST['comentario'])){
-  $comentarioModel =  new ComentarioArticuloModel();
-  $comentario = new ComentarioArticulo();
+if(isset($_POST['idFoto']) && isset($_POST['comentario'])){
+  $comentarioModel =  new ComentarioFotoModel();
+  $comentario = new ComentarioFoto();
 
-  $comentario->IdArticulo = $_POST['idArticulo'];
   $comentario->IdUsuario = $_SESSION['id_user'];
   $comentario->Fecha = date('Y-m-d H:i:s');
+  $comentario->IdFoto = $_POST['idFoto'];
   $comentario->Estado = true;
   $comentario->Comentario = htmlspecialchars($_POST['comentario']);
 
   $s = $comentarioModel->save($comentario);
   if(!$s){
+    echo "no guarde hp";
     $_SESSION['error_pass'] = 'No se pudo guardar el comentario';
   }
 
-  header('Location: ../../Articulo.php?id='.$_POST['idArticulo']);
+  header('Location: ../../galeria_img.php?id='.$_POST['IdComentario']);
 
 
 }
 else{
-  header('Location: ../../Articulo.php?id='.$_POST['idArticulo']);
+  header('Location: ../../galeria_img.php?id='.$_POST['IdComentario']);
 }
 
  ?>
