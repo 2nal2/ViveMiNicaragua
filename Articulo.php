@@ -34,7 +34,12 @@ $ccomentario   = new CComentarioArticuloModel();
       <p><?php echo $articulo->Contenido ?></p>
 
 
-
+      <style media="screen">
+      html, body{
+          background-image: url(img/textura.JPG);
+          background-size: 100% 100%;
+      }
+      </style>
   <!-- Cargar comentarios del articulo -->
       <div class="" id="comments">
         <?php foreach ($comentario->getById($articulo->IdArticulo) as $comment):
