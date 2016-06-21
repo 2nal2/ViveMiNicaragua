@@ -59,7 +59,7 @@ $ccomentarioModel = new CComentarioFotoModel();
 
 
                   <p>
-                    <h5>SUBCOMENTARIOS</h5>
+                    <!-- <h5>SUBCOMENTARIOS</h5> -->
                     <?php foreach ($ccomentarioModel->getSubComments($comentarios->IdComentario) as $ccomentarios):
                         $usuarioComment = $usuarioModel->getById($ccomentarios->IdUsuario);?>
                         <div class="bubble-list">
@@ -68,7 +68,7 @@ $ccomentarioModel = new CComentarioFotoModel();
                     <p>
                          <div class="bubble-content">
                     <strong>
-                        <?php echo $usuarioComment->NombreUsuario ?>
+                        <?php echo "Respuesta de: ".$usuarioComment->NombreUsuario ?>
                     </strong>
                         </p>
                     <p>
