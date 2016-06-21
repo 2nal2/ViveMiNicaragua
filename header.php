@@ -17,12 +17,13 @@ $url = _ROOT_;
     <!-- Place favicon.ico in the root directory -->
 
 
-
+    <link rel="stylesheet" href="<?php echo $url ?>css/comment.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/normalize.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/main.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/style.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/galerias.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/formulario.css">
+    <link rel="stylesheet" href="<?php echo $url ?>css/comentario.css">
 
     <link rel="stylesheet" href="<?php echo $url ?>util/Iconos/fonts.css">
     <link rel="stylesheet" href="<?php echo $url ?>util/fancybox/source/jquery.fancybox.css" media="screen">

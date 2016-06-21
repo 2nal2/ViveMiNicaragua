@@ -1,9 +1,17 @@
 <?php
 require_once 'header.php';
-include_once 'Model/FotoModel.php';
-include_once 'Model/ComentarioFotoModel.php';
+require_once 'Model/FotoModel.php';
+require_once 'Model/ComentarioFotoModel.php';
+require_once 'Model/UsuarioModel.php';
+require_once 'Objects/Usuario.php';
+require_once 'Model/CComentarioFotoModel.php';
+require_once 'Objects/ComentarioFoto.php';
+require_once 'Objects/CComentarioFoto.php';
+
 $fotoModel = new FotoModel();
 $comentarioFotoModel = new ComentarioFotoModel();
+$usuarioModel = new UsuarioModel();
+$ccomentarioModel = new CComentarioFotoModel();
  ?>
 
  <style media="screen">
@@ -17,34 +25,82 @@ $comentarioFotoModel = new ComentarioFotoModel();
  <section id="wrap_galerias" class="fu" style="height:100%">
 
      <h2>Galería de Imagenes</h2>
-
-     <?php foreach ($fotoModel->getAll() as $foto): ?>
+     <?php foreach ($fotoModel->getAll() as $foto):?>
 
          <div id="inline_<?php echo $foto->IdFoto ?>" style="display:none;width:90%;height: 90%;">
 
-             <div class="contien_foto" style="width:50%; height: 100%;background-image: url(<?php echo $foto->Ruta ?>); background-size: 100% 100%; float: left">
+             <div class="bubble-list" style="width:50%; height: 100%;background-image: url(<?php echo $foto->Ruta ?>); background-size: 100% 100%; float: left">
 
              </div>
 
-            <div class="half contiene_comentarios" style="width:50%; height: 100%; float: right; padding:20px">
+            <div class="half contiene_comentarios roboto" style="width:50%;overflow:scroll; height: 100%; float: right; padding:20px">
                 <h2><?php echo $foto->Nombre ?></h2>
-                <p>
-                    <?php echo $foto->Descripcion ?>
-                </p>
 
-                <form class="formulario" action="" name="comentario" method="post">
+                <?php foreach ($comentarioFotoModel->getByPhotoId($foto->IdFoto) as $comentarios):
+                  $usuarioComment = $usuarioModel->getById($comentarios->IdUsuario);?>
+            <div class="bubble clearfix">
+              <img class="logo-muestra" src="<?php echo $usuarioComment->Foto ?>" alt="" style="width:40px ;height:40px;border-radius:40px" />
+
+             <div class="bubble-content">
+              <p>
+                <strong>
+                  <?php echo $usuarioComment->NombreUsuario ?>
+                </strong>
+              </p>
+              <p>
+                <strong>
+                  <?php echo $comentarios->Fecha ?>
+                </strong>
+              </p>
+              <p>
+                <?php echo $comentarios->Comentario ?>
+              </p>
+         </div>
+            </div>
+
+
+                  <p>
+                    <!-- <h5>SUBCOMENTARIOS</h5> -->
+                    <?php foreach ($ccomentarioModel->getSubComments($comentarios->IdComentario) as $ccomentarios):
+                        $usuarioComment = $usuarioModel->getById($ccomentarios->IdUsuario);?>
+                        <div class="bubble-list">
+		               <div class="bubble clearfix">
+                            <img class="logo-muestra" src="<?php echo $usuarioComment->Foto ?>" alt="" style="width:40px ;height:40px;border-radius:40px" />
+                    <p>
+                         <div class="bubble-content">
+                    <strong>
+                        <?php echo "Respuesta de: ".$usuarioComment->NombreUsuario ?>
+                    </strong>
+                        </p>
+                    <p>
+                      <?php echo $ccomentarios->Comentario ?>
+                    </p>
+               </div>
+                  </div>
+             </div>
+                   <?php endforeach; ?>
+                    <!-- <form class="formulario" action="Controller/comentario_foto/save-subcomentariophoto.php"  method="post">
+                        <div class="input-group">
+                            <textarea rows="4" cols="60" id='comentario' name="comentario" onClick="this.value = ''">Escribir SUBCOMENTARIO aqui...</textarea>
+                        </div>
+
+                        <input type="hidden" value='<?php echo $comentarios->IdComentario; ?>' name='idPadre'>
+                        <input type="submit" name="btn-submit" value="SUBCOMENTAR">
+                    </form> -->
+
+                <?php endforeach; ?>
+
+                <form class="formulario" action="Controller/comentario_foto/save-comentariophoto.php"  method="post">
                     <div class="input-group">
-                        <textarea rows="4" cols="100" name="comment" onClick="this.value = ''" form="comentario">Escribir comentario aqui...</textarea>
-
+                        <textarea rows="4" cols="70" id='comentario' name="comentario" onClick="this.value = ''">Escribir comentario aqui...</textarea>
                     </div>
-                    <input type="submit" name="btn-submit" value="Enviar">
+                    <input type="hidden" value='<?php echo $foto->IdFoto; ?>' name='idFoto'>
+                    <input type="submit" name="btn-submit" value="comentar">
                 </form>
             </div>
 	     </div>
-
          <a title="<?php echo $foto->Nombre ?>" href="#inline_<?php echo $foto->IdFoto ?>" rel="gallery"class="fancyOther" >
              <img src="<?php echo $foto->Ruta ?>" alt="" />
-
          </a>
 
      <?php endforeach; ?>
