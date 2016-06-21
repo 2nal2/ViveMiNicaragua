@@ -53,7 +53,13 @@ $ccomentario   = new CComentarioArticuloModel();
               <p><?php echo $usuarioComment->NombreUsuario; ?></p>
               <p><?php echo $subcomment->Fecha; ?></p>
               <p><?php echo $subcomment->Comentario; ?></p>
-          <?php endforeach; ?>
+            <?php endforeach; ?>
+            <!-- Form para realizar subcomentario -->
+            <form class="" action="Controller/comentario_articulo/save-ccomment.php" method="post">
+              <input type="hidden" value='<?php echo $comment->IdComentario; ?>' name='idComentario'>
+              <textarea rows="5" cols="40" name="comentario"></textarea>
+              <input type="submit" name="name" value="comentar">
+            </form>
           <?php endif; ?>
         <?php endforeach; ?>
       </div>

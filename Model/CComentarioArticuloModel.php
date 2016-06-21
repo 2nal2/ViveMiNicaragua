@@ -2,8 +2,8 @@
 /**
  *
  */
- require_once 'Connection/Connection.php';
- require_once 'Objects/CComentarioArticulo.php';
+ require_once _dependencia_.'Connection/Connection.php';
+ require_once _dependencia_.'Objects/CComentarioArticulo.php';
 
 class CComentarioArticuloModel
 {
@@ -22,14 +22,13 @@ class CComentarioArticuloModel
     {
         try {
             $sql = 'INSERT INTO CComentarioArticulo
-            (IdCC,IdComentarioPadre,IdUsuario,Fecha,Estado,Comentario) values
-            (?,?,?,?,?,?)';
+            (IdComentarioPadre,IdUsuario,Fecha,Estado,Comentario) values
+            (?,?,?,?,?)';
 
             $stm = $this->connection->prepare($sql);
 
             return $stm->execute(
                   array(
-                    $ccomentarioArticulo->IdCC,
                     $ccomentarioArticulo->IdComentarioPadre,
                     $ccomentarioArticulo->IdUsuario,
                     $ccomentarioArticulo->Fecha,
