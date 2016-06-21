@@ -54,7 +54,6 @@ class CComentarioArticuloModel
 
             while ($ccomentarioArticulo = $stm->fetch()) {
                 $r[] = $ccomentarioArticulo;
-                return $r;
             }
 
             return $r;

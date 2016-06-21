@@ -11,7 +11,7 @@ require_once '../../Objects/CComentarioArticulo.php';
 require_once '../../Model/CComentarioArticuloModel.php';
 
 
-if(isset($_POST['idComentario']) && isset($_POST['comentario'])){
+if(isset($_POST['idComentario']) && isset($_POST['comentario'])&& isset($_POST['idArticulo'])){
   $ccomentarioModel =  new CComentarioArticuloModel();
   $ccomentario = new CComentarioArticulo();
 
@@ -25,6 +25,7 @@ if(isset($_POST['idComentario']) && isset($_POST['comentario'])){
   if(!$s){
     $_SESSION['error_pass'] = 'No se pudo guardar el comentario';
   }
+
 
   header('Location: ../../Articulo.php?id='.$_POST['idArticulo']);
 
