@@ -53,7 +53,13 @@ $ccomentarioModel = new CComentarioFotoModel();
 
                   <p>
                     <h5>SUBCOMENTARIOS</h5>
-                    <?php foreach ($ccomentarioModel->getSubComments($comentarios->IdComentario) as $ccomentarios):?>
+                    <?php foreach ($ccomentarioModel->getSubComments($comentarios->IdComentario) as $ccomentarios):
+                        $usuarioComment = $usuarioModel->getById($ccomentarios->IdUsuario);?>
+                    <p>
+                    <strong>
+                        <?php echo $usuarioComment->NombreUsuario ?>
+                    </strong>
+                        </p>
                     <p>
                       <?php echo $ccomentarios->Comentario ?>
                     </p>
