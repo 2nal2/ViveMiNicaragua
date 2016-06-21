@@ -61,11 +61,14 @@ $ccomentario   = new CComentarioArticuloModel();
 
 
 
-  <form class="" action="" method="post">
-    <input type="hidden" value='<?php echo $articulo->IdArticulo; ?>'>
-      <textarea rows="5" cols="40" name="comentario"></textarea>
-    <input type="button" name="name" value="comentar">
+  <form class="" action="Controller/comentario_articulo/save-comment.php" method="post">
+    <input type="hidden" value='<?php echo $articulo->IdArticulo; ?>' name='idArticulo'>
+    <textarea rows="5" cols="40" name="comentario"></textarea>
+    <input type="submit" name="name" value="comentar">
   </form>
+
+
+
 <?php else: ?>
   <!--Codigo para cargar todos los articulos  -->
   <?php foreach ($articuloModel->getAll() as $articulo): ?>
