@@ -23,6 +23,7 @@ $url = _ROOT_;
     <link rel="stylesheet" href="<?php echo $url ?>css/style.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/galerias.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/formulario.css">
+    <link rel="stylesheet" href="<?php echo $url ?>css/comentario.css">
 
     <link rel="stylesheet" href="<?php echo $url ?>util/Iconos/fonts.css">
     <link rel="stylesheet" href="<?php echo $url ?>util/fancybox/source/jquery.fancybox.css" media="screen">

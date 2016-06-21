@@ -28,34 +28,45 @@ $ccomentarioModel = new CComentarioFotoModel();
 
          <div id="inline_<?php echo $foto->IdFoto ?>" style="display:none;width:90%;height: 90%;">
 
-             <div class="contien_foto" style="width:50%; height: 100%;background-image: url(<?php echo $foto->Ruta ?>); background-size: 100% 100%; float: left">
+             <div class="bubble-list" style="width:50%; height: 100%;background-image: url(<?php echo $foto->Ruta ?>); background-size: 100% 100%; float: left">
 
              </div>
 
-            <div class="half contiene_comentarios roboto" style="width:50%; height: 100%; float: right; padding:20px">
+            <div class="half contiene_comentarios roboto" style="width:50%;overflow:scroll; height: 100%; float: right; padding:20px">
                 <h2><?php echo $foto->Nombre ?></h2>
 
                 <?php foreach ($comentarioFotoModel->getByPhotoId($foto->IdFoto) as $comentarios):
                   $usuarioComment = $usuarioModel->getById($comentarios->IdUsuario);?>
-                  <p>
-                    <strong>
-                      <?php echo $usuarioComment->NombreUsuario ?>
-                    </strong>
-                  </p>
-                  <p>
-                    <strong>
-                    <?php echo $comentarios->Fecha ?>
-                  </strong>
-                </p>
-                  <p>
-                    <?php echo $comentarios->Comentario ?>
-                  </p>
+            <div class="bubble clearfix">
+              <img class="logo-muestra" src="<?php echo $usuarioComment->Foto ?>" alt="" style="width:40px ;height:40px;border-radius:40px" />
+
+             <div class="bubble-content">
+              <p>
+                <strong>
+                  <?php echo $usuarioComment->NombreUsuario ?>
+                </strong>
+              </p>
+              <p>
+                <strong>
+                  <?php echo $comentarios->Fecha ?>
+                </strong>
+              </p>
+              <p>
+                <?php echo $comentarios->Comentario ?>
+              </p>
+         </div>
+            </div>
+
 
                   <p>
                     <h5>SUBCOMENTARIOS</h5>
                     <?php foreach ($ccomentarioModel->getSubComments($comentarios->IdComentario) as $ccomentarios):
                         $usuarioComment = $usuarioModel->getById($ccomentarios->IdUsuario);?>
+                        <div class="bubble-list">
+		               <div class="bubble clearfix">
+                            <img class="logo-muestra" src="<?php echo $usuarioComment->Foto ?>" alt="" style="width:40px ;height:40px;border-radius:40px" />
                     <p>
+                         <div class="bubble-content">
                     <strong>
                         <?php echo $usuarioComment->NombreUsuario ?>
                     </strong>
@@ -63,15 +74,18 @@ $ccomentarioModel = new CComentarioFotoModel();
                     <p>
                       <?php echo $ccomentarios->Comentario ?>
                     </p>
+               </div>
+                  </div>
+             </div>
                    <?php endforeach; ?>
-                    <form class="formulario" action="Controller/comentario_foto/save-subcomentariophoto.php"  method="post">
+                    <!-- <form class="formulario" action="Controller/comentario_foto/save-subcomentariophoto.php"  method="post">
                         <div class="input-group">
-                            <textarea rows="4" cols="70" id='comentario' name="comentario" onClick="this.value = ''">Escribir SUBCOMENTARIO aqui...</textarea>
+                            <textarea rows="4" cols="60" id='comentario' name="comentario" onClick="this.value = ''">Escribir SUBCOMENTARIO aqui...</textarea>
                         </div>
 
                         <input type="hidden" value='<?php echo $comentarios->IdComentario; ?>' name='idPadre'>
                         <input type="submit" name="btn-submit" value="SUBCOMENTAR">
-                    </form>
+                    </form> -->
 
                 <?php endforeach; ?>
 
