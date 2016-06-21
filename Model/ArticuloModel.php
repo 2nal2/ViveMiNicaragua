@@ -10,7 +10,8 @@ class ArticuloModel
     public function __construct()
     {
       try {
-        $this->connection = new Connection()->__getConnection();
+        $c = new Connection();
+        $this->connection = $c->__getConnection();
       } catch (Exception $e) {
         die($e->getMessage());
       }
@@ -127,15 +128,12 @@ class ArticuloModel
     }
 
     public function getById($id){
-      $r = array();
       try {
         $sql = 'select * from Articulo where IdArticulo = ?';
         $stm = $this->connection->prepare($sql);
         $stm->setFetchMode(PDO::FETCH_CLASS, 'Articulo');
         $stm->execute(array($id));
-        while($articulo = $stm->fetch()){
-          $r[] = $articulo;
-        }
+        return $articulo = $stm->fetch();
       } catch (Exception $e) {
         die($e->getMessage());
         return $r;

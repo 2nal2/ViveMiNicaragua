@@ -6,7 +6,10 @@ class CComentarioVideo
 {
     public $IdCC;
     public $IdComentarioPadre;
-    public $IdComentarioHijo;
+    public $IdUsuario;
+    public $Fecha;
+    public $Estado;
+    public $Comentario;
 
     public function __GET($k)
     {

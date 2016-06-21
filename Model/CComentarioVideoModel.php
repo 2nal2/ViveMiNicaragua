@@ -18,82 +18,30 @@ class CComentarioVideoModel
           }
     }
 
-    public function save($ccomentarioVideo){
-      try {
-        $sql = 'INSERT INTO CComentarioVideo
-            (IdCC,IdComentarioPadre,IdComentarioHijo) values
-            (?,?,?)';
+    public function save($ccomentarioVideo)
+    {
+        try {
+            $sql = 'INSERT INTO CComentarioVideo
+            (IdCC,IdComentarioPadre,IdUsuario,Fecha,Estado,Comentario) values
+            (?,?,?,?,?,?)';
 
-        $stm = $this->connection->prepare($sql);
+            $stm = $this->connection->prepare($sql);
 
-        return $stm->execute(
+            return $stm->execute(
                   array(
                     $ccomentarioVideo->IdCC,
                     $ccomentarioVideo->IdComentarioPadre,
-                    $ccomentarioVideo->IdComentarioHijo
+                    $ccomentarioVideo->IdUsuario,
+                    $ccomentarioVideo->Fecha,
+                    $ccomentarioVideo->Estado,
+                    $ccomentarioVideo->Comentario
                   )
                );
-      } catch (Exception $e) {
-        die($e->getMessage());
-        return false;
-      }
+        } catch (Exception $e) {
+            die($e->getMessage());
 
-    }
-
-    public function update($ccomentarioVideo){
-      try {
-        $sql = 'UPDATE CComentarioFoto
-            set IdCC = ?,IdComentarioPadre = ?,IdComentarioHijo = ?
-            where IdCC = ?';
-
-        $stm = $this->connection->prepare($sql);
-
-        return $stm->execute(
-                  array(
-                      $ccomentarioVideo->IdCC,
-                      $ccomentarioVideo->IdComentarioPadre,
-                      $ccomentarioVideo->IdComentarioHijo
-                  )
-               );
-      } catch (Exception $e) {
-        die($e->getMessage());
-        return false;
-      }
-
-    }
-
-    public function getAll(){
-      $r = array();
-      try {
-        $sql = 'select * from CComentarioVideo';
-        $stm = $this->connection->prepare($sql);
-        $stm->setFetchMode(PDO::FETCH_CLASS, 'CComentarioVideo');
-        $stm->execute();
-        while($ccomentarioVideo = $stm->fetch()){
-          $r[] = $ccomentarioVideo;
+            return false;
         }
-        return $r;
-      } catch (Exception $e) {
-        die($e->getMessage());
-        return $r;
-      }
-    }
-
-    public function getById($id){
-      $r = array();
-      try {
-        $sql = 'select * from CComentarioVideo where IdCC = ?';
-        $stm = $this->connection->prepare($sql);
-        $stm->setFetchMode(PDO::FETCH_CLASS, 'CComentarioVideo');
-        $stm->execute(array($id));
-        while($ccomentarioVideo = $stm->fetch()){
-          $r[] = $ccomentarioVideo;
-        }
-        return $r;
-      } catch (Exception $e) {
-        die($e->getMessage());
-        return $r;
-      }
     }
 
     public function getSubComments($idComentarioPadre){

@@ -1,4 +1,3 @@
 <?php
-  define("_ROOT_","http://localhost/MyWebSites/ViveMiNicaragua/");
-
+  define("_ROOT_","http://localhost/ViveMiNicaragua/");
  ?>
