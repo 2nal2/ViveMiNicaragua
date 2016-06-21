@@ -70,7 +70,7 @@ $ccomentario   = new CComentarioArticuloModel();
   <!--Codigo para cargar todos los articulos  -->
   <?php foreach ($articuloModel->getAll() as $articulo): ?>
     <a href='Articulo.php?id=<?php echo $articulo->IdArticulo; ?>'>
-      <h2><?php echo $articulo->Titulo ?></h2>
+      <h3><?php echo $articulo->Titulo ?></h3>
     </a>
     <a href='Articulo.php?id=<?php echo $articulo->IdArticulo; ?>'>
       <img src='<?php echo $articulo->Banner; ?>' alt="" />

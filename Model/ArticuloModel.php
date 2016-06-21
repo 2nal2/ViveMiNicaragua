@@ -86,6 +86,7 @@ class ArticuloModel
         while($articulo = $stm->fetch()){
           $r[] = $articulo;
         }
+        return $r;
       } catch (Exception $e) {
         die($e->getMessage());
         return $r;
