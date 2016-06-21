@@ -1,0 +1,27 @@
+$primary: #009688;
+$light-primary: #B2DFDB;
+$dark-primary: #00796b;
+$red: #f44336;
+$white: #f2f2f2;
+$divider: #b6b6b6;
+$error: #FF5252;
+$borde: 2px;
+$font-family: "Roboto", Arial;
+
+
+
+#wrap_galerias{
+    padding-top: 80px;
+    //background: #dddddd;
+    //background-image: url(../img/textura.JPG);
+    width: 90%;
+    margin-left: 7.5%;
+    height: auto;
+    .gallery-image {
+        img {
+            height: 300px;
+            float: left;
+            margin: 10px 10px;
+        }
+    }
+}

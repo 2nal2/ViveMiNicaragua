@@ -1,0 +1,11 @@
+#wrap_galerias {
+  padding-top: 80px;
+  width: 90%;
+  margin-left: 7.5%;
+  height: auto; }
+  #wrap_galerias .gallery-image img {
+    height: 300px;
+    float: left;
+    margin: 10px 10px; }
+
+/*# sourceMappingURL=galerias.css.map */
