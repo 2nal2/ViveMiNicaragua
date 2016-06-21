@@ -20,13 +20,24 @@ $comentarioFotoModel = new ComentarioFotoModel();
      <?php foreach ($fotoModel->getAll() as $foto): ?>
 
          <div id="inline_<?php echo $foto->IdFoto ?>" style="display:none;width:90%;height: 90%;">
-             <h2><?php echo $foto->Nombre ?></h2>
-             <div class="contien_foto" style="width:50%; height: 100%;background-image: url(<?php echo $foto->Ruta ?>); background-size: 100% 100%;">
+
+             <div class="contien_foto" style="width:50%; height: 100%;background-image: url(<?php echo $foto->Ruta ?>); background-size: 100% 100%; float: left">
 
              </div>
 
-            <div class="half contiene_comentarios">
+            <div class="half contiene_comentarios" style="width:50%; height: 100%; float: right; padding:20px">
+                <h2><?php echo $foto->Nombre ?></h2>
+                <p>
+                    <?php echo $foto->Descripcion ?>
+                </p>
 
+                <form class="formulario" action="" name="comentario" method="post">
+                    <div class="input-group">
+                        <textarea rows="4" cols="100" name="comment" onClick="this.value = ''" form="comentario">Escribir comentario aqui...</textarea>
+
+                    </div>
+                    <input type="submit" name="btn-submit" value="Enviar">
+                </form>
             </div>
 	     </div>
 
@@ -35,32 +46,6 @@ $comentarioFotoModel = new ComentarioFotoModel();
 
          </a>
 
-
-
-         <a title="<?php echo $foto->Nombre ?>" href="<?php echo $foto->Ruta ?>" rel="gallery"class="gallery-image" >
-             <img src="<?php echo $foto->Ruta ?>" alt="" />
-
-         </a>
-         <a title="<?php echo $foto->Nombre ?>" href="<?php echo $foto->Ruta ?>" rel="gallery"class="gallery-image" >
-             <img src="<?php echo $foto->Ruta ?>" alt="" />
-
-         </a>
-         <a title="<?php echo $foto->Nombre ?>" href="<?php echo $foto->Ruta ?>" rel="gallery"class="gallery-image" >
-             <img src="<?php echo $foto->Ruta ?>" alt="" />
-
-         </a>
-         <a title="<?php echo $foto->Nombre ?>" href="<?php echo $foto->Ruta ?>" rel="gallery"class="gallery-image" >
-             <img src="<?php echo $foto->Ruta ?>" alt="" />
-
-         </a>
-         <a title="<?php echo $foto->Nombre ?>" href="<?php echo $foto->Ruta ?>" rel="gallery"class="gallery-image" >
-             <img src="<?php echo $foto->Ruta ?>" alt="" />
-
-         </a>
-         <a title="<?php echo $foto->Nombre ?>" href="<?php echo $foto->Ruta ?>" rel="gallery"class="gallery-image" >
-             <img src="<?php echo $foto->Ruta ?>" alt="" />
-
-         </a>
      <?php endforeach; ?>
  </section>
 
