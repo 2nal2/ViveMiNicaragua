@@ -17,7 +17,7 @@ $url = _ROOT_;
     <!-- Place favicon.ico in the root directory -->
 
 
-
+    <link rel="stylesheet" href="<?php echo $url ?>css/comment.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/normalize.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/main.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/style.css">
