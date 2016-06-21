@@ -7,5 +7,12 @@
     height: 300px;
     float: left;
     margin: 10px 10px; }
+  #wrap_galerias .fancyOther img {
+    height: 300px;
+    float: left;
+    margin: 10px 10px; }
+  #wrap_galerias .half {
+    width: 50%;
+    height: 100%; }
 
 /*# sourceMappingURL=galerias.css.map */
