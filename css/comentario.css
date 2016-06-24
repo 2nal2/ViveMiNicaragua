@@ -23,15 +23,17 @@
 				position:relative;
 				float:left;
 				margin-left:12px;
-				width:400px;
+				width:100%;
 				padding:0px 20px;
 				border-radius:10px;
 				background-color:#FFFFFF;
 				box-shadow:1px 1px 5px rgba(0,0,0,.2);
+				border-sizing:border-box;
 			}
 
 			.bubble {
 				margin-top:20px;
+				width: 100%;
 			}
 			.point {
 				border-top:10px solid transparent;
@@ -40,4 +42,12 @@
 				position:absolute;
 				left:-10px;
 				top:12px;
+			}
+
+			.bubble-list{
+				width: 100%;
+			}
+
+			.bubble-list .sub{
+				width: calc(100%-3em);
 			}

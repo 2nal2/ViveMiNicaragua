@@ -7,6 +7,7 @@
      {
          try {
              $this->connection = new PDO('mysql:host=127.0.0.1;dbname=viveminicaragua_bd', 'root', '12345');
+
              $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
          } catch (Exception $e) {
              die($e->getMessage());

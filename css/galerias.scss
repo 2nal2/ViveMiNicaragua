@@ -7,40 +7,65 @@ $divider: #b6b6b6;
 $error: #FF5252;
 $borde: 2px;
 $font-family: "Roboto", Arial;
-
-
-
-#wrap_galerias{
-    padding-top: 80px;
-    //background: #dddddd;
-    //background-image: url(../img/textura.JPG);
-    width: 90%;
-    margin-left: 7.5%;
-    height: auto;
-    .gallery-image {
-        img {
-            height: 300px;
-            float: left;
-            margin: 10px 10px;
-        }
+.half {
+  width: 50%;
+  height: 100%;
+}
+.comment-container {
+  overflow: scroll;
+}
+#wrap_galerias {
+  // position: relative;
+  padding-top: 80px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  .gallery-image {
+    img {
+      height: 300px;
+      float: left;
+      margin: 10px;
     }
-    .fancybox-media{
-        img {
-            //height: 300px;
-            float: left;
-            margin: 10px 10px;
-        }
+  }
+  .fancybox-media {
+    img {
+      //height: 300px;
+      float: left;
+      margin: 10px;
     }
-    .fancyOther{
-        img {
-            height: 300px;
-            float: left;
-            margin: 10px 10px;
-        }
+  }
+  .fancyOther {
+    // text-align: left;
+    display: inline-block;
+    img {
+      width: 20em;
+      height: 15em;
+      float: left;
+      margin: 10px;
+      // text-align: center;
+      // margin: auto;
+      // background-color: green;
     }
-
-    .half{
-        width: 50%;
-        height: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .half {
+    width: 100%;
+  }
+  .fancybox-next {
+    right: 5% !important;
+  }
+  .comment-container {
+    overflow: visible;
+  }
+}
+@media screen and (max-width : 320px) {
+  #wrap_galerias {
+    .fancyOther {
+      img {
+        width: 17em;
+        height: 12em;
+      }
     }
+  }
 }

@@ -1,13 +1,15 @@
 #comments {
   display: block;
   margin: 0 auto;
-  width: 50%;
+  width: 80%;
 }
 
 /**/
 
 #comments .commnt {
   background-color: #C3E0D6;
+  word-wrap: break-word;
+  padding-right: 40px;
 }
 #comments .commnt .avatar {
   height: 20px;
@@ -38,7 +40,7 @@
 }
 @media screen and (max-width: 800px) {
   #comments {
-    width: 80%;
+    width: 95%;
   }
 }
 .subcommenting {

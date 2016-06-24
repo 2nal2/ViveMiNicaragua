@@ -1,21 +1,42 @@
+.half {
+  width: 50%;
+  height: 100%; }
+
+.comment-container {
+  overflow: scroll; }
+
 #wrap_galerias {
   padding-top: 80px;
   width: 90%;
-  margin-left: 7.5%;
-  height: auto; }
+  margin: 0 auto;
+  text-align: center; }
   #wrap_galerias .gallery-image img {
     height: 300px;
     float: left;
-    margin: 10px 10px; }
+    margin: 10px; }
   #wrap_galerias .fancybox-media img {
     float: left;
-    margin: 10px 10px; }
+    margin: 10px; }
+  #wrap_galerias .fancyOther {
+    display: inline-block; }
+    #wrap_galerias .fancyOther img {
+      width: 20em;
+      height: 15em;
+      float: left;
+      margin: 10px; }
+
+@media screen and (max-width: 767px) {
+  .half {
+    width: 100%; }
+
+  .fancybox-next {
+    right: 5% !important; }
+
+  .comment-container {
+    overflow: visible; } }
+@media screen and (max-width: 320px) {
   #wrap_galerias .fancyOther img {
-    height: 300px;
-    float: left;
-    margin: 10px 10px; }
-  #wrap_galerias .half {
-    width: 50%;
-    height: 100%; }
+    width: 17em;
+    height: 12em; } }
 
 /*# sourceMappingURL=galerias.css.map */

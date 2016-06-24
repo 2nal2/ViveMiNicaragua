@@ -4,7 +4,7 @@ session_start();
 $url = _ROOT_;
 ?>
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -16,7 +16,7 @@ $url = _ROOT_;
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
-
+    <link rel="stylesheet" href="<?php echo $url ?>css/articulo.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/comment.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/normalize.css">
     <link rel="stylesheet" href="<?php echo $url ?>css/main.css">
@@ -81,9 +81,9 @@ $url = _ROOT_;
                 <a href="#"><span class="icon-library"></span>Ciudades <span class="caret icon-circle-down"></span></a>
 
                 <ul class="children">
-                    <li><a href="#">León <span class="icon-pushpin"></span></a></li>
-                    <li><a href="#">Matagalpa <span class="icon-pushpin"></span></a></li>
-                    <li><a href="#">Masaya <span class="icon-pushpin"></span></a></li>
+                    <li><a href="<?php echo $url ?>leon.php">León <span class="icon-pushpin"></span></a></li>
+                    <li><a href="<?php echo $url ?>matagalpa.php">Matagalpa <span class="icon-pushpin"></span></a></li>
+                    <li><a href="<?php echo $url ?>masaya.php">Masaya <span class="icon-pushpin"></span></a></li>
                 </ul>
             </li>
 
@@ -91,8 +91,8 @@ $url = _ROOT_;
                 <a href="#"><span class="icon-images"></span>Galeria <span class="caret icon-circle-down"></a>
 
                 <ul class="children">
-                    <li><a href="galeria_img.php">Imágenes <span class="icon-camera"></span></a></li>
-                    <li><a href="galeria_vid.php">Videos <span class="icon-video-camera"></span></a></li>
+                    <li><a href="<?php echo $url ?>galeria_img.php">Imágenes <span class="icon-camera"></span></a></li>
+                    <li><a href="<?php echo $url ?>galeria_vid.php">Videos <span class="icon-video-camera"></span></a></li>
                 </ul>
             </li>
 
@@ -100,20 +100,26 @@ $url = _ROOT_;
 
             <?php if (!isset($_SESSION['id_user'])): ?>
               <li id="registrate"><a data-fancybox-type="iframe" href="<?php echo $url ?>singup.php" class="fancybox">Regístrate</a></li>
-              <li id="ya-tengo"><a data-fancybox-type="iframe" href="<?php echo $url ?>singin.php" class="fancybox">Ya tengo una cuenta</a></li>
+              <!-- <li id="ya-tengo"><a data-fancybox-type="iframe" href="<?php echo $url ?>singin.php" class="fancybox">Ya tengo una cuenta</a></li> -->
+              <li id="ya-tengo"><a  href="<?php echo $url ?>singin.php">Ya tengo una cuenta</a></li>
             <?php endif; ?>
 
             <?php if (isset($_SESSION['id_user'])): ?>
             <li class="submenu" id="usuario">
                 <a href="#">
 
-                    <img src="<?php echo $url ?><?php echo $_SESSION['foto'] ?>" alt="" style="width: 2em; height: 2em; background-repeat: no-repeat;
+                    <img src="<?php echo $url ?><?php echo $_SESSION['foto'] ?>" alt="" style="width: 1.2em; height: 1.2em; background-repeat: no-repeat;
                     background-position: 50%;
                     border-radius: 50%;
-                    background-size: 100% auto;" />
+                    background-size: 100% auto;
+                    float: left;
+                    top: 0px;"
+                     />
+
                     <?php echo $_SESSION['nombre']?>
 
-                    <span class="caret icon-circle-down"></a>
+                    <span class="caret icon-circle-down"></span>
+                  </a>
 
                 <ul class="children">
                     <li><a href="<?php echo $url ?>edit-profile.php">Editar <span class="icon-cog"></span></a></li>

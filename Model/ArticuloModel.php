@@ -114,13 +114,14 @@ class ArticuloModel
     public function getByCiudad($idCiudad){
       $r = array();
       try {
-        $sql = 'select * from Articulo where IdCiudad = ?';
+        $sql = 'select * from Articulo where IdCiudad = ? limit 5';
         $stm = $this->connection->prepare($sql);
         $stm->setFetchMode(PDO::FETCH_CLASS, 'Articulo');
         $stm->execute(array($idCiudad));
         while($articulo = $stm->fetch()){
           $r[] = $articulo;
         }
+        return $r;
       } catch (Exception $e) {
         die($e->getMessage());
         return $r;

@@ -2,12 +2,12 @@
 
 <div class="slider_container fullScreen">
     <div class="slideContainer">
-        <div class="slide fullScreen" data-background="img/portadas/portada1.JPG"></div>
-        <div class="slide fullScreen" data-background="img/portadas/portada2.JPG"></div>
-        <div class="slide fullScreen" data-background="img/portadas/portada3.jpg"></div>
-        <div class="slide fullScreen" data-background="img/portadas/portada4.JPG"></div>
-        <div class="slide fullScreen" data-background="img/portadas/portada5.JPG"></div>
-        <div class="slide fullScreen" data-background="img/portadas/portada6.jpg"></div>
+        <div class="slide" data-background="img/portadas/portada1.JPG"></div>
+        <div class="slide" data-background="img/portadas/portada2.JPG"></div>
+        <div class="slide" data-background="img/portadas/portada3.jpg"></div>
+        <div class="slide" data-background="img/portadas/portada4.JPG"></div>
+        <div class="slide" data-background="img/portadas/portada5.JPG"></div>
+        <div class="slide" data-background="img/portadas/portada6.jpg"></div>
     </div>
 </div>
 

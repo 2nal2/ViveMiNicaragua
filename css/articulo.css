@@ -1,0 +1,21 @@
+.article-container{
+  display: inline-block;
+}
+
+.article-content{
+  clear: left;
+  word-wrap: break-word;
+}
+
+.article-container img {
+  width: 20em;
+  height: 15em;
+  float: left;
+  margin: 10px;
+}
+
+.article-title{
+  text-decoration: none;
+  cursor: pointer;
+  color: #00796b;
+}
