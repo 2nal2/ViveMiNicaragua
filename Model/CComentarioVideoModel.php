@@ -2,8 +2,8 @@
 /**
  *
  */
- require_once 'Connection/Connection.php';
- require_once 'Objects/CComentarioVideo';
+ require_once _dependencia_.'Connection/Connection.php';
+ require_once _dependencia_.'Objects/CComentarioVideo';
 
 class CComentarioVideoModel
 {

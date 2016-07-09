@@ -2,8 +2,8 @@
 /**
  *
  */
- require_once 'Connection/Connection.php';
- require_once 'Objects/Foto.php';
+ require_once _dependencia_.'Connection/Connection.php';
+ require_once _dependencia_.'Objects/Foto.php';
 class FotoModel
 {
     private $connection;
@@ -115,22 +115,18 @@ class FotoModel
 
     public function getById($id)
     {
-        $r = array();
+
         try {
             $sql = 'select * from Foto where IdFoto = ?';
             $stm = $this->connection->prepare($sql);
             $stm->setFetchMode(PDO::FETCH_CLASS, 'Foto');
             $stm->execute(array($id));
 
-            while ($foto = $stm->fetch()) {
-                $r [] = $foto;
-            }
-
-            return $r;
+            return $stm->fetch();
         } catch (Exception $e) {
             die($e->getMessage());
 
-            return $r;
+            return null;
         }
     }
 }

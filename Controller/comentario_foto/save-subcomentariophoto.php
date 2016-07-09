@@ -6,7 +6,7 @@ if (!isset($_SESSION['id_user'])) {
     return;
 }
 
-require_once '../../constants.php';
+require_once '../../view/constants.php';
 require_once '../../Objects/ComentarioFoto.php';
 require_once '../../Model/ComentarioFotoModel.php';
 require_once '../../Objects/CComentarioFoto.php';
@@ -29,12 +29,12 @@ if(isset($_POST['idPadre']) && isset($_POST['comentario'])){
     $_SESSION['error_pass'] = 'No se pudo guardar el comentario';
   }
 
-  header('Location: ../../galeria_img.php?id='.$_POST['IdCC']);
+  header('Location: ../../view/galeria/galeria_img.php?id='.$_POST['IdCC']);
 
 
 }
 else{
-  header('Location: ../../galeria_img.php?id='.$_POST['IdCC']);
+  header('Location: ../../view/galeria/galeria_img.php?id='.$_POST['IdCC']);
 }
 
  ?>

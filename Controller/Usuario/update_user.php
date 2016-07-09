@@ -1,11 +1,12 @@
 <?php
-require_once dirname(dirname(__FILE__)).'../../Objects/Usuario.php';
-require_once dirname(dirname(__FILE__)).'../../Model/UsuarioModel.php';
+require_once '../../view/constants.php';
+require_once _dependencia_.'Objects/Usuario.php';
+require_once _dependencia_.'Model/UsuarioModel.php';
 
 session_start();
 
 if(!isset($_SESSION['id_user'])){
-  header('Location: ../../index.php');
+  header('Location: ../../view/index.php');
 }
 if(isset($_POST['nombre']) and isset($_POST['email']) and isset($_POST['sexo'])){
   $model =  new UsuarioModel();
@@ -21,9 +22,9 @@ if(isset($_POST['nombre']) and isset($_POST['email']) and isset($_POST['sexo']))
   }
 
 
-  header('Location: ../../edit-profile.php');
+  header('Location: ../../view/usuario/edit-profile.php');
 }
 else{
-  header('Location: ../../edit-profile.php');
+  header('Location: ../../view/usuario/edit-profile.php');
 }
 ?>

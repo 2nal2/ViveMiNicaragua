@@ -1,8 +1,8 @@
 <?php
 session_start();
-include_once '../../constants.php';
-require_once '../../Model/UsuarioModel.php';
-require_once '../../Objects/Usuario.php';
+include_once _dependencia_.'constants.php';
+require_once _dependencia_.'Model/UsuarioModel.php';
+require_once _dependencia_.'Objects/Usuario.php';
 if(!isset($_SESSION['id_user'])){
    header("Location: "._ROOT_."admin");
    return;

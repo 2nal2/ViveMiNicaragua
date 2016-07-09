@@ -1,7 +1,6 @@
 <?php
-
-
-require_once dirname(dirname(__FILE__)).'../../Model/UsuarioModel.php';
+require_once '../../view/constants.php';
+require_once '../../Model/UsuarioModel.php';
 
 session_start();
 $model = new UsuarioModel();

@@ -2,11 +2,11 @@
 session_start();
 
 if (!isset($_SESSION['id_user'])) {
-    header('Location: ../../singin.php');
+    header('Location: ../../view/usuario/singin.php?redirect=view/galeria/galeria_img.php');
     return;
 }
 
-require_once '../../constants.php';
+require_once '../../view/constants.php';
 require_once '../../Objects/ComentarioFoto.php';
 require_once '../../Model/ComentarioFotoModel.php';
 
@@ -27,12 +27,12 @@ if(isset($_POST['idFoto']) && isset($_POST['comentario'])){
     $_SESSION['error_pass'] = 'No se pudo guardar el comentario';
   }
 
-  header('Location: ../../galeria_img.php?id='.$_POST['IdComentario']);
+  header('Location: ../../view/galeria/galeria_img.php?id='.$_POST['idFoto']);
 
 
 }
 else{
-  header('Location: ../../galeria_img.php?id='.$_POST['IdComentario']);
+  header('Location: ../../view/galeria/galeria_img.php?id='.$_POST['idFoto']);
 }
 
  ?>

@@ -2,8 +2,8 @@
 /**
  *
  */
- require_once 'Objects/Ciudad.php';
- require_once 'Connection/Connection.php';
+ require_once _dependencia_.'Objects/Ciudad.php';
+ require_once _dependencia_.'Connection/Connection.php';
 class CiudadModel
 {
     private $connection;

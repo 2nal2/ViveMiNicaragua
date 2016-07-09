@@ -6,7 +6,7 @@ if (!isset($_SESSION['id_user'])) {
     return;
 }
 
-require_once '../../constants.php';
+ require_once '../../view/constants.php';
 require_once '../../Objects/CComentarioArticulo.php';
 require_once '../../Model/CComentarioArticuloModel.php';
 

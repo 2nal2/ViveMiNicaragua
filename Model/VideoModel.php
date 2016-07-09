@@ -2,8 +2,8 @@
 /**
  *
  */
- require_once 'Connection/Connection.php';
- require_once 'Objects/Video.php';
+ require_once _dependencia_.'Connection/Connection.php';
+ require_once _dependencia_.'Objects/Video.php';
 class VideoModel
 {
     private $connection;
@@ -115,22 +115,17 @@ class VideoModel
 
     public function getById($id)
     {
-        $r = array();
         try {
             $sql = 'select * from Video where IdVideo = ?';
             $stm = $this->connection->prepare($sql);
             $stm->setFetchMode(PDO::FETCH_CLASS, 'Video');
             $stm->execute(array($id));
 
-            while ($foto = $stm->fetch()) {
-                $r [] = $foto;
-            }
-
-            return $r;
+            return $stm->fetch();
         } catch (Exception $e) {
             die($e->getMessage());
 
-            return $r;
+            return null;
         }
     }
 }

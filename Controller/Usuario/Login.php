@@ -1,6 +1,7 @@
 <?php
 
-require_once dirname(dirname(__FILE__)).'../../Model/UsuarioModel.php';
+require_once '../../view/constants.php';
+require_once _dependencia_.'Model/UsuarioModel.php';
 
 if (isset($_POST['nombre'])) {
     $nombre = $_POST['nombre'];

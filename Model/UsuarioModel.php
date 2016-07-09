@@ -2,10 +2,10 @@
 /**
  *
  */
-require_once dirname(dirname(__FILE__)).'/Objects/Usuario.php';
-require_once dirname(dirname(__FILE__)).'/Connection/Connection.php';
-require_once dirname(dirname(__FILE__)).'/Model/SesionModel.php';
-require_once dirname(dirname(__FILE__)).'/Objects/Sesion.php';
+require_once _dependencia_.'Objects/Usuario.php';
+require_once _dependencia_.'Connection/Connection.php';
+require_once _dependencia_.'Model/SesionModel.php';
+require_once _dependencia_.'Objects/Sesion.php';
 class UsuarioModel
 {
     private $connection;
@@ -116,7 +116,7 @@ class UsuarioModel
                 $Usuario->__GET('Foto'),
                 $Usuario->__GET('Sexo'),
                 $Usuario->__GET('Tstamp'),
-                $Usuario->__GET('IdUsuario'),
+                $Usuario->__GET('IdUsuario')
                 )
             );
         } catch (Exception $e) {

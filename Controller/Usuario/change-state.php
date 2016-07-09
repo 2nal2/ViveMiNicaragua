@@ -1,8 +1,8 @@
 <?php
 session_start();
-include_once '../../constants.php';
-require_once '../../Model/UsuarioModel.php';
-require_once '../../Objects/Usuario.php';
+require_once '../../view/constants.php';
+require_once _dependencia_.'Model/UsuarioModel.php';
+require_once _dependencia_.'Objects/Usuario.php';
 if(!isset($_SESSION['id_user'])){
    header("Location: "._ROOT_."admin");
    return;
@@ -21,7 +21,14 @@ if (isset($_GET['id'])) {
   $model = new UsuarioModel();
   $usuario =  $model->getById($_GET['id']);
 
-  $usuario->Estado =  !$usuario->Estado;
+
+
+  if($usuario->Estado){
+    $usuario->Estado =  0;
+  }
+  else{
+    $usuario->Estado =  1;
+  }
 
   $model->update($usuario);
 }

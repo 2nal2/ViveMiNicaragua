@@ -2,10 +2,11 @@
 
 session_start();
 if (!isset($_SESSION['id_user'])) {
-    header('Location: ../../index.php');
+    header('Location: ../../view/index.php');
 }
-require_once dirname(dirname(__FILE__)).'../../Model/UsuarioModel.php';
-require_once dirname(dirname(__FILE__)).'../../Objects/Usuario.php';
+require_once '../../view/constants.php';
+require_once _dependencia_.'Model/UsuarioModel.php';
+require_once _dependencia_.'Objects/Usuario.php';
 if (isset($_POST['pass']) and isset($_POST['pass2']) and isset($_POST['actual'])) {
     $pass = $_POST['pass'];
     $pass2 = $_POST['pass2'];
@@ -13,7 +14,7 @@ if (isset($_POST['pass']) and isset($_POST['pass2']) and isset($_POST['actual'])
     $usuario = $model->getById($_SESSION['id_user']);
     if ($model->isValidPass($usuario->IdUsuario, $_POST['actual']) == null) {
         $_SESSION['error_pass'] = 'La contraseña actual no coincide';
-        header('Location: ../../edit-profile.php#c');
+        header('Location: ../../view/usuario/edit-profile.php#c');
 
         return;
     }
@@ -39,13 +40,13 @@ if (isset($_POST['pass']) and isset($_POST['pass2']) and isset($_POST['actual'])
 <?php if ($actualizado): ?>
   <script type='text/javascript'>
     swal('Actualización de datos exitosa' , 'Se ha realizado el cambio de contraseña de cuenta', 'success');
-    setTimeout("location.href='../../edit-profile.php'", 2000);
+    setTimeout("location.href='../../view/usuario/edit-profile.php'", 2000);
 
   </script>
   <?php $_SESSION['error_pass'] = ''; ?>
 <?php else: ?>
   <script type="text/javascript">
-  setTimeout("location.href='../../index.php'", 2000);
+  setTimeout("location.href='../../view/usuario/edit-profile.php'", 2000);
   swal('Error' , 'No se pudo realizar la actualizacion de la clave de su cuenta', 'error');
   </script>
 <?php endif; ?>

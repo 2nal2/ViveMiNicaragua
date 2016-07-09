@@ -2,8 +2,8 @@
 /**
  *
  */
- require_once 'Connection/Connection.php';
- require_once 'Objects/Articulo.php';
+ require_once _dependencia_.'Connection/Connection.php';
+ require_once _dependencia_.'Objects/Articulo.php';
 class ArticuloModel
 {
     private $connection;

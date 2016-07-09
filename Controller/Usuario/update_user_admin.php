@@ -1,6 +1,6 @@
 <?php
-require_once dirname(dirname(__FILE__)).'../../Objects/Usuario.php';
-require_once dirname(dirname(__FILE__)).'../../Model/UsuarioModel.php';
+require_once _dependencia_.'Objects/Usuario.php';
+require_once _dependencia_.'Model/UsuarioModel.php';
 
 if (isset($_POST['nombre']) and isset($_POST['email']) and isset($_POST['sexo'])
 and isset($_POST['rol']) and isset($_POST['id'])) {
