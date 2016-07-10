@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['id_user'])) {
-    header('Location: ../../singin.php');
+    header('Location: ../../view/usuario/singin.php?redirect=view/articulo/articulo.php?id='.$_POST['idArticulo']);
     return;
 }
 
@@ -26,12 +26,12 @@ if(isset($_POST['idArticulo']) && isset($_POST['comentario'])){
     $_SESSION['error_pass'] = 'No se pudo guardar el comentario';
   }
 
-  header('Location: ../../Articulo.php?id='.$_POST['idArticulo']);
+  header('Location: ../../view/articulo/articulo.php?id='.$_POST['idArticulo']);
 
 
 }
 else{
-  header('Location: ../../Articulo.php?id='.$_POST['idArticulo']);
+  header('Location: ../../view/articulo/articulo.php?id='.$_POST['idArticulo']);
 }
 
  ?>

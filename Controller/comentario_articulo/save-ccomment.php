@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['id_user'])) {
-    header('Location: ../../singin.php');
+    header('Location: ../../view/usuario/singin.php?redirect=../articulo/articulo.php?id='.$_POST['idArticulo']);
     return;
 }
 
@@ -27,12 +27,12 @@ if(isset($_POST['idComentario']) && isset($_POST['comentario'])&& isset($_POST['
   }
 
 
-  header('Location: ../../Articulo.php?id='.$_POST['idArticulo']);
+  header('Location: ../../view/articulo/articulo.php?id='.$_POST['idArticulo']);
 
 
 }
 else{
-  header('Location: ../../Articulo.php?id='.$_POST['idArticulo']);
+  header('Location: ../../view/articulo/articulo.php?id='.$_POST['idArticulo']);
 }
 
  ?>
