@@ -89,15 +89,15 @@ and isset($_POST['pass2']) and isset($_POST['sexo'])) {
                         <div class="input-group">
                             <input type="text" id="nombre" name="nombre" pattern="^@?(\w){1,50}$" required value= <?php echo $nombre ?> >
                             <label class="label <?php if ($error != '') {
-    echo ' active';
-} ?>" for="nombre">Nombre de usuario:</label>
+                                echo ' active';
+                            } ?>" for="nombre">Nombre de usuario:</label>
                             <div id="Info"></div>
                         </div>
                         <div class="input-group">
                             <input type="email" id="email" name="email" required value= <?php echo $email ?>>
                             <label class="label <?php if ($error != '') {
-    echo ' active';
-} ?>" for="email">Correo:</label>
+                                echo ' active';
+                            } ?>" for="email">Correo:</label>
                         </div>
                         <div class="input-group">
                             <input type="password" id="pass" name="pass" required>

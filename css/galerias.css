@@ -25,6 +25,9 @@
       float: left;
       margin: 10px; }
 
+.thumb-vid {
+  object-fit: scale-down; }
+
 @media screen and (max-width: 767px) {
   .half {
     width: 100%; }

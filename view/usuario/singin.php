@@ -60,8 +60,8 @@ $email = '';
                         <div class="input-group">
                             <input type="email" id="email" name="email" value=<?php echo $email ?>>
                             <label class="label <?php if ($error != '') {
-    echo ' active';
-} ?>" for="email">Correo:</label>
+                                echo ' active';
+                            } ?>" for="email">Correo:</label>
                         </div>
                         <div class="input-group">
                             <input type="password" id="pass" name="pass">

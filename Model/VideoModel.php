@@ -46,7 +46,7 @@ class VideoModel
     public function update($video)
     {
         try {
-            $sql = 'UPDATE Video
+            $sql = 'UPDATE Video SET
             Nombre = ?, IdCiudad = ?,
             Descripcion= ?, Latitud= ?,
             Longitud = ?, Url = ? WHERE IdVideo = ?';
@@ -60,7 +60,7 @@ class VideoModel
                           $video->Descripcion,
                           $video->Latitud,
                           $video->Longitud,
-                          $video->Ruta,
+                          $video->Url,
                           $video->IdVideo,
                         )
                       );

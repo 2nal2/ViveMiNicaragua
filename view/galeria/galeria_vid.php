@@ -21,11 +21,13 @@
     <?php foreach ($videoModel->getAll() as $video): ?>
       <?php
         $id = explode("/", $video->Url);
-        $id = $id[4];
+        $id = trim($id[4]);
        ?>
-        <a class="fancybox-media" href="https://www.youtube.com/watch?v=<?php echo $video->Url ?>">
-            <img src="https://i.ytimg.com/vi/<?php echo $id ?>/mqdefault.jpg" alt="" />
-        </a>
+       <div class="article-container center-text full">
+         <a class="fancybox-media" href="https://www.youtube.com/watch?v=<?php echo $video->Url ?>">
+             <img class="thumb-vid" src="https://i.ytimg.com/vi/<?php echo $id ?>/mqdefault.jpg" alt="" />
+         </a>
+       </div>
       <?php endforeach; ?>
 </section>
 
