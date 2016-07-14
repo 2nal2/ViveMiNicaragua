@@ -16,7 +16,7 @@
  </style>*/ -->
 
 
-<section id="wrap_galerias" style="height:100%">
+<section id="wrap_galerias">
     <h2>Galería de Videos</h2>
     <?php foreach ($videoModel->getAll() as $video): ?>
       <?php

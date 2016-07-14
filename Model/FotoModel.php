@@ -46,10 +46,10 @@ class FotoModel
     public function update($foto)
     {
         try {
-            $sql = 'UPDATE Foto
+            $sql = "UPDATE Foto SET
               Nombre = ?, IdCiudad = ?,
               Descripcion= ?, Latitud= ?,
-              Longitud = ?, Ruta = ? WHERE IdFoto = ?';
+              Longitud = ?, Ruta = ? WHERE IdFoto = ?";
 
             $stm = $this->connection->prepare($sql);
 
@@ -61,7 +61,7 @@ class FotoModel
                             $foto->Latitud,
                             $foto->Longitud,
                             $foto->Ruta,
-                            $foto->IdFoto,
+                            $foto->IdFoto
                           )
                         );
         } catch (Exception $e) {
@@ -75,7 +75,7 @@ class FotoModel
     {
         $r = array();
         try {
-            $sql = 'select * from Foto';
+            $sql = 'select * from Foto order by IdFoto desc';
             $stm = $this->connection->prepare($sql);
             $stm->setFetchMode(PDO::FETCH_CLASS, 'Foto');
             $stm->execute();

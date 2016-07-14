@@ -1,7 +1,7 @@
 .article-container{
   display: inline-block;
   max-width: 350px;
-  width: 100%;
+  /*width: 100%;*/
   margin: 10px;
   box-sizing: border-box;
 }
@@ -9,6 +9,10 @@
 .article-content{
   clear: left;
   word-wrap: break-word;
+}
+
+.full{
+  width: 100%;
 }
 
 .article-container img {

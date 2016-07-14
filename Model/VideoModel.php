@@ -75,7 +75,7 @@ class VideoModel
     {
         $r = array();
         try {
-            $sql = 'select * from Video';
+            $sql = 'select * from Video order by IdVideo desc';
             $stm = $this->connection->prepare($sql);
             $stm->setFetchMode(PDO::FETCH_CLASS, 'Video');
             $stm->execute();

@@ -79,7 +79,7 @@ class ArticuloModel
     public function getAll(){
       $r = array();
       try {
-        $sql = 'select * from Articulo';
+        $sql = 'select * from Articulo order by FechaCreacion desc';
         $stm = $this->connection->prepare($sql);
         $stm->setFetchMode(PDO::FETCH_CLASS, 'Articulo');
         $stm->execute();

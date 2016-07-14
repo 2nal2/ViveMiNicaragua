@@ -12,6 +12,13 @@ $fotoModel = new FotoModel();
 $comentarioFotoModel = new ComentarioFotoModel();
 $usuarioModel = new UsuarioModel();
 $ccomentarioModel = new CComentarioFotoModel();
+
+
+$CanEdit = false;
+if(isset($_SESSION['id_user'])){
+  $u = $usuarioModel->getById($_SESSION['id_user']);
+  $CanEdit = $u->Rol=='Administrador' or $u->Rol=="Editor";
+}
  ?>
 
   <!-- /*<style media="screen">
@@ -24,12 +31,29 @@ $ccomentarioModel = new CComentarioFotoModel();
   </style>*/ -->
 
   <section id="wrap_galerias" class="fu" aling='center'>
+    <br><br><br>
 
-    <h2>Galería de Imagenes</h2>
+    <h2 class="green-font">Galería de Imagenes</h2>
+
+    <?php if ($CanEdit): ?>
+
+      <div class="clear"></div>
+      <a class="clean" href="nueva-foto.php">
+        <button class="btn cuarto btn-new" type="button" name="button">
+          <span>
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
+            Nuevo Foto
+          </span>
+        </button>
+      </a>
+
+    <?php endif; ?>
     <?php foreach ($fotoModel->getAll() as $foto):?>
 
     <div id="inline_<?php echo $foto->IdFoto ?>" style="display:none;width:100%;height: 100%;">
-      <div class= 'half'style="height: 100%;background-image: url(../../<?php echo $foto->Ruta ?>); background-size: 100% 100%; float: left"></div>
+      <div class='half' style="height: 100%;background-image: url(../../<?php echo $foto->Ruta ?>); background-size: 100% 100%; float: left">
+      </div>
+
       <div class="half roboto comment-container" style="height: 100%; float: right; padding:20px">
         <h2><?php echo $foto->Nombre ?></h2>
         <div>
@@ -111,9 +135,22 @@ $ccomentarioModel = new CComentarioFotoModel();
       </form>
     </div>
     </div>
-    <a title="<?php echo $foto->Nombre ?>" href="#inline_<?php echo $foto->IdFoto ?>" rel="gallery" class="fancyOther">
-             <img src="../../<?php echo $foto->Ruta ?>" alt="" />
-    </a>
+
+    <div class="article-container center-text">
+      <a title="<?php echo $foto->Nombre ?>" href="#inline_<?php echo $foto->IdFoto ?>" rel="gallery" class="fancyOther">
+        <img src="../../<?php echo $foto->Ruta ?>" alt="" />
+      </a>
+
+      <!--inicio de codigo para editar  -->
+      <?php if ($CanEdit): ?>
+      <p>
+        <a class='clean' href="edit-foto.php?id=<?php echo $foto->IdFoto; ?>">
+          <button class="btn btn-edit" type="button" name="button"><span><i class="fa fa-pencil" aria-hidden="true"></i>  Editar</span></button>
+        </a>
+      </p>
+      <?php endif; ?>
+      <!--fin de codigo para editar  -->
+    </div>
 
     <?php endforeach; ?>
   </section>

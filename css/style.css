@@ -344,6 +344,9 @@ footer {
   color: #f2f2f2; }
 
 @media screen and (max-width: 1090px) {
+  body {
+    padding-top: 69px; }
+
   .mensajePrincipal {
     top: 0px !important; }
 

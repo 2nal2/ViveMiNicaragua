@@ -137,12 +137,20 @@ if(isset($_SESSION['id_user'])){
       <div class="clear">
 
       </div>
-      <button class="btn cuarto btn-new" type="button" name="button"><span><i class="fa fa-plus-square" aria-hidden="true"></i>  Nuevo Articulo</span></button>
+      <a class="clean" href="nuevo-articulo.php">
+        <button class="btn cuarto btn-new" type="button" name="button">
+          <span>
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
+            Nuevo Articulo
+          </span>
+        </button>
+      </a>
+
     <?php endif; ?>
 
 
   <?php foreach ($articuloModel->getAll() as $articulo): ?>
-          <div class="article-container center-text">
+          <div class="article-container center-text full">
             <a class="article-title" href='articulo.php?id=<?php echo $articulo->IdArticulo; ?>'>
               <h3 class=""><?php echo $articulo->Titulo ?></h3>
             </a>
@@ -176,6 +184,6 @@ if(isset($_SESSION['id_user'])){
 
 
   <script type="text/javascript" src="../../js/comments.js"></script>
-  <?php
+<?php
 require_once '../footer.php';
  ?>
