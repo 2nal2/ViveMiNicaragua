@@ -5,7 +5,7 @@
   <section id='index'>
     <div class="content-container">
 
-      <a class= "content-link" href="#">
+      <a class= "content-link" href="../articulo">
         <div class="new-content article-content1">
           <div>
               <i class="fa fa-file-text" aria-hidden="true"></i>
@@ -16,7 +16,7 @@
         </div>
       </a>
 
-      <a class= "content-link" href="#">
+      <a class= "content-link" href="../galeria/galeria_img.php">
         <div class="new-content foto-content">
           <div>
               <i class="fa fa-picture-o" aria-hidden="true"></i>
@@ -27,7 +27,7 @@
         </div>
       </a>
 
-      <a class= "content-link" href="#">
+      <a class= "content-link" href="../galeria/galeria_vid.php">
         <div class="new-content video-content">
           <div>
               <i class="fa fa-video-camera" aria-hidden="true"></i>

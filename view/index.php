@@ -98,7 +98,7 @@
                 <img src="../img/flat/galeria.png" alt="" />
             </p>
             <p>
-              <a href="#" class="ir">Ir a ello</a>
+              <a href="galeria/galeria_img.php" class="ir">Ir a ello</a>
             </p>
             <a class="ver-mas" data-number='2'>Saber mas</a>
         </div>

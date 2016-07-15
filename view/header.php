@@ -1,7 +1,19 @@
 <?php
 require_once 'constants.php';
+require_once _dependencia_.'Objects/Usuario.php';
+require_once _dependencia_.'Model/UsuarioModel.php';
 session_start();
 $url = _ROOT_;
+
+
+
+$usuarioModel = new UsuarioModel();
+$CanEdit = false;
+if(isset($_SESSION['id_user'])){
+  $u = $usuarioModel->getById($_SESSION['id_user']);
+  $CanEdit = $u->Rol=='Administrador' or $u->Rol=="Editor";
+}
+
 ?>
 <!doctype html>
 <html class="no-js" lang="es">
@@ -105,6 +117,16 @@ $url = _ROOT_;
             <?php if (!isset($_SESSION['id_user'])): ?>
               <li id="registrate"><a data-fancybox-type="iframe" href="<?php echo $url ?>view/usuario/singup.php" class="fancybox">Regístrate</a></li>
               <li id="ya-tengo"><a  href="<?php echo $url ?>view/usuario/singin.php">Ya tengo una cuenta</a></li>
+            <?php endif; ?>
+
+
+            <?php if ($CanEdit): ?>
+              <li>
+                <a href="<?php echo $url ?>view/contenido">
+                    <i class="fa fa-glide" aria-hidden="true"></i>
+                    Admin Contenido
+                </a>
+              </li>
             <?php endif; ?>
 
             <?php if (isset($_SESSION['id_user'])): ?>

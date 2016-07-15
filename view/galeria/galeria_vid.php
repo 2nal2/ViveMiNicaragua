@@ -16,15 +16,6 @@
 
  ?>
 
- <!-- /*<style media="screen">
- html, body{
-     background-image: url(img/textura.JPG);
-     background-size: 100% 100%;
-     background-attachment: fixed;
- }
- </style>*/ -->
-
-
 <section id="wrap_galerias">
     <h2>Galería de Videos</h2>
     <?php if ($CanEdit): ?>
