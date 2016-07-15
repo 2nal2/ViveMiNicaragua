@@ -32,7 +32,7 @@
     $uploader = new Uploader();
 
     //setting paremeters
-    $articulo->Contenido  = preg_replace('[\s+]',"",stripslashes(htmlspecialchars_decode($_POST['contenido'])));
+    $articulo->Contenido  = stripslashes(htmlspecialchars_decode($_POST['contenido']));
     // echo $articulo->Contenido;
     // return;
     //

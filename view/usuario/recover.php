@@ -14,17 +14,18 @@ if (isset($_SESSION['id_user'])) {
         <title></title>
 
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/formulario.css">
+        <link rel="stylesheet" href="../../css/formulario.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-        <link rel="stylesheet" href="css/etc.css">
-        <script src="util/bower_components/sweetalert/dist/sweetalert.min.js"></script>
-        <link rel="stylesheet" href="util/bower_components/sweetalert/dist/sweetalert.css">
+        <link rel="stylesheet" href="../../css/etc.css">
+        <script src="../../util/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="../../util/bower_components/sweetalert/dist/sweetalert.css">
     </head>
     <body>
 
       <?php
-     require_once 'Model/UsuarioModel.php';
-     require_once 'Objects/Usuario.php';
+     require_once '../constants.php';
+     require_once '../../Model/UsuarioModel.php';
+     require_once '../../Objects/Usuario.php';
 
      $error = '';
      $nombre = '';
@@ -76,13 +77,13 @@ if (isset($_SESSION['id_user'])) {
          }
        }
      } else {
-         header('Location:  index.php');
+         header('Location:  ../index.php');
      }
 
       ?>
 
         <div class="logo-container">
-          <img class = 'logo' src="img/text42.png" alt="" />
+          <img class = 'logo' src="../../img/text42.png" alt="" />
         </div>
         <div class="contenedor-formulario">
             <div class="wrap">
@@ -124,7 +125,7 @@ if (isset($_SESSION['id_user'])) {
         </div>
 
 
-        <script src="js/formulario.js"></script>
+        <script src="../../js/formulario.js"></script>
 
         <script type="text/javascript">
         $(document).ready(function() {
@@ -135,7 +136,7 @@ if (isset($_SESSION['id_user'])) {
 
             $.ajax({
               type: "POST",
-              url: "Controller/Usuario/Login.php",
+              url: "../../Controller/Usuario/Login.php",
               data: dataString,
               success: function(data) {
                 $('#Info').fadeIn(1000).html(data);
@@ -185,7 +186,7 @@ if (isset($_SESSION['id_user'])) {
             function() {
               $('.confirm').click(
                 function(){
-                  setTimeout("location.href='index.php'", 100);
+                  setTimeout("location.href='../index.php'", 100);
 
                 }
               );

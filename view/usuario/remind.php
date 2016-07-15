@@ -1,3 +1,7 @@
+<?php
+  require_once "../constants.php";
+ ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,8 +10,8 @@
         <title>Receperar cuenta</title>
 
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/formulario.css">
-        <link rel="stylesheet" href="css/etc.css">
+        <link rel="stylesheet" href="../../css/formulario.css">
+        <link rel="stylesheet" href="../../css/etc.css">
 
     </head>
 
@@ -18,8 +22,9 @@
       if (isset($_SESSION['id_user'])) {
           header('Location: index.php');
       }
-      require_once 'Model/UsuarioModel.php';
-      require_once 'PHPMailer/Mail.php';
+
+      require_once '../../Model/UsuarioModel.php';
+      require_once '../../PHPMailer/Mail.php';
       $error = '';
       $email = '';
 
@@ -48,7 +53,7 @@
                   <p>
                     Para reiniciar tu contraseña, por favor visita la url a continuación:
                   </p>
-                  http://viveminicaragua.wwhost.ga/recover.php?cod=$cod&user=$iduser
+                  http://viveminicaragua.wwhost.ga/view/usuario/recover.php?cod=$cod&user=$iduser
                   <p>
                     Cuando visites el link de arriba, tu contraseña será reestablecida
                   </p>
@@ -71,7 +76,7 @@
 
        ?>
        <div class="logo-container">
-         <img class = 'logo' src="img/text42.png" alt="" />
+         <img class = 'logo' src="../../img/text42.png" alt="" />
        </div>
 
         <div class="contenedor-formulario">
@@ -101,6 +106,6 @@
             </div>
         </div>
 
-        <script src="js/formulario.js"></script>
+        <script src="../../js/formulario.js"></script>
     </body>
 </html>
